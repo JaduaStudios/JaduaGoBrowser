@@ -1,0 +1,21 @@
+{
+  "name": "Jadua Go",
+  "vendor": "Jadua Studios",
+  "appId": "com.jaduastudios.browser",
+  "binaryName": "jadua-go-browser",
+  "version": {
+    "product": "firefox",
+    "version": "118.0.1"
+  },
+  "buildOptions": {
+    "windowsUseSymbolicLinks": true
+  },
+  "addons": {},
+  "brands": {},
+  "license": {
+    "ignoredFiles": [
+      ".*\\.json"
+    ],
+    "licenseType": "MPL-2.0"
+  }
+}
