@@ -6,6 +6,7 @@ export MOZ_APP_PROFILE=${binName}
 export MOZ_APP_DISPLAYNAME="${name}"
 export MOZ_MACBUNDLE_ID=${appId}
 export MOZ_DISTRIBUTION_ID=${appId}
+export MAKENSISU="C:\\Program Files (x86)\\NSIS\\Bin\\makensis.exe"
 
 # Uncomment if builds are too resource hungry
 # mk_add_options MOZ_MAKE_FLAGS="-j4"
@@ -14,7 +15,7 @@ export MOZ_DISTRIBUTION_ID=${appId}
 # Misc
 export MOZ_STUB_INSTALLER=1
 export MOZ_INCLUDE_SOURCE_INFO=1
-export MOZ_SOURCE_REPO=https://github.com/dothq/browser-desktop
+export MOZ_SOURCE_REPO=https://github.com/JaduaStudios/JaduaGoBrowser
 export MOZ_SOURCE_CHANGESET=${changeset}
 
 # Bootstrap

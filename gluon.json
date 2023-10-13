@@ -1,17 +1,43 @@
 {
   "name": "Jadua Go",
   "vendor": "Jadua Studios",
-  "appId": "com.jaduastudios.browser",
+  "appId": "com.jadua.go",
   "binaryName": "jadua-go-browser",
   "version": {
-    "product": "firefox",
-    "version": "118.0.1"
+    "product": "firefox-beta",
+    "version": "119.0b8"
   },
   "buildOptions": {
-    "windowsUseSymbolicLinks": true
+    "windowsUseSymbolicLinks": false
   },
-  "addons": {},
-  "brands": {},
+  "addons": {
+	"ublock": {
+      "platform": "github",
+      "id": "uBlock0@raymondhill.net",
+      "repo": "gorhill/uBlock",
+      "version": "1.52.2",
+      "fileGlob": "uBlock0_*.firefox.signed.xpi"
+    }
+  },
+  "brands": {
+	"dev": {
+      "backgroundColor": "#2B2A33",
+      "brandShorterName": "Jadua Go",
+      "brandShortName": "Jadua Go Browser",
+      "brandFullName": "Jadua Go Browser Dev",
+      "release": {
+        "displayVersion": "0.0.1",
+        "github": {
+          "repo": "JaduaStudios/JaduaGoBrowser"
+        },
+        "x86": {
+          "windowsMar": "windows.mar",
+          "macosMar": "macosIntel.mar",
+          "linuxMar": "linux.mar"
+        }
+      }
+    }
+  },
   "license": {
     "ignoredFiles": [
       ".*\\.json"
