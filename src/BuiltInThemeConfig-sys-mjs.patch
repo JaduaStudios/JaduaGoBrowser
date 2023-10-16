@@ -1,0 +1,18 @@
+diff --git a/browser/themes/BuiltInThemeConfig.sys.mjs b/browser/themes/BuiltInThemeConfig.sys.mjs
+index 7cfea4b705a1338b1eb5c4f255808aeac4bdb819..a7a13464270925723bbd2f05303e41da5601708a 100644
+--- a/browser/themes/BuiltInThemeConfig.sys.mjs
++++ b/browser/themes/BuiltInThemeConfig.sys.mjs
+@@ -19,6 +19,13 @@
+  *  The collection id that the theme is a part of. Optional.
+  */
+ export const BuiltInThemeConfig = new Map([
++	[
++    "go-dark@jaduastudios.com",
++    {
++      version: "1.2",
++      path: "resource://builtin-themes/go/godark/",
++    },
++  ],
+   [
+     "firefox-compact-light@mozilla.org",
+     {

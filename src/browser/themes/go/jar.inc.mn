@@ -1,0 +1,14 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+# This is not a complete / proper jar manifest. It is included by the
+# actual theme-specific manifests, so that shared resources need only
+# be specified once. As a result, the source file paths are relative
+# to the location of the actual manifest.
+
+  skin/classic/browser/go/sidebar_tabs.css   (../go/sidebar_tabs.css)
+  skin/classic/browser/go/tab_tweaks.css     (../go/tab_tweaks.css)
+  skin/classic/browser/go/vertical_tabs.css  (../go/vertical_tabs.css)
+  skin/classic/browser/go/downloads.css      (../go/content/downloads.css)
+  skin/classic/browser/addons/shared.css        (../go/addons/shared.css)

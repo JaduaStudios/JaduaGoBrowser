@@ -1,0 +1,19 @@
+diff --git a/browser/themes/addons/jar.mn b/browser/themes/addons/jar.mn
+index 69bb3000d6d2d249d1d77262dc2a0057d0318308..478cdfeb82af0b76b375459b6b97d3fcaefbf4d5 100644
+--- a/browser/themes/addons/jar.mn
++++ b/browser/themes/addons/jar.mn
+@@ -5,6 +5,14 @@
+ browser.jar:
+ %  resource builtin-themes %content/builtin-themes/
+ 
++  content/builtin-themes/go/godark                     (godark/*.svg)
++  content/builtin-themes/go/godark                     (godark/*.css)
++  content/builtin-themes/go/godark/manifest.json       (godark/manifest.json)
++  
++  content/builtin-themes/go/golight                     (golight/*.svg)
++  content/builtin-themes/go/golight                     (golight/*.css)
++  content/builtin-themes/go/golight/manifest.json       (golight/manifest.json)
++
+   content/builtin-themes/alpenglow                 (alpenglow/*.svg)
+   content/builtin-themes/alpenglow/manifest.json   (alpenglow/manifest.json)
+ 

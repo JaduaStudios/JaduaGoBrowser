@@ -28,3 +28,4 @@ node_modules/
 engine/
 firefox-*/
 node_modules/
+dist/
