@@ -31,10 +31,10 @@ jobs:
     - run: npm i
     - run: gluon download
     - run: gluon bootstrap
+    - run: gluon set brand stable
     - run: gluon import
     - run: gluon build
     - run: gluon package
-    - run: gluon set brand stable
     - uses: actions/upload-artifact@v3
       with:
         name: build
