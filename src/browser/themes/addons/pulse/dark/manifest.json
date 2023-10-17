@@ -48,8 +48,8 @@
       "button_hover": "rgb(77, 73, 80)", // Grey 700
       "button_active": "rgb(101, 99, 105)", // Grey 600
       "button_primary": "rgba(130, 64, 191, 1.00)", // Primary 500
-      "button_primary_hover": "rgba(38, 121, 239, 1)", // Primary 500, 30%
-      "button_primary_active": "rgba(65, 137, 239, 1)", // Primary 500, 40%
+      "button_primary_hover": "rgb(38, 121, 239, 1.00)", // Primary 500, 30%
+      "button_primary_active": "rgb(65, 137, 239, 1.00)", // Primary 500, 40%
       "button_primary_color": "rgb(243, 230, 255)", // Primary 100
 
       "error_text_color": "rgb(255, 154, 162)", // TODO: We need red / error colors
@@ -94,7 +94,7 @@
       "pulse_secondary_400": "rgb(22, 120, 255)",
       "pulse_secondary_300": "rgb(97, 163, 255)",
       "pulse_secondary_200": "rgb(186, 215, 255)",
-      "pulse_secondary_100": "rgb(240, 246, 255)",
+      "pulse_secondary_100": "rgb(240, 246, 255)"
     },
     "properties": {
       "arrowpanel_border_radius": "4px",
