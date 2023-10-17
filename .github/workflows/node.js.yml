@@ -26,7 +26,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm install
+    - run: npm install gluon-build
+    - run: npm i
     - run: gluon download
     - run: gluon bootstrap
     - run: gluon import
