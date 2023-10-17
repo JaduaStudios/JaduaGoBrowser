@@ -12,7 +12,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     strategy:
       matrix:
@@ -34,3 +34,7 @@ jobs:
     - run: gluon import
     - run: gluon build
     - run: gluon package
+    - uses: actions/upload-artifact@v3
+      with:
+        name: linuxbuild
+        path: path/to/artifact/world.txt
