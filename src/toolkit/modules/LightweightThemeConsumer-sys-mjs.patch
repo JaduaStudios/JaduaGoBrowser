@@ -1,0 +1,19 @@
+diff --git a/toolkit/modules/LightweightThemeConsumer.sys.mjs b/toolkit/modules/LightweightThemeConsumer.sys.mjs
+index 49fa4378f2f93842b41c9b01cbda3caddb547c02..a8aafb9ecf2aa855771ac0e049dbaa46398ceb5e 100644
+--- a/toolkit/modules/LightweightThemeConsumer.sys.mjs
++++ b/toolkit/modules/LightweightThemeConsumer.sys.mjs
+@@ -173,6 +173,14 @@ const toolkitVariableMap = [
+     { lwtProperty: "ntp_card_background" },
+   ],
+   ["--newtab-text-primary-color", { lwtProperty: "ntp_text" }],
++  // Pulse browser: Sidebar colors
++  // Expose some light weight theme variables to be available for use within css
++  [
++    '--lwt-sidebar-background-color',
++    {
++      lwtProperty: "sidebar",
++    }
++  ]
+ ];
+ 
+ export function LightweightThemeConsumer(aDocument) {

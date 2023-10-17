@@ -8,7 +8,5 @@
 # to the location of the actual manifest.
 
   skin/classic/browser/go/sidebar_tabs.css   (../go/sidebar_tabs.css)
-  skin/classic/browser/go/tab_tweaks.css     (../go/tab_tweaks.css)
-  skin/classic/browser/go/vertical_tabs.css  (../go/vertical_tabs.css)
   skin/classic/browser/go/downloads.css      (../go/content/downloads.css)
   skin/classic/browser/addons/shared.css        (../go/addons/shared.css)
