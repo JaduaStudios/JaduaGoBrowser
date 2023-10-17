@@ -31,11 +31,11 @@ jobs:
     - run: npm i
     - run: gluon download
     - run: gluon bootstrap
-    - run: gluon set brand stable
+    - run: gluon set brand dev
     - run: gluon import
     - run: gluon build
     - run: gluon package
     - uses: actions/upload-artifact@v3
       with:
         name: build
-        path: engine/obj*/browser/installer
+        path: dist

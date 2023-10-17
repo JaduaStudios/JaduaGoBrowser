@@ -1,0 +1,49 @@
+diff --git a/browser/components/extensions/parent/ext-sidebarAction.js b/browser/components/extensions/parent/ext-sidebarAction.js
+index a798801ebfaabaf96bf194fc2f2c6c31f852f149..9231c3b1cf92da5bc7feec1e73aa2b80c35c819e 100644
+--- a/browser/components/extensions/parent/ext-sidebarAction.js
++++ b/browser/components/extensions/parent/ext-sidebarAction.js
+@@ -109,7 +109,8 @@ this.sidebarAction = class extends ExtensionAPI {
+       document.getElementById(this.menuId)?.remove();
+       document.getElementById(this.switcherMenuId)?.remove();
+       let header = document.getElementById("sidebar-switcher-target");
+-      header.removeEventListener("SidebarShown", this.updateHeader);
++      // Delete sidebar item
++      SidebarUI.deleteSidebarItem(this.id);  header.removeEventListener("SidebarShown", this.updateHeader);
+       SidebarUI.sidebars.delete(this.id);
+     }
+     windowTracker.removeOpenListener(this.windowOpenListener);
+@@ -123,6 +124,8 @@ this.sidebarAction = class extends ExtensionAPI {
+       if (SidebarUI.lastOpenedId === sidebarId) {
+         SidebarUI.lastOpenedId = null;
+       }
++      // Remove the sidebar item from the sidebar menu.
++      SidebarUI.deleteSidebarItem(sidebarId);
+     }
+   }
+ 
+@@ -151,11 +154,16 @@ this.sidebarAction = class extends ExtensionAPI {
+     }
+     let { document, SidebarUI } = window;
+     let keyId = `ext-key-id-${this.id}`;
++    let getIcon = size =>
++      IconDetails.escapeUrl(
++        IconDetails.getPreferredIcon(details.icon, this.extension, size).icon
++      );
+ 
+     SidebarUI.sidebars.set(this.id, {
+       title: details.title,
+       url: sidebarURL,
+       menuId: this.menuId,
++      iconurl: getIcon(16),
+       switcherMenuId: this.switcherMenuId,
+       // The following properties are specific to extensions
+       extensionId: this.extension.id,
+@@ -163,6 +171,8 @@ this.sidebarAction = class extends ExtensionAPI {
+       browserStyle: this.browserStyle,
+     });
+ 
++    SidebarUI.createSidebarItem(this.id, SidebarUI.sidebars.get(this.id));
++
+     let header = document.getElementById("sidebar-switcher-target");
+     header.addEventListener("SidebarShown", this.updateHeader);
+ 

@@ -1,0 +1,14 @@
+diff --git a/browser/components/moz.build b/browser/components/moz.build
+index 0c59bb842172a1d1d1cdf91ec588dedb75de1b54..a2f213d294e24b3bc4d2fa2a2220e643432920fa 100644
+--- a/browser/components/moz.build
++++ b/browser/components/moz.build
+@@ -64,6 +64,9 @@ DIRS += [
+     "urlbar",
+ ]
+ 
++# Pulse: Custom components
++DIRS += ["welcome"]
++
+ DIRS += ["build"]
+ 
+ 

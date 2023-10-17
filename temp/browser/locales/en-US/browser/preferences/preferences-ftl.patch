@@ -1,0 +1,26 @@
+diff --git a/browser/locales/en-US/browser/preferences/preferences.ftl b/browser/locales/en-US/browser/preferences/preferences.ftl
+index 829c18c5e16379fede509970fe056a52a16acf56..62c1716ff105c78ee1ec78dba3f7f2e8d4ae95f4 100644
+--- a/browser/locales/en-US/browser/preferences/preferences.ftl
++++ b/browser/locales/en-US/browser/preferences/preferences.ftl
+@@ -1551,3 +1551,21 @@ preferences-doh-manage-exceptions =
+ desktop-folder-name = Desktop
+ downloads-folder-name = Downloads
+ choose-download-folder-title = Choose Download Folder:
++
++## Pulse browser: Settings entries localization
++preferences-sidebar-header = Sidebar
++preferences-sidebar-visible =
++    .label = Show sidebar tabs 
++preferences-sidebar-active-tabs = 
++    .label = Keep sidebar tabs active even when closed
++preferences-sidebar-active-tabs-description = When enabled, sidebar tabs will remain active even when closed. When disabled, sidebar tabs will be closed when you click on another tab.
++
++preferences-vertical-tabs-enabled =
++    .label = Use vertical tabs (In dev)
++preferences-vertical-tabs-collapse =
++    .label = Collapse tabs
++
++preferences-show-new-tab =
++    .label = Show the new tab button
++preferences-show-close-tab =
++    .label = Show the close tab button

@@ -1,18 +1,25 @@
 diff --git a/browser/themes/BuiltInThemeConfig.sys.mjs b/browser/themes/BuiltInThemeConfig.sys.mjs
-index 7cfea4b705a1338b1eb5c4f255808aeac4bdb819..a7a13464270925723bbd2f05303e41da5601708a 100644
+index 9c93c0d39ad11d95ecb4ad119d3c21da2528af23..e00efac497130363a41c0ecdbe07df761076b368 100644
 --- a/browser/themes/BuiltInThemeConfig.sys.mjs
 +++ b/browser/themes/BuiltInThemeConfig.sys.mjs
-@@ -19,6 +19,13 @@
-  *  The collection id that the theme is a part of. Optional.
-  */
- export const BuiltInThemeConfig = new Map([
-+	[
-+    "go-dark@jaduastudios.com",
+@@ -32,6 +32,20 @@ export const BuiltInThemeConfig = new Map([
+       path: "resource://builtin-themes/dark/",
+     },
+   ],
++  [
++    "pulse-light@browser.fushra.com",
 +    {
 +      version: "1.2",
-+      path: "resource://builtin-themes/go/godark/",
++      path: "resource://builtin-themes/pulse/light/",
++    },
++  ],
++  [
++    "pulse-dark@browser.fushra.com",
++    {
++      version: "1.2",
++      path: "resource://builtin-themes/pulse/dark/",
 +    },
 +  ],
    [
-     "firefox-compact-light@mozilla.org",
+     "firefox-alpenglow@mozilla.org",
      {

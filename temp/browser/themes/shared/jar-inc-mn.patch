@@ -1,0 +1,13 @@
+diff --git a/browser/themes/shared/jar.inc.mn b/browser/themes/shared/jar.inc.mn
+index 14ef7ff731145a42b28cbb9afe192bf56f756ed5..25d12586b7e8ce29d694dd6c0028ad176da96b1d 100644
+--- a/browser/themes/shared/jar.inc.mn
++++ b/browser/themes/shared/jar.inc.mn
+@@ -7,6 +7,8 @@
+ # be specified once. As a result, the source file paths are relative
+ # to the location of the actual manifest.
+ 
++#include ../go/jar.inc.mn
++
+   skin/classic/browser/aboutFrameCrashed.css                   (../shared/aboutFrameCrashed.css)
+   skin/classic/browser/aboutRestartRequired.css                (../shared/aboutRestartRequired.css)
+   skin/classic/browser/aboutSessionRestore.css                 (../shared/aboutSessionRestore.css)

@@ -1,0 +1,47 @@
+diff --git a/browser/components/preferences/main.inc.xhtml b/browser/components/preferences/main.inc.xhtml
+index 8f87b2f5d9b22d2607534d608749c3924199d3d0..2fb92229fafb937dec2dcdad1606b17390834ed7 100644
+--- a/browser/components/preferences/main.inc.xhtml
++++ b/browser/components/preferences/main.inc.xhtml
+@@ -72,6 +72,19 @@
+           hidden="true">
+     <label><html:h2 data-l10n-id="tabs-group-header"/></label>
+ 
++    <checkbox id="verticalTabsGroup" data-l10n-id="preferences-vertical-tabs-enabled"
++              preference="pulse.tabs.vertical" />
++
++    <vbox class="indent">
++      <checkbox id="verticalTabsCollapse" preference="pulse.tabs.vertical.collapse"
++                data-l10n-id="preferences-vertical-tabs-collapse" />
++    </vbox>
++
++    <checkbox id="showNewTab" preference="pulse.tabs.show.new"
++              data-l10n-id="preferences-show-new-tab" />
++    <checkbox id="showCloseTab" preference="pulse.tabs.show.close"
++              data-l10n-id="preferences-show-close-tab" />
++
+     <checkbox id="ctrlTabRecentlyUsedOrder" data-l10n-id="ctrl-tab-recently-used-order"
+               preference="browser.ctrlTab.sortByRecentlyUsed"/>
+ 
+@@ -137,6 +150,22 @@
+   <html:h1 data-l10n-id="language-and-appearance-header"/>
+ </hbox>
+ 
++<!-- Sidebar -->
++<groupbox id="sidebarGroup" data-category="paneGeneral" hidden="true">
++  <label><html:h2 data-l10n-id="preferences-sidebar-header"/></label>
++
++  <checkbox id="sidebarVisible"
++    preference="pulse.sidebar.enabled"
++    data-l10n-id="preferences-sidebar-visible"/>
++  <checkbox id="sidebarKeepTabsActive"
++    preference="pulse.sidebar.keeptabsactive.enabled"
++    data-l10n-id="preferences-sidebar-active-tabs"/>
++  <description id="sidebarKeepTabsActiveDescription"
++    data-l10n-id="preferences-sidebar-active-tabs-description">
++    <html:a id="restart-browser-button" class="text-link" data-l10n-name="restart-browser" href="about:restartrequired"/>
++  </description>
++</groupbox>
++
+ <!-- Website appearance -->
+ <groupbox id="webAppearanceGroup" data-category="paneGeneral" hidden="true">
+   <html:h2 data-l10n-id="preferences-web-appearance-header"/>

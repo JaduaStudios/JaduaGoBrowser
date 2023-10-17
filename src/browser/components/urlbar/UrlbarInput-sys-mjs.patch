@@ -1,0 +1,21 @@
+diff --git a/browser/components/urlbar/UrlbarInput.sys.mjs b/browser/components/urlbar/UrlbarInput.sys.mjs
+index fabe5a334b5c2e2f41ddd6d7b871a3a68affae28..0e80439af0ec560b8eddd1b4657956097cee968a 100644
+--- a/browser/components/urlbar/UrlbarInput.sys.mjs
++++ b/browser/components/urlbar/UrlbarInput.sys.mjs
+@@ -398,6 +398,16 @@ export class UrlbarInput {
+           !dueToSessionRestore &&
+           (!this.window.isBlankPageURL(uri.spec) ||
+             uri.schemeIs("moz-extension"));
++
++      // Check if the addon is tabliss (our new tab) and stop if from showing up
++      // as such
++      try {
++        const { WebExtensionPolicy } = Cu.getGlobalForObject(Services);
++        const policy = WebExtensionPolicy.getByURI(uri);
++        if (policy.id === 'extension@tabliss.io') {
++          valid = false
++        }
++      } catch (e) {}
+       }
+     } else if (
+       this.window.isInitialPage(value) &&

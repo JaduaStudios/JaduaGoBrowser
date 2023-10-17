@@ -1,0 +1,12 @@
+diff --git a/browser/components/preferences/preferences.xhtml b/browser/components/preferences/preferences.xhtml
+index 999241db4629794e200ec016b8d14694f7a5f4e3..6387589d6e2ba1a10d73ffef9dfdcc8ddee550c5 100644
+--- a/browser/components/preferences/preferences.xhtml
++++ b/browser/components/preferences/preferences.xhtml
+@@ -67,6 +67,7 @@
+   <script type="module" src="chrome://global/content/elements/moz-support-link.mjs"/>
+   <script src="chrome://browser/content/migration/migration-wizard.mjs" type="module"></script>
+   <script type="module" src="chrome://global/content/elements/moz-toggle.mjs"/>
++  <script src="chrome://browser/content/contentTheme.js"></script>
+ </head>
+ 
+ <html:body xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"

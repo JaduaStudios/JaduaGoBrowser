@@ -1,0 +1,19 @@
+diff --git a/browser/components/extensions/ext-browser.json b/browser/components/extensions/ext-browser.json
+index 9fb9d562e42558c87676783455e9d2c9938411cc..07cef4ddc27ac1ae93b64c3fb39d65f31303ae51 100644
+--- a/browser/components/extensions/ext-browser.json
++++ b/browser/components/extensions/ext-browser.json
+@@ -150,6 +150,14 @@
+     "manifest": ["sidebar_action"],
+     "paths": [["sidebarAction"]]
+   },
++  "sidebars": {
++    "url": "chrome://browser/content/parent/ext-sidebars.js",
++    "schema": "chrome://browser/content/schemas/sidebars.json",
++    "scopes": ["addon_parent"],
++    "paths": [
++      ["sidebars"]
++    ]
++  },
+   "tabs": {
+     "url": "chrome://browser/content/parent/ext-tabs.js",
+     "schema": "chrome://browser/content/schemas/tabs.json",

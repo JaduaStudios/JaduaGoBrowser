@@ -1,0 +1,35 @@
+diff --git a/netwerk/protocol/http/nsHttpHandler.cpp b/netwerk/protocol/http/nsHttpHandler.cpp
+index 09f4e79c263540b58fb5670baaef0bc221e2abba..c967ca8d65492938e88a289122c93fb352e1ddb9 100644
+--- a/netwerk/protocol/http/nsHttpHandler.cpp
++++ b/netwerk/protocol/http/nsHttpHandler.cpp
+@@ -874,19 +874,17 @@ void nsHttpHandler::BuildUserAgent() {
+   mUserAgent += '/';
+   mUserAgent += mProductSub;
+ 
+-  bool isFirefox = mAppName.EqualsLiteral("Firefox");
+-  if (isFirefox || mCompatFirefoxEnabled) {
+-    // "Firefox/x.y" (compatibility) app token
+-    mUserAgent += ' ';
+-    mUserAgent += mCompatFirefox;
+-  }
+-  if (!isFirefox) {
+-    // App portion
+-    mUserAgent += ' ';
+-    mUserAgent += mAppName;
+-    mUserAgent += '/';
+-    mUserAgent += mAppVersion;
+-  }
++  // By removing the isFirefox variable here, we gain the Firefox user agent,
++  // which reduces the fingerprinting footprint and makes the browser function
++  // correctly on mozilla sites like addons.mozilla.org. It also provides an
++  // insignificant performance boost because we are removing a branching section
++  //
++  // TODO: Should be able to use mCompatFirefoxEnabled insead of this patch,
++  // which will reduce code complexity.
++
++  // "Firefox/x.y" (compatibility) app token
++  mUserAgent += ' ';
++  mUserAgent += mCompatFirefox;
+ }
+ 
+ #ifdef XP_WIN

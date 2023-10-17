@@ -1,0 +1,12 @@
+diff --git a/browser/components/tabunloader/content/aboutUnloads.html b/browser/components/tabunloader/content/aboutUnloads.html
+index 193840cd99123953e579585bf24b8370b5beffae..1c3e01688a5dbba81dd1dc7de01c30d3b29bec43 100644
+--- a/browser/components/tabunloader/content/aboutUnloads.html
++++ b/browser/components/tabunloader/content/aboutUnloads.html
+@@ -22,6 +22,7 @@
+     <link rel="localization" href="browser/aboutUnloads.ftl" />
+     <link rel="localization" href="branding/brand.ftl" />
+     <script src="chrome://browser/content/tabunloader/aboutUnloads.js"></script>
++    <script src="chrome://browser/content/contentTheme.js"></script>
+   </head>
+   <body>
+     <h1 data-l10n-id="about-unloads-page-title"></h1>

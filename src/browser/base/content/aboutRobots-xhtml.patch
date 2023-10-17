@@ -1,0 +1,12 @@
+diff --git a/browser/base/content/aboutRobots.xhtml b/browser/base/content/aboutRobots.xhtml
+index 91bfad676708938748990876b062eb2116358138..8cfe3339acfbd58af165c2394ebef2a54996b76d 100644
+--- a/browser/base/content/aboutRobots.xhtml
++++ b/browser/base/content/aboutRobots.xhtml
+@@ -26,6 +26,7 @@
+     <linkset>
+       <link rel="localization" href="browser/aboutRobots.ftl" />
+     </linkset>
++    <script src="chrome://browser/content/contentTheme.js"></script>
+   </head>
+ 
+   <body>

@@ -1,0 +1,10 @@
+diff --git a/browser/app/profile/firefox.js b/browser/app/profile/firefox.js
+index a7d255df89a42876d50f6e0648f7a397a9740141..d31c25f9d212efbb8a2107783206dd5c57eeb8cc 100644
+--- a/browser/app/profile/firefox.js
++++ b/browser/app/profile/firefox.js
+@@ -2836,3 +2836,5 @@ pref("cookiebanners.ui.desktop.cfrVariant", 0);
+ #ifdef NIGHTLY_BUILD
+   pref("dom.security.credentialmanagement.identity.enabled", true);
+ #endif
++
++#include pulse-browser.js
