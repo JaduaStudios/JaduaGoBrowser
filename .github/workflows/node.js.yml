@@ -1,7 +1,7 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Node.js CI
+name: Linux Builder
 
 on:
   push:
@@ -34,7 +34,8 @@ jobs:
     - run: gluon import
     - run: gluon build
     - run: gluon package
+    - run: gluon set brand stable
     - uses: actions/upload-artifact@v3
       with:
-        name: linuxbuild
-        path: path/to/artifact/world.txt
+        name: build
+        path: engine/obj*/browser/installer
