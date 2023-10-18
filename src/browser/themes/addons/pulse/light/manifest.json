@@ -21,8 +21,8 @@
       "tab_text": "rgb(26, 23, 28)", // Grey 900
 
       "icons": "rgb(23, 23, 28)", // Grey 900
-      "frame": "rgb(208, 212, 221)", // Grey 200
-      "popup": "rgb(208, 212, 221)", // Grey 200
+      "frame": "#DDE1EB", // Grey 200
+      "popup": "#D4D9E6", // Grey 200
       "popup_text": "rgb(23, 23, 28)", // Grey 900
       "popup_border": "transparent",
       "popup_highlight": "#e0e0e6", // TODO: What
@@ -32,13 +32,13 @@
       "toolbar": "rgb(241, 242, 244)", // Grey 100
       "toolbar_top_separator": "transparent",
       "toolbar_bottom_separator": "rgb(241, 242, 244)", // Grey 100
-      "toolbar_field": "rgb(208, 212, 221)", // Grey 200
+      "toolbar_field": "#DDE1EB", // Grey 200
       "toolbar_field_text": "rgb(23, 23, 28)", // Grey 900
       "toolbar_field_border": "transparent",
-      "toolbar_field_focus": "rgb(208, 212, 221)", // Grey 200
+      "toolbar_field_focus": "#DDE1EB", // Grey 200
       "toolbar_text": "rgb(23, 23, 28)", // Grey 900
 
-      "ntp_background": "rgb(208, 212, 221)", // Grey 200
+      "ntp_background": "rgb(242, 241, 244)", // Grey 200
       "ntp_text": "rgb(23, 23, 28)", // Grey 900
 
       "button": "rgb(185, 184, 193, .33)", // Grey 300, 33% opacity

@@ -9,8 +9,8 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/.
   --gradient-orientation: 90deg;
   
   /* Search bar */
-  --toolbarbutton-border-radius: 50px !important;
-  --urlbar-icon-border-radius: 50px !important;
+  --toolbarbutton-border-radius: 15px !important;
+  --urlbar-icon-border-radius: 15px !important;
 
   /* Bookmark panel */
   --bookmark-panel-image-border-radius: 8px; /* The border radius of the bookmark panel image */

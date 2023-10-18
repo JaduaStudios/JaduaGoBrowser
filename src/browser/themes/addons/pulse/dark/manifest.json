@@ -16,65 +16,65 @@
 
   "theme": {
     "colors": {
-      "tab_background_text": "rgb(191, 188, 194)", // Grey 300
-      "tab_selected": "rgb(26, 23, 28)", // Grey 900
-      "tab_text": "rgb(242, 241, 244)", // Grey 100
+      "tab_background_text": "rgb(193, 200, 212)", // Grey 300
+      "tab_selected": "rgb(4, 7, 10)", // Grey 900
+      "tab_text": "rgb(232, 241, 255)", // Grey 100
 
-      "icons": "rgb(242, 241, 244)", // Grey 100
-      "frame": "rgb(38, 34, 42)", // Grey 850
-      "popup": "rgb(38, 34, 42)", // Grey 850
-      "popup_text": "rgb(242, 241, 244)", // Grey 100
+      "icons": "rgb(232, 241, 255)", // Grey 100
+      "frame": "rgb(14, 23, 36)", // Grey 850
+      "popup": "rgb(14, 23, 36)", // Grey 850
+      "popup_text": "rgb(232, 241, 255)", // Grey 100
       "popup_border": "transparent",
       "popup_highlight": "rgb(43,42,51)", // TODO: what
       "tab_line": "transparent",
 
-      "toolbar": "rgb(26, 23, 28)", // Grey 900
+      "toolbar": "rgb(4, 7, 10)", // Grey 900
       "toolbar_top_separator": "transparent",
-      "toolbar_bottom_separator": "rgb(26, 23, 28)", // Grey 900
-      "toolbar_field": "rgb(38, 34, 42)", // Grey 850
+      "toolbar_bottom_separator": "rgb(4, 7, 10)", // Grey 900
+      "toolbar_field": "rgb(14, 23, 36)", // Grey 850
       "toolbar_field_border": "transparent",
-      "toolbar_field_text": "rgb(242, 241, 244)", // Grey 100
+      "toolbar_field_text": "rgb(232, 241, 255)", // Grey 100
       "toolbar_field_focus": "rgb(51, 47, 55)", // Grey 800
-      "toolbar_text": "rgb(191, 188, 194)", // Grey 300
+      "toolbar_text": "rgb(193, 200, 212)", // Grey 300
 
-      "ntp_background": "rgb(38, 34, 42)", // Grey 850
+      "ntp_background": "rgb(14, 23, 36)", // Grey 850
       "ntp_card_background": "rgb(51, 47, 55)", // Grey 800
-      "ntp_text": "rgb(242, 241, 244)", // Grey 100
+      "ntp_text": "rgb(232, 241, 255)", // Grey 100
 
-      "sidebar_text": "rgb(242, 241, 244)", // Grey 100
+      "sidebar_text": "rgb(232, 241, 255)", // Grey 100
       "sidebar_border": "transparent",
 
-      "button": "rgb(26, 23, 28)", // Grey 900
-      "button_hover": "rgb(77, 73, 80)", // Grey 700
-      "button_active": "rgb(101, 99, 105)", // Grey 600
-      "button_primary": "rgba(130, 64, 191, 1.00)", // Primary 500
-      "button_primary_hover": "rgb(38, 121, 239, 1.00)", // Primary 500, 30%
-      "button_primary_active": "rgb(65, 137, 239, 1.00)", // Primary 500, 40%
-      "button_primary_color": "rgb(243, 230, 255)", // Primary 100
+      "button": "rgb(4, 7, 10)", // Grey 900
+      "button_hover": "rgb(71, 77, 87)", // Grey 700
+      "button_active": "rgb(106, 114, 125)", // Grey 600
+      "button_primary": "rgba(17, 94, 199, 1.00)", // Primary 500
+      "button_primary_hover": "rgb(17, 94, 199, 1.00)", // Primary 500, 30%
+      "button_primary_active": "rgb(17, 94, 199, 1.00)", // Primary 500, 40%
+      "button_primary_color": "rgb(240, 246, 255)", // Primary 100
 
       "error_text_color": "rgb(255, 154, 162)", // TODO: We need red / error colors
 
       "input_background": "rgb(51, 47, 55)", // Grey 800
-      "input_color": "rgb(242, 241, 244)", // Grey 100
+      "input_color": "rgb(232, 241, 255)", // Grey 100
       "input_border": "transparent",
       "input_border_error": "rgb(255, 132, 138)", // TODO: We need red / error colors
 
-      "autocomplete_popup_separator": "rgb(77, 73, 80)", // Grey 700
+      "autocomplete_popup_separator": "rgb(71, 77, 87)", // Grey 700
       "appmenu_update_icon_color": "#54FFBD", // TODO
       "appmenu_info_icon_color": "#80EBFF", // TODO
       "tab_icon_overlay_stroke": "rgb(66,65,77)", // TODO: What even are these?
       "tab_icon_overlay_fill": "rgb(251,251,254)", // TODO: What even are these?
 
-      "pulse_grey_900": "rgb(26, 23, 28)",
-      "pulse_grey_850": "rgb(38, 34, 42)",
+      "pulse_grey_900": "rgb(4, 7, 10)",
+      "pulse_grey_850": "rgb(14, 23, 36)",
       "pulse_grey_800": "rgb(51, 47, 55)",
-      "pulse_grey_700": "rgb(77, 73, 80)",
-      "pulse_grey_600": "rgb(101, 99, 105)",
-      "pulse_grey_500": "rgb(128, 125, 130)",
-      "pulse_grey_400": "rgb(161, 158, 163)",
-      "pulse_grey_300": "rgb(191, 188, 194)",
-      "pulse_grey_200": "rgb(217, 214, 220)",
-      "pulse_grey_100": "rgb(242, 241, 244)",
+      "pulse_grey_700": "rgb(71, 77, 87)",
+      "pulse_grey_600": "rgb(106, 114, 125)",
+      "pulse_grey_500": "rgb(128, 133, 140)",
+      "pulse_grey_400": "rgb(162, 169, 179)",
+      "pulse_grey_300": "rgb(193, 200, 212)",
+      "pulse_grey_200": "rgb(216, 225, 237)",
+      "pulse_grey_100": "rgb(232, 241, 255)",
 
       "pulse_primary_900": "rgb(1, 7, 15)",
       "pulse_primary_800": "rgb(3, 18, 38)",
