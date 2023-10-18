@@ -9,8 +9,9 @@
   },
   "buildOptions": {
     "windowsUseSymbolicLinks": false,
-	"generateBranding": true
+    "generateBranding": true
   },
+  "addons": {},
   "brands": {
     "dev": {
       "backgroundColor": "#2B2A33",

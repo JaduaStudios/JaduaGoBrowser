@@ -25,6 +25,7 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
   /* Menulist */
   --menulist-border-radius: 8px; /* The border radius of the menulist */
+  --panel-border-radius: 15px;
 
   /* Dialog variables */
   --dialog-border-radius: 16px; /* The border radius of the dialog */
@@ -38,6 +39,10 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/.
   height: 24px;
   margin-left: 8px;
   padding: 4px !important;
+}
+
+html|input:is([type="email"], [type="tel"], [type="text"], [type="password"], [type="url"], [type="number"]), html|textarea, xul|search-textbox {
+	border-radius: 15px !important;
 }
 
 .toolbarbutton-icon,
@@ -289,4 +294,15 @@ tab[pending],
   )
   + #tabbrowser-tabs {
   border-inline-start: none;
+}
+
+.tab-background {
+  border-top-right-radius: 15px !important;
+  border-top-left-radius: 15px !important;
+}
+
+menupopup, panel {
+  &::part(content) {
+    border: 0px !important;
+  }
 }
