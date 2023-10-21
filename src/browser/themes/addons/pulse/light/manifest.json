@@ -7,9 +7,9 @@
     }
   },
 
-  "name": "Pulse Light",
-  "description": "Pulse's light theme",
-  "author": "Fushra",
+  "name": "Jadua Light",
+  "description": "Jadua Go's light theme",
+  "author": "Jadua Studios",
   "version": "1.2",
 
   "icons": { "32": "icon.svg" },

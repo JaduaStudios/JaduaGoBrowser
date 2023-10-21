@@ -296,6 +296,12 @@ tab[pending],
   border-inline-start: none;
 }
 
+/* Additional Mods to hide the firefox view button */
+
+#firefox-view-button {
+	display: none !important;
+}
+
 .tab-background {
   border-top-right-radius: 15px !important;
   border-top-left-radius: 15px !important;
@@ -305,4 +311,12 @@ menupopup, panel {
   &::part(content) {
     border: 0px !important;
   }
+}
+
+#titlebar .titlebar-buttonbox-container {
+    display: none;
+}
+
+menupopup {
+	border-radius: 15px !important;
 }

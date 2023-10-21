@@ -193,3 +193,12 @@
   -moz-box-ordinal-group: 1;
   border: solid 1px var(--tab-selected-bgcolor, var(--toolbar-bgcolor));
 }
+
+#browser #TabsToolbar .tab-background {
+  border-radius: 10px !important;
+  margin: 5px;
+}
+
+#browser #TabsToolbar .tab-content {
+  margin: 5px;
+}
