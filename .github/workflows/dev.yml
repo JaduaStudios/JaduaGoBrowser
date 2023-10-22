@@ -51,7 +51,7 @@ jobs:
 
       - name: Bump version
         run: |
-          gluon ci --brand dev --bump prerelease
+          pnpm gluon ci --brand dev --bump prerelease
 
       - name: Debug
         run: |
@@ -158,13 +158,13 @@ jobs:
         run: pnpm install
 
       - name: Load gluon CI setup
-        run: gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
+        run: pnpm gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
 
       - name: Download firefox source and dependencies
-        run: gluon download
+        run: pnpm download
 
       - name: Import
-        run: gluon import
+        run: pnpm imp
 
       - name: Bootstrap
         run: |
@@ -173,10 +173,10 @@ jobs:
           cd ..
 
       - name: Build
-        run: gluon build
+        run: pnpm build
 
       - name: Package
-        run: gluon package
+        run: pnpm package
 
       - name: Rename artifacts
         run: |
@@ -261,13 +261,13 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Load gluon CI setup
-        run: gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
+        run: pnpm gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
 
       - name: Download firefox source and dependancies
-        run: gluon download
+        run: pnpm download
 
       - name: Import
-        run: gluon import
+        run: pnpm imp
 
       - name: Bootstrap
         run: |
@@ -276,10 +276,10 @@ jobs:
           cd ..
 
       - name: Gluon build
-        run: gluon build --verbose
+        run: pnpm build --verbose
 
       - name: Package
-        run: gluon package
+        run: pnpm gluon package
 
       - name: Rename artifacts
         run: |
@@ -348,13 +348,13 @@ jobs:
         run: pnpm install
 
       - name: Load gluon CI setup
-        run: gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
+        run: pnpm gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
 
       - name: Download firefox source and dependancies
-        run: gluon download --verbose
+        run: pnpm download --verbose
 
       - name: Import
-        run: gluon import --verbose
+        run: pnpm imp --verbose
 
       - name: Compress
         run: |
@@ -383,25 +383,25 @@ jobs:
           pnpm i
 
       - name: Load gluon CI setup
-        run: gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
+        run: pnpm gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
 
       - name: Download
-        run: gluon download
+        run: pnpm download
 
       - name: Import
-        run: gluon import
+        run: pnpm imp
 
       - name: Build
         shell: powershell.exe C:\mozilla-build\start-shell.bat "{0}"
         run: |
           cd /c/actions-runner/_work/browser/browser # mozillabuild defaults to ~
-          gluon build --skip-patch-check
+          pnpm build --skip-patch-check
 
       - name: Package
         shell: powershell.exe C:\mozilla-build\start-shell.bat "{0}"
         run: |
           cd /c/actions-runner/_work/browser/browser # mozillabuild defaults to ~
-          gluon package
+          pnpm package
           mv ./dist/output.mar windows.mar
 
       - name: Upload artifact
