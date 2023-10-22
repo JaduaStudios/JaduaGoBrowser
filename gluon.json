@@ -8,8 +8,7 @@
     "version": "119.0b9"
   },
   "buildOptions": {
-    "windowsUseSymbolicLinks": false,
-    "generateBranding": true
+    "windowsUseSymbolicLinks": false
   },
   "addons": {},
   "brands": {
@@ -19,7 +18,7 @@
       "brandShortName": "Jadua Go Browser",
       "brandFullName": "Jadua Go Browser Dev",
       "release": {
-        "displayVersion": "0.0.2",
+        "displayVersion": "0.0.3",
         "github": {
           "repo": "JaduaStudios/JaduaGoBrowser"
         }
