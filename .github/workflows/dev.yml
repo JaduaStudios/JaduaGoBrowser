@@ -51,7 +51,7 @@ jobs:
 
       - name: Bump version
         run: |
-          pnpm gluon ci --brand dev --bump prerelease
+          gluon ci --brand dev --bump prerelease
 
       - name: Debug
         run: |
