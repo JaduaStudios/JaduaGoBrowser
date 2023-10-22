@@ -168,7 +168,7 @@ jobs:
         run: gluon download
 
       - name: Import
-        run: gluon imp
+        run: gluon import
 
       - name: Bootstrap
         run: |
