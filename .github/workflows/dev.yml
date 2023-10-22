@@ -380,7 +380,7 @@ jobs:
           path: ./jadua-go-browser.source.tar.gz
 
   windows:
-    runs-on: windows-latest
+    runs-on: jaduaserver-win
     needs: [build-data]
 
     steps:
