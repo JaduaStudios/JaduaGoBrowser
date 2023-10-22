@@ -21,6 +21,9 @@
         "displayVersion": "0.0.3",
         "github": {
           "repo": "JaduaStudios/JaduaGoBrowser"
+        },
+        "x86": {
+          "windowsMar": "windows.mar"
         }
       }
     }
