@@ -80,7 +80,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - uses: actions/checkout@v3
         with:
@@ -156,6 +156,10 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        
+      - name: Setup gluon
+        run: |
+          npm i -g gluon-build@next
 
       - name: Load gluon CI setup
         run: gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
@@ -209,7 +213,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - uses: actions/checkout@v3
         with:
@@ -260,6 +264,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        
+      - name: Setup gluon
+        run: |
+          npm i -g gluon-build@next
+
       - name: Load gluon CI setup
         run: gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
 
@@ -312,7 +321,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - uses: actions/checkout@v3
         with:
@@ -346,6 +355,10 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        
+      - name: Setup gluon
+        run: |
+          npm i -g gluon-build@next
 
       - name: Load gluon CI setup
         run: gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
@@ -381,6 +394,10 @@ jobs:
       - name: Install dependencies
         run: |
           npm i
+
+      - name: Setup gluon
+        run: |
+          npm i -g gluon-build@next
 
       - name: Load gluon CI setup
         run: gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
