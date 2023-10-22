@@ -279,10 +279,7 @@ jobs:
         run: gluon import
 
       - name: Bootstrap
-        run: |
-          cd engine
-          ./mach --no-interactive bootstrap --application-choice browser
-          cd ..
+        run: gluon bootstrap
 
       - name: Gluon build
         run: gluon build --verbose
@@ -383,7 +380,7 @@ jobs:
           path: ./jadua-go-browser.source.tar.gz
 
   windows:
-    runs-on: tricky-win
+    runs-on: windows-latest
     needs: [build-data]
 
     steps:
