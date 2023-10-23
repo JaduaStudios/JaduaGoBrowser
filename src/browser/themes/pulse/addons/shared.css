@@ -305,6 +305,7 @@ tab[pending],
 .tab-background {
   border-top-right-radius: 15px !important;
   border-top-left-radius: 15px !important;
+  animation: fadeIn 0.5s;
 }
 
 menupopup, panel {
@@ -319,4 +320,14 @@ menupopup, panel {
 
 menupopup {
 	border-radius: 15px !important;
+	animation: fadeIn 0.5s;
 }
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.titlebar-button:hover, toolbarbutton.bookmark-item:hover, .toolbarbutton-1:hover, .toolbarbutton:hover {
+    transition: 0.2s !important;
+  }
