@@ -402,6 +402,9 @@ jobs:
       - name: Download
         run: gluon download
 
+      - name: Set brand to dev
+        run: gluon set brand dev
+
       - name: Import
         run: gluon import
         continue-on-error: true
