@@ -409,7 +409,10 @@ jobs:
         run: gluon import
         continue-on-error: true
         
-      - name: Try again because possible fail
+      - name: Reset because possible fail
+        run: ECHO 'Y' | gluon reset
+        
+      - name: Import 2nd try
         run: gluon import
 
       - name: Build
