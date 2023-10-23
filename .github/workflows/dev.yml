@@ -285,7 +285,7 @@ jobs:
         run: gluon build --verbose
 
       - name: Package
-        run: gluon gluon package
+        run: gluon package
 
       - name: Rename artifacts
         run: |
