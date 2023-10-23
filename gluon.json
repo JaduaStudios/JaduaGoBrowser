@@ -23,7 +23,9 @@
           "repo": "JaduaStudios/JaduaGoBrowser"
         },
         "x86": {
-          "windowsMar": "windows.mar"
+          "windowsMar": "windows.mar",
+          "macosMar": "macosIntel.mar",
+          "linuxMar": "linux.mar"
         }
       }
     }

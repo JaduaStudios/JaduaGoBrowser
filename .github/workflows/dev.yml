@@ -404,6 +404,10 @@ jobs:
 
       - name: Import
         run: gluon import
+        continue-on-error: true
+        
+      - name: Try again because possible fail
+        run: gluon import
 
       - name: Build
         shell: powershell.exe C:\mozilla-build\start-shell.bat "{0}"
