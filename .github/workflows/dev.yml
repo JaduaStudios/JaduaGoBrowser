@@ -421,8 +421,16 @@ jobs:
           cd /c/actions-runner/_work/JaduaGoBrowser/JaduaGoBrowser # mozillabuild defaults to ~
           gluon build --skip-patch-check
 
+      - name: Run configure
+        shell: powershell.exe C:\mozilla-build\start-shell.bat "{0}"
+        continue-on-error: true
+        run: |
+          cd /c/actions-runner/_work/JaduaGoBrowser/JaduaGoBrowser/engine # mozillabuild defaults to ~
+          ./mach configure
+
       - name: Package
         shell: powershell.exe C:\mozilla-build\start-shell.bat "{0}"
+        continue-on-error: true
         run: |
           cd /c/actions-runner/_work/JaduaGoBrowser/JaduaGoBrowser # mozillabuild defaults to ~
           gluon package
@@ -461,7 +469,7 @@ jobs:
           repo_token: '${{ secrets.GITHUB_TOKEN }}'
           automatic_release_tag: ${{ needs.build-data.outputs.version }}
           prerelease: true
-          title: 'Alpha build'
+          title: 'Dev build'
           files: |
             jadua-go-browser.linux.tar.bz2
             jadua-go-browser.source.tar.gz
