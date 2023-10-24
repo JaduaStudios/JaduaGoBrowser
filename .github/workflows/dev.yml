@@ -415,6 +415,12 @@ jobs:
       - name: Import 2nd try
         run: gluon import
 
+      - name: Bootstrap
+        shell: powershell.exe C:\mozilla-build\start-shell.bat "{0}"
+        run: |
+          cd /c/actions-runner/_work/JaduaGoBrowser/JaduaGoBrowser # mozillabuild defaults to ~
+          gluon bootstrap
+
       - name: Build
         shell: powershell.exe C:\mozilla-build\start-shell.bat "{0}"
         run: |
