@@ -418,13 +418,13 @@ jobs:
       - name: Build
         shell: powershell.exe C:\mozilla-build\start-shell.bat "{0}"
         run: |
-          cd /c/actions-runner/_work/browser/browser # mozillabuild defaults to ~
+          cd /c/actions-runner/_work/JaduaGoBrowser/JaduaGoBrowser # mozillabuild defaults to ~
           gluon build --skip-patch-check
 
       - name: Package
         shell: powershell.exe C:\mozilla-build\start-shell.bat "{0}"
         run: |
-          cd /c/actions-runner/_work/browser/browser # mozillabuild defaults to ~
+          cd /c/actions-runner/_work/JaduaGoBrowser/JaduaGoBrowser # mozillabuild defaults to ~
           gluon package
           mv ./dist/output.mar windows.mar
 
