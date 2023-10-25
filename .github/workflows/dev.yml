@@ -457,7 +457,6 @@ jobs:
     name: Release
     needs: [build-data, linux, source, mac, windows]
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/dev' }}
 
     steps:
       - uses: actions/download-artifact@v3
