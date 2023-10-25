@@ -380,7 +380,7 @@ jobs:
           path: ./jadua-go-browser.source.tar.gz
 
   windows:
-    runs-on: jaduaserver-win
+    runs-on: jaduafast-win
     needs: [build-data]
 
     steps:
@@ -416,29 +416,22 @@ jobs:
         run: gluon import
 
       - name: Bootstrap
-        shell: powershell.exe C:\mozilla-build\start-shell.bat "{0}"
+        shell: powershell.exe E:\Development\MozillaBuild\start-shell.bat "{0}"
         run: |
-          cd /c/actions-runner/_work/JaduaGoBrowser/JaduaGoBrowser # mozillabuild defaults to ~
+          cd /e/actions-runner/_work/JaduaGoBrowser/JaduaGoBrowser # mozillabuild defaults to ~
           gluon bootstrap
 
       - name: Build
-        shell: powershell.exe C:\mozilla-build\start-shell.bat "{0}"
+        shell: powershell.exe E:\Development\MozillaBuild\start-shell.bat "{0}"
         run: |
-          cd /c/actions-runner/_work/JaduaGoBrowser/JaduaGoBrowser # mozillabuild defaults to ~
+          cd /e/actions-runner/_work/JaduaGoBrowser/JaduaGoBrowser # mozillabuild defaults to ~
           gluon build --skip-patch-check
 
-      - name: Run configure
-        shell: powershell.exe C:\mozilla-build\start-shell.bat "{0}"
-        continue-on-error: true
-        run: |
-          cd /c/actions-runner/_work/JaduaGoBrowser/JaduaGoBrowser/engine # mozillabuild defaults to ~
-          ./mach configure
-
       - name: Package
-        shell: powershell.exe C:\mozilla-build\start-shell.bat "{0}"
+        shell: powershell.exe E:\Development\MozillaBuild\start-shell.bat "{0}"
         continue-on-error: true
         run: |
-          cd /c/actions-runner/_work/JaduaGoBrowser/JaduaGoBrowser # mozillabuild defaults to ~
+          cd /e/actions-runner/_work/JaduaGoBrowser/JaduaGoBrowser # mozillabuild defaults to ~
           gluon package
           mv ./dist/output.mar windows.mar
 
