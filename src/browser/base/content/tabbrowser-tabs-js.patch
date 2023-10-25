@@ -1,8 +1,8 @@
 diff --git a/browser/base/content/tabbrowser-tabs.js b/browser/base/content/tabbrowser-tabs.js
-index 71846eca963d0ba652c60106a80850fd936db2d9..e081a9529951fd9f490c51841579f7d7a188f9d5 100644
+index 71846eca963d0ba652c60106a80850fd936db2d9..7de42b2ca5fa94462cb08e2129b0d75dc5b651ba 100644
 --- a/browser/base/content/tabbrowser-tabs.js
 +++ b/browser/base/content/tabbrowser-tabs.js
-@@ -166,7 +166,14 @@
+@@ -166,7 +166,17 @@
      }
  
      on_transitionend(event) {
@@ -14,56 +14,57 @@ index 71846eca963d0ba652c60106a80850fd936db2d9..e081a9529951fd9f490c51841579f7d7
 +
 +      // NOTE: Vertical tabs use max-height instead of max-width to animate on
 +      // open / close
-+      if ((!verticalTabs && event.propertyName != "max-width") || (!verticalTabs && event.propertyName != "max-height")) {
++      if (
++        (!verticalTabs && event.propertyName != "max-width") ||
++        (!verticalTabs && event.propertyName != "max-height")
++      ) {
          return;
        }
  
-@@ -510,20 +517,39 @@
-         dragImageOffset = dragImageOffset * scale;
+@@ -511,19 +521,37 @@
        }
        dt.setDragImage(toDrag, dragImageOffset, dragImageOffset);
-+	  const verticalTabs = Services.prefs.getBoolPref(
+ 
++      const verticalTabs = Services.prefs.getBoolPref(
 +        "pulse.tabs.vertical",
 +        false
 +      );
- 
++
        // _dragData.offsetX/Y give the coordinates that the mouse should be
        // positioned relative to the corner of the new window created upon
        // dragend such that the mouse appears to have the same position
        // relative to the corner of the dragged tab.
        function clientX(ele) {
-+		  if (verticalTabs) {
-+          return 0
++        if (verticalTabs) {
++          return 0;
 +        }
-+		
          return ele.getBoundingClientRect().left;
        }
-+	  function clientY(ele) {
++      function clientY(ele) {
 +        if (!verticalTabs) {
-+          return 0
++          return 0;
 +        }
 +
 +        return ele.getBoundingClientRect().top;
 +      }
-+
        let tabOffsetX = clientX(tab) - clientX(this);
-+	  let tabOffsetY = clientY(tab) - clientY(this);
++      let tabOffsetY = clientY(tab) - clientY(this);
        tab._dragData = {
          offsetX: event.screenX - window.screenX - tabOffsetX,
 -        offsetY: event.screenY - window.screenY,
 +        offsetY: event.screenY - window.screenY - tabOffsetY,
          scrollX: this.arrowScrollbox.scrollbox.scrollLeft,
-+		scrollY: this.arrowScrollbox.scrollbox.scrollTop,
++        scrollY: this.arrowScrollbox.scrollbox.scrollTop,
          screenX: event.screenX,
-+		screenY: event.screenY,
++        screenY: event.screenY,
          movingTabs: (tab.multiselected ? gBrowser.selectedTabs : [tab]).filter(
            t => t.pinned == tab.pinned
          ),
-@@ -610,21 +636,31 @@
+@@ -610,21 +638,31 @@
          }
        }
  
-+	  const verticalTabs = Services.prefs.getBoolPref(
++      const verticalTabs = Services.prefs.getBoolPref(
 +        "pulse.tabs.vertical",
 +        false
 +      );
@@ -96,7 +97,7 @@ index 71846eca963d0ba652c60106a80850fd936db2d9..e081a9529951fd9f490c51841579f7d7
            ];
          }
          newMargin = pixelsToScroll > 0 ? maxMargin : minMargin;
-@@ -633,30 +669,38 @@
+@@ -633,30 +671,37 @@
          let children = this.allTabs;
          if (newIndex == children.length) {
            let tabRect = this._getVisibleTabs().at(-1).getBoundingClientRect();
@@ -106,7 +107,7 @@ index 71846eca963d0ba652c60106a80850fd936db2d9..e081a9529951fd9f490c51841579f7d7
 +            newMargin = rect[right] - tabRect[left];
            } else {
 -            newMargin = tabRect.right - rect.left;
-+            newMargin = tabRect[right] - rect[left];
++            newMargin = tabRect[left] - rect[left];
            }
          } else {
            let tabRect = children[newIndex].getBoundingClientRect();
@@ -128,45 +129,49 @@ index 71846eca963d0ba652c60106a80850fd936db2d9..e081a9529951fd9f490c51841579f7d7
 +      if (RTL_UI && !verticalTabs) {
          newMargin *= -1;
        }
-       ind.style.transform = "translate(" + Math.round(newMargin) + "px)";
-+	  ind.style.transform =
+-      ind.style.transform = "translate(" + Math.round(newMargin) + "px)";
++      ind.style.transform =
 +        "translate(" + verticalTabs
 +          ? "0, "
 +          : "" + Math.round(newMargin) + "px)";
      }
  
      on_drop(event) {
-+		const verticalTabs = Services.prefs.getBoolPref(
++      const verticalTabs = Services.prefs.getBoolPref(
 +        "pulse.tabs.vertical",
 +        false
 +      );
        var dt = event.dataTransfer;
        var dropEffect = dt.dropEffect;
        var draggedTab;
-@@ -713,7 +757,7 @@
+@@ -713,7 +758,11 @@
            incrementDropIndex = false;
          }
  
 -        if (oldTranslateX && oldTranslateX != newTranslateX && !gReduceMotion) {
-+        if (oldTranslateX && oldTranslateX != newTranslateX && !(gReduceMotion || verticalTabs)) {
++        if (
++          oldTranslateX &&
++          oldTranslateX != newTranslateX &&
++          !(gReduceMotion || verticalTabs)
++        ) {
            for (let tab of movingTabs) {
              tab.toggleAttribute("tabdrop-samewindow", true);
              tab.style.transform = "translateX(" + newTranslateX + "px)";
-@@ -1397,7 +1441,13 @@
+@@ -1397,7 +1446,13 @@
      _positionPinnedTabs() {
        let tabs = this._getVisibleTabs();
        let numPinned = gBrowser._numPinnedTabs;
-+	  // Do not try and position vertical pinned tabs
++      // Do not try and position vertical pinned tabs
 +      const verticalTabs = Services.prefs.getBoolPref(
 +        "pulse.tabs.vertical",
 +        false
 +      );
        let doPosition =
-+		!verticalTabs &&
++        +!verticalTabs &&
          this.hasAttribute("overflow") &&
          tabs.length > numPinned &&
          numPinned > 0;
-@@ -1465,19 +1515,33 @@
+@@ -1465,19 +1520,33 @@
          }
        }
  
@@ -206,7 +211,7 @@ index 71846eca963d0ba652c60106a80850fd936db2d9..e081a9529951fd9f490c51841579f7d7
  
        let pinned = draggedTab.pinned;
        let numPinned = gBrowser._numPinnedTabs;
-@@ -1486,36 +1550,39 @@
+@@ -1486,36 +1555,39 @@
          pinned ? numPinned : undefined
        );
  
@@ -222,7 +227,7 @@ index 71846eca963d0ba652c60106a80850fd936db2d9..e081a9529951fd9f490c51841579f7d7
 +      // We want to store the output value as the width and the height to force
 +      // compatibility with code elsewhere
        draggedTab._dragData.tabWidth = tabWidth;
-+	  draggedTab._dragData.tabHeight = tabWidth;
++      draggedTab._dragData.tabHeight = tabWidth;
  
        // Move the dragged tab based on the mouse position.
  
@@ -257,7 +262,7 @@ index 71846eca963d0ba652c60106a80850fd936db2d9..e081a9529951fd9f490c51841579f7d7
        }
  
        draggedTab._dragData.translateX = translateX;
-@@ -1548,11 +1615,11 @@
+@@ -1548,11 +1620,11 @@
          if (tabs[mid] == draggedTab && ++mid > high) {
            break;
          }
@@ -271,7 +276,7 @@ index 71846eca963d0ba652c60106a80850fd936db2d9..e081a9529951fd9f490c51841579f7d7
            tabCenter
          ) {
            low = mid + 1;
-@@ -1575,16 +1642,16 @@
+@@ -1575,16 +1647,16 @@
        for (let tab of tabs) {
          if (tab != draggedTab) {
            let shift = getTabShift(tab, newIndex);
