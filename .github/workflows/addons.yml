@@ -3,7 +3,7 @@ name: Addon updates
 on:
   workflow_dispatch:
   push:
-    branches: [dev, beta, stable]
+    branches: [main, dev, beta, stable]
 
 jobs:
   generate:

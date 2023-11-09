@@ -90,7 +90,7 @@ pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/%LOCAL
 pref("extensions.getAddons.langpacks.url", "https://services.addons.mozilla.org/api/v4/addons/language-tools/?app=firefox&type=language&appversion=%PLATFORMVERSION%");
 
 // Check for system add-on updates.
-pref("extensions.systemAddon.update.url", "https://updates.pulsebrowser.app/browser/addons/%CHANNEL%/update.xml");
+pref("extensions.systemAddon.update.url", "https://goupdates.jaduastudios.com/browser/addons/%CHANNEL%/update.xml");
 pref("extensions.systemAddon.update.enabled", true);
 
 //Update Routes (Download page for manual download and Temperoraliy Discord Invite Link for Release Notes)
