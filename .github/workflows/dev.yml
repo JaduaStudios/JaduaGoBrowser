@@ -224,6 +224,10 @@ jobs:
           git config --global user.email "jadua1010@users.noreply.github.com"
           git config --global user.name "Jadua1010"
 
+      - name: Setup (downgrade) python
+        with:
+          python-version: '3.11'
+
       - name: Install system dependencies
         run: |
           brew install cairo sccache gnu-tar mercurial
