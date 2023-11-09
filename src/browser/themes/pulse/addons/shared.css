@@ -324,6 +324,7 @@ menupopup, panel {
     border-radius: 15px !important;
 	animation: fadeIn 0.5s !important;
 	transition: 0.5s;
+	background: var(--input-bgcolor);
   }
 }
 
