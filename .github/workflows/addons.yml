@@ -1,4 +1,4 @@
-name: Addon updates
+name: Addon Updates (Dev)
 
 on:
   workflow_dispatch:
@@ -19,7 +19,7 @@ jobs:
         run: yarn
 
       - name: Load config
-        run: yarn gluon ci --brand ${GITHUB_REF##*/}
+        run: yarn gluon ci --brand dev
 
       - name: Generate update manifest
         run: yarn gluon updates-addons
