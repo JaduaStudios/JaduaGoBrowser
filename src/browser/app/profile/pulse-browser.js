@@ -94,10 +94,10 @@ pref("extensions.systemAddon.update.url", "https://updates.pulsebrowser.app/brow
 pref("extensions.systemAddon.update.enabled", true);
 
 //Update Routes (Download page for manual download and Temperoraliy Discord Invite Link for Release Notes)
-pref("app.update.url.manual", "https://pulsebrowser.app/download");
-pref("app.update.url.details", "hhttps://pulsebrowser.app/download");
-pref("app.releaseNotesURL", "https://github.com/pulse-browser/browser/blob/alpha/CHANGELOG.md");
-pref("app.releaseNotesURL.aboutDialog", "https://github.com/pulse-browser/browser/blob/alpha/CHANGELOG.md");
+pref("app.update.url.manual", "https://jaduastudios.com/games");
+pref("app.update.url.details", "https://jaduastudios.com/games");
+pref("app.releaseNotesURL", "https://github.com/JaduaStudios/JaduaGoBrowser/commits/main");
+pref("app.releaseNotesURL.aboutDialog", "https://github.com/JaduaStudios/JaduaGoBrowser/commits/main");
 
 // This pref needs to be here to not break context menus (GH#169)
 pref("extensions.pocket.enabled", false);
