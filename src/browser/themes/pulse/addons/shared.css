@@ -306,6 +306,7 @@ tab[pending],
   border-top-right-radius: 15px !important;
   border-top-left-radius: 15px !important;
   animation: fadeIn 0.5s;
+  transition: 0.3s;
 }
 
 menupopup, panel {
@@ -318,9 +319,12 @@ menupopup, panel {
     display: none;
 }
 
-menupopup {
-	border-radius: 15px !important;
-	animation: fadeIn 0.5s;
+menupopup, panel {
+  &::part(content) {
+    border-radius: 15px !important;
+	animation: fadeIn 0.5s !important;
+	transition: 0.5s;
+  }
 }
 
 @keyframes fadeIn {
@@ -330,4 +334,37 @@ menupopup {
 
 .titlebar-button:hover, toolbarbutton.bookmark-item:hover, .toolbarbutton-1:hover, .toolbarbutton:hover {
     transition: 0.2s !important;
+}
+
+.bookmark-item {
+  border-radius: 15px !important;
+}
+
+#policies-container, #searchInput, .search-textbox {
+  border-radius: 15px;
+  border: 0px;
+}
+
+#categories > .category {
+  transition: background-color 0.3s;
+}
+
+.checkbox-check {
+  transition: 0.2s;
+}
+
+button {
+  border-radius: 15px;
+}
+
+input {
+  border-radius: 15px !important;
+}
+
+.info-box-container {
+  border-radius: 15px;
+}
+
+.card {
+  border-radius: 15px;
 }
