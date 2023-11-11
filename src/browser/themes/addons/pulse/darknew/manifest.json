@@ -17,34 +17,34 @@
   "theme": {
     "colors": {
       "tab_background_text": "rgb(193, 200, 212)", // Grey 300
-      "tab_selected": "rgb(4, 7, 10)", // Grey 900
+      "tab_selected": "rgb(29, 33, 40)", // Grey 900
       "tab_text": "rgb(232, 241, 255)", // Grey 100
 
       "icons": "rgb(232, 241, 255)", // Grey 100
-      "frame": "rgb(14, 23, 36)", // Grey 850
-      "popup": "rgb(14, 23, 36)", // Grey 850
+      "frame": "rgb(18, 22, 28)", // Grey 850
+      "popup": "rgb(18, 22, 28)", // Grey 850
       "popup_text": "rgb(232, 241, 255)", // Grey 100
       "popup_border": "transparent",
       "popup_highlight": "rgb(71, 77, 87)", // Grey 700
       "tab_line": "transparent",
 
-      "toolbar": "rgb(4, 7, 10)", // Grey 900
+      "toolbar": "rgb(29, 33, 40)", // Grey 900
       "toolbar_top_separator": "transparent",
-      "toolbar_bottom_separator": "rgb(4, 7, 10)", // Grey 900
-      "toolbar_field": "rgb(14, 23, 36)", // Grey 850
+      "toolbar_bottom_separator": "rgb(29, 33, 40)", // Grey 900
+      "toolbar_field": "rgb(18, 22, 28)", // Grey 850 
       "toolbar_field_border": "transparent",
       "toolbar_field_text": "rgb(232, 241, 255)", // Grey 100
       "toolbar_field_focus": "rgb(43, 51, 64)", // Grey 800
       "toolbar_text": "rgb(193, 200, 212)", // Grey 300
 
-      "ntp_background": "rgb(4, 7, 10)", // Grey 900
+      "ntp_background": "rgb(29, 33, 40)", // Grey 900
       "ntp_card_background": "rgb(43, 51, 64)", // Grey 800
       "ntp_text": "rgb(232, 241, 255)", // Grey 100
 
       "sidebar_text": "rgb(232, 241, 255)", // Grey 100
       "sidebar_border": "transparent",
 
-      "button": "rgb(4, 7, 10)", // Grey 900
+      "button": "rgb(29, 33, 40)", // Grey 900
       "button_hover": "rgb(71, 77, 87)", // Grey 700
       "button_active": "rgb(106, 114, 125)", // Grey 600
       "button_primary": "rgba(17, 94, 199, 1.00)", // Primary 500
@@ -66,7 +66,7 @@
       "tab_icon_overlay_fill": "rgb(251,251,254)", // TODO: What even are these?
 
       "pulse_grey_900": "rgb(4, 7, 10)",
-      "pulse_grey_850": "rgb(14, 23, 36)",
+      "pulse_grey_850": "rgb(18, 22, 28)",
       "pulse_grey_800": "rgb(43, 51, 64)",
       "pulse_grey_700": "rgb(71, 77, 87)",
       "pulse_grey_600": "rgb(106, 114, 125)",
