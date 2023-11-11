@@ -33,7 +33,7 @@
       "brandShortName": "Jadua Go Browser",
       "brandFullName": "Jadua Go Browser Dev",
       "release": {
-        "displayVersion": "0.1.4",
+        "displayVersion": "0.1.5-0",
         "github": {
           "repo": "JaduaStudios/JaduaGoBrowser"
         },
