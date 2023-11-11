@@ -221,6 +221,14 @@ tab.tabbrowser-tab:nth-child(1) {
   border-style: none;
 }
 
+#sidebar-switcher-target {
+  overflow: auto;
+}
+
+#sidebar-spacer {
+  flex: 0;
+}
+
 /* ========================================================================== */
 /* Bookmark styles */
 
