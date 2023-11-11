@@ -21,8 +21,8 @@
     "sidebar-tabs": {
       "id": "sidebartabs@browser.fushra.com",
       "platform": "github",
-      "repo": "pulse-browser/sidebar-tabs",
-      "version": "v0.4.0",
+      "repo": "Jadua1010/sidebar-tabs",
+      "version": "v0.6.4",
       "fileGlob": "release.zip"
     }
   },
