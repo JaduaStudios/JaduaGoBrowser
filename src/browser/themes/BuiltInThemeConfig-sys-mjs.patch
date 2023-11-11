@@ -1,33 +1,81 @@
 diff --git a/browser/themes/BuiltInThemeConfig.sys.mjs b/browser/themes/BuiltInThemeConfig.sys.mjs
-index 7cfea4b705a1338b1eb5c4f255808aeac4bdb819..c9454a5e5998d05a3ae9cc7d821d35f6233e9e77 100644
+index 7cfea4b705a1338b1eb5c4f255808aeac4bdb819..913e1915ed9346dc355e0f69fe53c7a1ebcde122 100644
 --- a/browser/themes/BuiltInThemeConfig.sys.mjs
 +++ b/browser/themes/BuiltInThemeConfig.sys.mjs
-@@ -20,24 +20,17 @@
+@@ -19,6 +19,76 @@
+  *  The collection id that the theme is a part of. Optional.
   */
  export const BuiltInThemeConfig = new Map([
-   [
--    "firefox-compact-light@mozilla.org",
++  [
 +    "pulse-light@browser.fushra.com",
-     {
-       version: "1.2",
--      path: "resource://builtin-themes/light/",
++    {
++      version: "1.2",
 +      path: "resource://builtin-themes/pulse/light/",
-     },
-   ],
-   [
--    "firefox-compact-dark@mozilla.org",
++    },
++  ],
++  [
 +    "pulse-dark@browser.fushra.com",
-     {
-       version: "1.2",
--      path: "resource://builtin-themes/dark/",
--    },
--  ],
--  [
--    "firefox-alpenglow@mozilla.org",
--    {
--      version: "1.4",
--      path: "resource://builtin-themes/alpenglow/",
++    {
++      version: "1.2",
 +      path: "resource://builtin-themes/pulse/dark/",
-     },
-   ],
++    },
++  ],
++  [
++    "pulse-light-new@browser.fushra.com",
++    {
++      version: "1.2",
++      path: "resource://builtin-themes/pulse/lightnew/",
++    },
++  ],
++  [
++    "pulse-dark-new@browser.fushra.com",
++    {
++      version: "1.2",
++      path: "resource://builtin-themes/pulse/darknew/",
++    },
++  ],
++  [
++    "chrome-light@browser.fushra.com",
++    {
++      version: "1.2",
++      path: "resource://builtin-themes/pulse/chromelight/",
++    },
++  ],
++  [
++    "chrome-dark@browser.fushra.com",
++    {
++      version: "1.2",
++      path: "resource://builtin-themes/pulse/chromedark/",
++    },
++  ],
++  [
++    "gx-light@browser.fushra.com",
++    {
++      version: "1.2",
++      path: "resource://builtin-themes/pulse/gxlight/",
++    },
++  ],
++  [
++    "gx-dark@browser.fushra.com",
++    {
++      version: "1.2",
++      path: "resource://builtin-themes/pulse/gxdark/",
++    },
++  ],
++  [
++    "safari-light@browser.fushra.com",
++    {
++      version: "1.2",
++      path: "resource://builtin-themes/pulse/safarilight/",
++    },
++  ],
++  [
++    "safari-dark@browser.fushra.com",
++    {
++      version: "1.2",
++      path: "resource://builtin-themes/pulse/safaridark/",
++    },
++  ],
    [
+     "firefox-compact-light@mozilla.org",
+     {

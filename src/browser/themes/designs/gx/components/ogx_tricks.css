@@ -1,0 +1,29 @@
+menupopup, panel {
+  &::part(content) {
+    border-radius: 0px !important;
+  }
+}
+
+.bookmark-item {
+  border-radius: 0px !important;
+}
+
+#policies-container, #searchInput, .search-textbox {
+  border-radius: 0px;
+}
+
+button {
+  border-radius: 0px;
+}
+
+input {
+  border-radius: 0px !important;
+}
+
+.info-box-container {
+  border-radius: 0px;
+}
+
+.card {
+  border-radius: 0px;
+}

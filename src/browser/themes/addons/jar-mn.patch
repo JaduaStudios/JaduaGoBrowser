@@ -1,11 +1,12 @@
 diff --git a/browser/themes/addons/jar.mn b/browser/themes/addons/jar.mn
-index 69bb3000d6d2d249d1d77262dc2a0057d0318308..68fc1df73672c271990b6d2eca489093569ec0fb 100644
+index 69bb3000d6d2d249d1d77262dc2a0057d0318308..774e21bfcf76a49bceba15cd44e17ca440bdfcc8 100644
 --- a/browser/themes/addons/jar.mn
 +++ b/browser/themes/addons/jar.mn
-@@ -16,6 +16,14 @@ browser.jar:
+@@ -15,6 +15,46 @@ browser.jar:
+   content/builtin-themes/light                     (light/*.svg)
    content/builtin-themes/light                     (light/*.css)
    content/builtin-themes/light/manifest.json       (light/manifest.json)
- 
++  
 +  content/builtin-themes/pulse/dark                      (pulse/dark/*.svg)
 +  content/builtin-themes/pulse/dark/experiment.css       (pulse/dark/experiment.css)
 +  content/builtin-themes/pulse/dark/manifest.json        (pulse/dark/manifest.json)
@@ -14,6 +15,37 @@ index 69bb3000d6d2d249d1d77262dc2a0057d0318308..68fc1df73672c271990b6d2eca489093
 +  content/builtin-themes/pulse/light/experiment.css      (pulse/light/experiment.css)
 +  content/builtin-themes/pulse/light/manifest.json       (pulse/light/manifest.json)
 +
++  content/builtin-themes/pulse/lightnew                     (pulse/lightnew/*.svg)
++  content/builtin-themes/pulse/lightnew/experiment.css      (pulse/lightnew/experiment.css)
++  content/builtin-themes/pulse/lightnew/manifest.json       (pulse/lightnew/manifest.json)
++  
++  content/builtin-themes/pulse/darknew                     (pulse/darknew/*.svg)
++  content/builtin-themes/pulse/darknew/experiment.css      (pulse/darknew/experiment.css)
++  content/builtin-themes/pulse/darknew/manifest.json       (pulse/darknew/manifest.json)
++  
++  content/builtin-themes/pulse/chromelight                     (pulse/chromelight/*.svg)
++  content/builtin-themes/pulse/chromelight/experiment.css      (pulse/chromelight/experiment.css)
++  content/builtin-themes/pulse/chromelight/manifest.json       (pulse/chromelight/manifest.json)
++  
++  content/builtin-themes/pulse/chromedark                     (pulse/chromedark/*.svg)
++  content/builtin-themes/pulse/chromedark/experiment.css      (pulse/chromedark/experiment.css)
++  content/builtin-themes/pulse/chromedark/manifest.json       (pulse/chromedark/manifest.json)
++  
++  content/builtin-themes/pulse/gxlight                     (pulse/gxlight/*.svg)
++  content/builtin-themes/pulse/gxlight/experiment.css      (pulse/gxlight/experiment.css)
++  content/builtin-themes/pulse/gxlight/manifest.json       (pulse/gxlight/manifest.json)
++  
++  content/builtin-themes/pulse/gxdark                     (pulse/gxdark/*.svg)
++  content/builtin-themes/pulse/gxdark/experiment.css      (pulse/gxdark/experiment.css)
++  content/builtin-themes/pulse/gxdark/manifest.json       (pulse/gxdark/manifest.json)
++  
++  content/builtin-themes/pulse/safarilight                     (pulse/safarilight/*.svg)
++  content/builtin-themes/pulse/safarilight/experiment.css      (pulse/safarilight/experiment.css)
++  content/builtin-themes/pulse/safarilight/manifest.json       (pulse/safarilight/manifest.json)
++  
++  content/builtin-themes/pulse/safaridark                     (pulse/safaridark/*.svg)
++  content/builtin-themes/pulse/safaridark/experiment.css      (pulse/safaridark/experiment.css)
++  content/builtin-themes/pulse/safaridark/manifest.json       (pulse/safaridark/manifest.json)
+ 
    content/builtin-themes/colorways/2021lush/soft                          (colorways/2021-life-in-color/lush/soft/*.svg)
    content/builtin-themes/colorways/2021lush/soft/manifest.json            (colorways/2021-life-in-color/lush/soft/manifest.json)
-   content/builtin-themes/colorways/2021lush/balanced                      (colorways/2021-life-in-color/lush/balanced/*.svg)
