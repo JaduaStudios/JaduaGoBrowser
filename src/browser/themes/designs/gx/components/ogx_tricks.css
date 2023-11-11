@@ -27,3 +27,25 @@ input {
 .card {
   border-radius: 0px;
 }
+
+.titlebar-buttonbox-container {
+  padding-top: 5px !important;
+}
+
+#nav-bar #back-button {
+  padding-left: 90px !important;
+}
+
+#nav-bar toolbarpaletteitem[id^="wrapper-customizableui-special-spring"], #nav-bar toolbarspring {
+  flex: 0;
+}
+
+#browser #TabsToolbar .tab-content {
+  margin: 0px !important;
+}
+
+.scrollbox-clip #browser #TabsToolbar .tab-background {
+  border-radius: 10px !important;
+  margin: 5px;
+    margin-bottom: 5px;
+}

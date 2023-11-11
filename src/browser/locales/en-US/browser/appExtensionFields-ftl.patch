@@ -11,52 +11,52 @@ index 09d7a076eccd4235fac66156770d8b9ae01a7d16..fa5b3e5b67b5fdb6751e17793d45614a
  extension-default-theme-description=Follow the operating system setting for buttons, menus, and windows.
  
 -extension-firefox-compact-light-name=Light
-+extension-firefox-compact-light-name=Firefox Light
++extension-firefox-compact-light-name=Firefox (Light)
  extension-firefox-compact-light-description=A theme with a light color scheme.
  
 -extension-firefox-compact-dark-name=Dark
-+extension-firefox-compact-dark-name=Firefox Dark
++extension-firefox-compact-dark-name=Firefox (Dark)
  extension-firefox-compact-dark-description=A theme with a dark color scheme.
  
  extension-firefox-alpenglow-name=Firefox Alpenglow
  extension-firefox-alpenglow-description=Use a colorful appearance for buttons, menus, and windows.
  
 +## Pulse themes
-+extension-pulse-light-name=Jadua Light
++extension-pulse-light-name=Jadua (Light)
 +extension-pulse-light-description=A standard, practical light theme
 +
-+extension-pulse-dark-name=Jadua Dark
++extension-pulse-dark-name=Jadua (Dark)
 +extension-pulse-dark-description=A standard, practical dark theme
 +
 +# Duplicates here for legacy reasons
-+extension-light-name=Jadua Light
++extension-light-name=Jadua (Light)
 +extension-light-description=A standard, practical light theme
 +
-+extension-dark-name=Jadua Dark
++extension-dark-name=Jadua (Dark)
 +extension-dark-description=A standard, practical dark theme
 +
-+extension-pulse-light-new-name=Jadua Plus Light
++extension-pulse-light-new-name=Jadua Plus (Light)
 +extension-pulse-light-new-description=A clean, minimalist light theme
 +
-+extension-pulse-dark-new-name=Jadua Plus Dark
++extension-pulse-dark-new-name=Jadua Plus (Dark)
 +extension-pulse-dark-new-description=A clean, minimalist light theme
 +
-+extension-chrome-light-name=Chrome Light Theme
++extension-chrome-light-name=Chrome (Light)
 +extension-chrome-light-description=A clone of the Google Chrome theme
 +
-+extension-chrome-dark-name=Chrome Dark Theme
++extension-chrome-dark-name=Chrome (Dark)
 +extension-chrome-dark-description=A clone of the Google Chrome theme
 +
-+extension-gx-light-name=Opera GX Light Theme
++extension-gx-light-name=Opera GX (Light)
 +extension-gx-light-description=A clone of the Opera GX theme
 +
-+extension-gx-dark-name=Opera GX Dark Theme
++extension-gx-dark-name=Opera GX (Dark)
 +extension-gx-dark-description=A clone of the Opera GX theme
 +
-+extension-safari-light-name=Safari Light Theme
++extension-safari-light-name=Safari (Light)
 +extension-safari-light-description=A clone of the Safari theme
 +
-+extension-safari-dark-name=Safari Dark Theme
++extension-safari-dark-name=Safari (Dark)
 +extension-safari-dark-description=A clone of the Safari theme
 +
  ## Colorway Themes
