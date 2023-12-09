@@ -59,7 +59,6 @@ pref('pulse.sidebar.extensions.enabled', true);
 // it by default
 pref('pulse.sidebar.keeptabsactive.enabled', false);
 
-
 //PIP pref
 pref('media.videocontrols.picture-in-picture.audio-toggle.enabled', true);
 
@@ -107,7 +106,7 @@ pref("extensions.pocket.enabled", false);
 //  0: auto-detect
 //  1: force disable
 // -1: force enable
-pref('accessibility.force_disabled', 0);
+pref('accessibility.force_disabled', 1);
 
 // This feature isn't stable / performant, but I am going to enable it anyway
 // specifically to get vertical tab styling to work with minimal jank
