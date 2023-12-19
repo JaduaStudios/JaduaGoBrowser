@@ -1,4 +1,9 @@
+# Browser branding
+ac_add_options --with-ccache=sccache
+ac_add_options --without-wasm-sandboxed-libraries
+
 ac_add_options --with-app-name=${binName}
+ac_add_options --with-app-basename=${name}
 export MOZ_USER_DIR="${name}"
 export MOZ_APP_VENDOR="${vendor}"
 export MOZ_APP_BASENAME=${binName}
@@ -18,4 +23,4 @@ export MOZ_SOURCE_REPO=https://github.com/JaduaStudios/JaduaGoBrowser
 export MOZ_SOURCE_CHANGESET=${changeset}
 
 # Bootstrap
-ac_add_options --enable-bootstrap
+# ac_add_options --enable-bootstrap
