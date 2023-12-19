@@ -1475,7 +1475,3 @@ toolbar
 #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab .tab-background:not([selected]) {
 	background-color: var(--lwt-accent-color) !important;
 }
-
-#navigator-toolbox #nav-bar {
-  padding-right: 8px !important;
-}
