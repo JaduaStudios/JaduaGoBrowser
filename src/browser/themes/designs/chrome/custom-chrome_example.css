@@ -4,3 +4,19 @@ body {
   /* add your css below */
 
 }
+
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab[fadein]:not([style^="max-width"]) {
+	max-width: unset !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] #tabbrowser-arrowscrollbox .tabbrowser-tab:is(:first-child) {
+  margin-left: 0px !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] .tab-background {
+	position: initial !important;
+}
+
+#browser #TabsToolbar #alltabs-button {
+  display: none !important;
+}

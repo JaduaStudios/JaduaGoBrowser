@@ -1447,3 +1447,35 @@ toolbar
 #forward-button .toolbarbutton-icon{
   padding: 8.5px !important;
 }
+
+#tabbrowser-tabpanels {
+  browser[type="content"] {
+	border-radius: 17px;
+    border: 1px solid var(--lwt-accent-color);
+    margin: 5px;
+  }
+}
+
+/*=====================================================================
+====================== V E R T I C A L   T A B S ======================
+=====================================================================*/
+
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab[fadein]:not([pinned]) {
+	max-width: unset !important;
+}
+
+#tabbrowser-tabs:not([overflow])[orient="vertical"] .tabbrowser-tab[selected][fadein]:not([pinned]) {
+	max-width: unset !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab .tab-background[selected] {
+	background-color: var(--lwt-selected-tab-background-color) !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab .tab-background:not([selected]) {
+	background-color: var(--lwt-accent-color) !important;
+}
+
+#navigator-toolbox #nav-bar {
+  padding-right: 8px !important;
+}

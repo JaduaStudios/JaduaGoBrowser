@@ -18,9 +18,9 @@
 }
 
 #browser #TabsToolbar .titlebar-spacer,
-#browser #TabsToolbar .titlebar-buttonbox-container,
+#TabsToolbar .titlebar-buttonbox-container,
 #browser #TabsToolbar #alltabs-button {
-  display: none;
+  display: none !important;
 }
 
 #navigator-toolbox-background[verticaltabs='true'] #titlebar {

@@ -49,3 +49,11 @@ input {
   margin: 5px;
     margin-bottom: 5px;
 }
+
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab[fadein]:not([style^="max-width"]) {
+	max-width: unset !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] .tab-background {
+  display: none !important;
+}

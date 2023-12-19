@@ -10,3 +10,11 @@
 		background-color: var(--new-tab-background) !important;
 	} 
 }
+
+#browser #tabbrowser-tabs[orient="vertical"] {
+	padding: 10px !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] .tab-close-button {
+  padding: 10px !important;
+}

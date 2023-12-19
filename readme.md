@@ -1,5 +1,5 @@
 # Jadua Go Browser
-Introducing Jadua Go, the browser redefining the way you surf the web. Engineered for speed, efficiency, and a touch of cool. Say goodbye to the burden of Chrome, Edge & Opera and hello to a sleek, organized browsing experience.
+Introducing Jadua Go, the browser redefining the way you surf the web. Engineered for speed, efficiency, and a touch of cool. Say goodbye to the burden of Chrome, Edge & Opera and hello to a sleek, organised browsing experience.
 
 [![Dev builds](https://github.com/JaduaStudios/JaduaGoBrowser/actions/workflows/dev.yml/badge.svg)](https://github.com/JaduaStudios/JaduaGoBrowser/actions/workflows/dev.yml) ![Current engine version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fpulse-browser%2Fbrowser%2Falpha%2Fgluon.json&query=version.version&style=flat-square&label=Engine%20version)
 
@@ -26,4 +26,4 @@ Scroll through your open tabs with a flick of the mouse wheel, making tab manage
 - Including [uBlock Origin](https://github.com/gorhill/uBlock)
 - Vertical tabs made available by the team at [Fushra Pulse](https://github.com/pulse-browser)
 
-Elevate your browsing game with Jadua Go – where speed meets style, and every click feels like a victory. It's not just a browser; it's your gateway to a faster, safer, and more personalized online world.
+Elevate your browsing game with Jadua Go – where speed meets style, and every click feels like a victory. It's not just a browser; it's your gateway to a faster, safer, and more personalised online world.

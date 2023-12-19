@@ -1,10 +1,13 @@
 diff --git a/browser/app/profile/firefox.js b/browser/app/profile/firefox.js
-index a7d255df89a42876d50f6e0648f7a397a9740141..d31c25f9d212efbb8a2107783206dd5c57eeb8cc 100644
+index 8a0558ae2e2d694fdb2a8ed20e712216edd046d1..249c869e70f449bb19710db70a3ef06727826ebe 100644
 --- a/browser/app/profile/firefox.js
 +++ b/browser/app/profile/firefox.js
-@@ -2836,3 +2836,5 @@ pref("cookiebanners.ui.desktop.cfrVariant", 0);
- #ifdef NIGHTLY_BUILD
-   pref("dom.security.credentialmanagement.identity.enabled", true);
+@@ -19,6 +19,8 @@
+   #endif
  #endif
-+
+ 
 +#include pulse-browser.js
++
+ pref("browser.hiddenWindowChromeURL", "chrome://browser/content/hiddenWindowMac.xhtml");
+ 
+ // Enables some extra Extension System Logging (can reduce performance)

@@ -5,7 +5,7 @@
   "binaryName": "jadua-go-browser",
   "version": {
     "product": "firefox",
-    "version": "119.0.1"
+    "version": "120.0.1"
   },
   "buildOptions": {
     "windowsUseSymbolicLinks": false
@@ -33,7 +33,7 @@
       "brandShortName": "Jadua Go Browser",
       "brandFullName": "Jadua Go Browser Dev",
       "release": {
-        "displayVersion": "0.1.5-2",
+        "displayVersion": "0.2.0",
         "github": {
           "repo": "JaduaStudios/JaduaGoBrowser"
         },
