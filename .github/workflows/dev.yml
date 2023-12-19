@@ -2,6 +2,11 @@ name: Dev builds
 
 on:
   workflow_dispatch:
+    inputs:
+      bumpVersion:
+        type: boolean
+        description: Bump version before building
+        default: true
 
 jobs:
   build-data:
@@ -14,23 +19,50 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 16
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: recursive
           token: ${{ secrets.ROBOT_TOKEN }}
 
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('pnpm-lock.yaml', '*/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
 
       - name: Setup gluon
         run: |
           npm i -g gluon-build@next
 
       - name: Bump version
+        if: ${{ inputs.bumpVersion }}
         run: |
-          gluon ci --brand dev --bump prerelease
+          pnpm gluon ci --brand dev --bump prerelease
+
+      - name: Brand
+        if: ${{ !inputs.bumpVersion }}
+        run: |
+          pnpm gluon ci --brand dev
 
       - name: Debug
         run: |
@@ -77,21 +109,31 @@ jobs:
           version: 8
           run_install: false
 
-      - name: Install dependencies
-        run: npm install
-        
-      - name: Setup gluon
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
         run: |
-          npm i -g gluon-build@next
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('pnpm-lock.yaml', '*/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Load gluon CI setup
-        run: gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
+        run: pnpm gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
 
       - name: Download firefox source and dependancies
-        run: gluon download --verbose
+        run: pnpm download --verbose
 
       - name: Import
-        run: gluon import --verbose
+        run: pnpm imp --verbose
 
       - name: Compress
         run: |
@@ -101,14 +143,14 @@ jobs:
           cd ..
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: jadua-go-browser.source.tar.gz
           path: ./jadua-go-browser.source.tar.gz
 
   linux:
     runs-on: ubuntu-latest
-    needs: [build-data]
+    needs: [source, build-data]
 
     steps:
       - name: Install Node.js
@@ -189,20 +231,22 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: npm install
-        
-      - name: Setup gluon
-        run: |
-          npm i -g gluon-build@next
+        run: pnpm install
 
       - name: Load gluon CI setup
-        run: gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
+        run: pnpm gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
 
-      - name: Download firefox source and dependencies
-        run: gluon download
+      - name: Download source
+        uses: actions/download-artifact@v3
+        with:
+          name: jadua-go-browser.source.tar.gz
 
-      - name: Import
-        run: gluon import
+      - name: Unpack source
+        shell: bash
+        run: |
+          rm -rf engine
+          mkdir engine
+          tar -xf jadua-go-browser.source.tar.gz -C ./engine
 
       - name: Bootstrap
         run: |
@@ -210,11 +254,11 @@ jobs:
           ./mach --no-interactive bootstrap --application-choice browser
           cd ..
 
-      - name: Build
-        run: gluon build --verbose --skip-patch-check
+      - name: Gluon build
+        run: pnpm build --verbose --skip-patch-check
 
       - name: Package
-        run: gluon package
+        run: pnpm package
 
       - name: Rename artifacts
         run: |
@@ -241,13 +285,13 @@ jobs:
 
   mac:
     runs-on: macos-13
-    needs: [build-data]
+    needs: [source, build-data]
 
     steps:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 16
 
       - uses: actions/checkout@v3
         with:
@@ -299,29 +343,34 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: npm install
-        
-      - name: Setup gluon
-        run: |
-          npm i -g gluon-build@next
+        run: pnpm install
 
       - name: Load gluon CI setup
-        run: gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
+        run: pnpm gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
 
-      - name: Download firefox source and dependancies
-        run: gluon download
+      - name: Download source
+        uses: actions/download-artifact@v3
+        with:
+          name: jadua-go-browser.source.tar.gz
 
-      - name: Import
-        run: gluon import
+      - name: Unpack source
+        shell: bash
+        run: |
+          rm -rf engine
+          mkdir engine
+          tar -xf jadua-go-browser.source.tar.gz -C ./engine
 
       - name: Bootstrap
-        run: gluon bootstrap
+        run: |
+          cd engine
+          ./mach --no-interactive bootstrap --application-choice browser
+          cd ..
 
       - name: Gluon build
-        run: gluon build --verbose
+        run: pnpm build --verbose --skip-patch-check
 
       - name: Package
-        run: gluon package
+        run: pnpm gluon package
 
       - name: Rename artifacts
         run: |
