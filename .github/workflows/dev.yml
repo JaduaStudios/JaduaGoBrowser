@@ -91,7 +91,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 16
 
       - uses: actions/checkout@v3
         with:
@@ -139,7 +139,7 @@ jobs:
         run: |
           cd engine
           # -h is used to dereference symlinks
-          tar --use-compress-program=zstd -hcf ../jadua-go-browser.source.tar.gz *
+          tar --use-compress-program=zstd -hcf ../jadua-go-browser.source.tar.gz .
           cd ..
 
       - name: Upload artifact
