@@ -1,0 +1,78 @@
+diff --git a/dist/commands/download/firefox.js b/dist/commands/download/firefox.js
+index 93e14e5abf11963b47f657a61f4e0a7e5bf1cf42..74165f84cefca6ddec652ecc4533eccbbf5b74a1 100644
+--- a/dist/commands/download/firefox.js
++++ b/dist/commands/download/firefox.js
+@@ -52,14 +52,14 @@ async function unpackFirefoxSource(name) {
+     }
+     await (0, execa_1.default)(tarExec, [
+         '--strip-components=1',
+-        process.platform == 'win32' ? '--force-local' : undefined,
++        //process.platform == 'win32' ? '--force-local' : undefined,
+         '-xf',
+         (0, fs_1.windowsPathToUnix)((0, node_path_1.resolve)(constants_1.MELON_TMP_DIR, name)),
+         '-C',
+         (0, fs_1.windowsPathToUnix)(constants_1.ENGINE_DIR),
+     ].filter(Boolean), {
+         // HACK: Use bash shell on windows to get a sane version of tar that works
+-        shell: constants_1.BASH_PATH || false,
++        shell: /*constants_1.BASH_PATH || */false,
+     });
+ }
+ async function downloadFirefoxSource(version) {
+diff --git a/dist/commands/license-check.js b/dist/commands/license-check.js
+index e8672b09fcd704a66e2fed3872eae91295796a34..9152903d72472d6cb6ddfd11eba9e0a5a70cb83b 100644
+--- a/dist/commands/license-check.js
++++ b/dist/commands/license-check.js
+@@ -46,7 +46,7 @@ async function isValidLicense(path) {
+     const hasLicense = (lines.includes('the Mozilla Public') &&
+         lines.includes('If a copy of the MPL was') &&
+         lines.includes('http://mozilla.org/MPL/2.0/')) ||
+-        licenseIgnore.test(contents.join('\n'));
++        contents[0].includes('Ignore license in this file');
+     return hasLicense;
+ }
+ exports.isValidLicense = isValidLicense;
+diff --git a/dist/constants/index.js b/dist/constants/index.js
+index 938dc8f591c32abc3b54da8a1ae285508a441d47..11ea7eef5da58c3555ee86fa6cf95433305ff076 100644
+--- a/dist/constants/index.js
++++ b/dist/constants/index.js
+@@ -68,9 +68,15 @@ if (process.platform == 'win32') {
+         exports.BASH_PATH = (0, node_path_1.resolve)(gitPath, '../..', 'bin/bash.exe');
+         if (!(0, node_fs_1.existsSync)(exports.BASH_PATH)) {
+             log_1.log.debug(`Could not find bash at ${exports.BASH_PATH}`);
+-            exports.BASH_PATH = execa_1.default.sync('where.exe bash.exe').stdout.toString();
+-            if (!exports.BASH_PATH.includes('bash.exe')) {
+-                log_1.log.error('Could not find bash, aborting');
++            exports.BASH_PATH = (0, node_path_1.resolve)(gitPath, '../../..', 'bin/bash.exe');
++            if (!(0, node_fs_1.existsSync)(exports.BASH_PATH)) {
++                exports.BASH_PATH = (0, node_path_1.resolve)('C:/msys64/usr/bin/bash.exe');
++                if (!(0, node_fs_1.existsSync)(exports.BASH_PATH)) {
++                    exports.BASH_PATH = execa_1.default.sync('where.exe bash.exe').stdout.toString();
++                    if (!exports.BASH_PATH.includes('bash.exe')) {
++                        log_1.log.error('Could not find bash, aborting');
++                    }
++                }
+             }
+         }
+         log_1.log.debug(`Found bash at ${exports.BASH_PATH}`);
+diff --git a/dist/constants/mozconfig.js b/dist/constants/mozconfig.js
+index 0bc8300a6909ce5730b368569a745ab194cf0189..b1418b324d09944039d5cddc438b97ff6c479111 100644
+--- a/dist/constants/mozconfig.js
++++ b/dist/constants/mozconfig.js
+@@ -26,6 +26,7 @@ ac_add_options --disable-optimize`;
+             buildOptions = `# Release build settings
+ ac_add_options --disable-debug
+ ac_add_options --enable-optimize
++ac_add_options --enable-rust-simd
+ ${platformOptimize} # Taken from waterfox`;
+             break;
+         }
+@@ -54,7 +55,7 @@ function getPlatformOptimiseFlags() {
+     let optimiseFlags = `# Unknown platform ${process.platform}`;
+     switch (process.platform) {
+         case 'linux': {
+-            optimiseFlags = `ac_add_options --enable-optimize="-O3 -march=haswell -mtune=haswell -w"`;
++            optimiseFlags = `ac_add_options --enable-optimize="-O3 -march=nehalem -mtune=znver3 -w"`;
+             break;
+         }
+         case 'darwin': {
