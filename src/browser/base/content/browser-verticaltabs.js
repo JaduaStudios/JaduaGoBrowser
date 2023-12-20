@@ -189,6 +189,14 @@ var VerticalTabs = {
     )
     this.tabsToolbar?.removeAttribute('flex')
     changeXULTagName('vbox', this.tabsToolbar)
+	
+	// Fix close buttons for themes
+	box = document.querySelector('#nav-bar .titlebar-buttonbox-container');
+	navbar = document.querySelector('#nav-bar');
+
+	navbar.setAttribute('style', 'padding-right: 5px !important');
+
+	box.setAttribute('style', 'display:flex !important');
 
     this._widthObserver = new MutationObserver(this._mutationObserverCallback)
     if (this.tabsToolbar)
