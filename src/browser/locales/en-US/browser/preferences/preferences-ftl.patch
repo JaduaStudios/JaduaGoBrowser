@@ -1,8 +1,17 @@
 diff --git a/browser/locales/en-US/browser/preferences/preferences.ftl b/browser/locales/en-US/browser/preferences/preferences.ftl
-index 829c18c5e16379fede509970fe056a52a16acf56..62c1716ff105c78ee1ec78dba3f7f2e8d4ae95f4 100644
+index 077f77667a63f3c4b2079c1219e37491d0082d24..2f90b182cb7ad9599a41c9c599cf06009efc20c3 100644
 --- a/browser/locales/en-US/browser/preferences/preferences.ftl
 +++ b/browser/locales/en-US/browser/preferences/preferences.ftl
-@@ -1551,3 +1551,21 @@ preferences-doh-manage-exceptions =
+@@ -331,7 +331,7 @@ choose-button =
+     .label = Choose…
+     .accesskey = o
+ 
+-choose-browser-language-description = Choose the languages used to display menus, messages, and notifications from { -brand-short-name }.
++choose-browser-language-description = Languages are currently limited to English (US) on { -brand-short-name }.
+ manage-browser-languages-button =
+   .label = Set Alternatives…
+   .accesskey = l
+@@ -1600,3 +1600,21 @@ preferences-doh-manage-exceptions =
  desktop-folder-name = Desktop
  downloads-folder-name = Downloads
  choose-download-folder-title = Choose Download Folder:
@@ -16,7 +25,7 @@ index 829c18c5e16379fede509970fe056a52a16acf56..62c1716ff105c78ee1ec78dba3f7f2e8
 +preferences-sidebar-active-tabs-description = When enabled, sidebar tabs will remain active even when closed. When disabled, sidebar tabs will be closed when you click on another tab.
 +
 +preferences-vertical-tabs-enabled =
-+    .label = Use vertical tabs (In dev)
++    .label = Vertical tabs (alpha) - Restart after changing this setting
 +preferences-vertical-tabs-collapse =
 +    .label = Collapse tabs
 +

@@ -1,5 +1,5 @@
 diff --git a/browser/app/profile/firefox.js b/browser/app/profile/firefox.js
-index 8a0558ae2e2d694fdb2a8ed20e712216edd046d1..249c869e70f449bb19710db70a3ef06727826ebe 100644
+index 29e5b7316f3549181f4a1415a8324e1bf81519a4..9c909e8e68fc435e4d24e7de4724f476b468b1d9 100644
 --- a/browser/app/profile/firefox.js
 +++ b/browser/app/profile/firefox.js
 @@ -19,6 +19,8 @@
@@ -10,4 +10,4 @@ index 8a0558ae2e2d694fdb2a8ed20e712216edd046d1..249c869e70f449bb19710db70a3ef067
 +
  pref("browser.hiddenWindowChromeURL", "chrome://browser/content/hiddenWindowMac.xhtml");
  
- // Enables some extra Extension System Logging (can reduce performance)
+ // Set add-ons abuse report related prefs specific to Firefox Desktop.

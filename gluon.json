@@ -5,7 +5,7 @@
   "binaryName": "jadua-go-browser",
   "version": {
     "product": "firefox",
-    "version": "120.0.1"
+    "version": "121.0"
   },
   "buildOptions": {
     "windowsUseSymbolicLinks": false
@@ -15,7 +15,7 @@
       "platform": "github",
       "id": "uBlock0@raymondhill.net",
       "repo": "gorhill/uBlock",
-      "version": "1.52.2",
+      "version": "1.54.0",
       "fileGlob": "uBlock0_*.firefox(.signed)?.xpi"
     },
     "sidebar-tabs": {
@@ -33,7 +33,7 @@
       "brandShortName": "Jadua Go Browser",
       "brandFullName": "Jadua Go Browser Dev",
       "release": {
-        "displayVersion": "0.2.1-16",
+        "displayVersion": "0.2.2",
         "github": {
           "repo": "JaduaStudios/JaduaGoBrowser"
         },
