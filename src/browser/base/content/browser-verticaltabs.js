@@ -232,7 +232,13 @@ var VerticalTabs = {
 
     this.arrowScrollbox?.setAttribute('orient', 'horizontal')
     this.tabBrowserTabs?.setAttribute('orient', 'horizontal')
+	
+	box = document.querySelector('#nav-bar .titlebar-buttonbox-container');
+	box.removeAttribute('style', 'display:flex !important');
 
+	navbar = document.querySelector('#nav-bar');
+	navbar.removeAttribute('style', 'padding-right: 5px !important');
+	
     document
       .getElementById('navigator-toolbox-background')
       ?.removeAttribute('verticaltabs')
