@@ -377,3 +377,7 @@ input {
 .card {
   border-radius: 15px;
 }
+
+#sidebar-spacer {
+  display: none !important;
+}
