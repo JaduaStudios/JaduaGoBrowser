@@ -25,7 +25,7 @@
       "version": "v0.6.4",
       "fileGlob": "release.zip"
     },
-	"GoPanic": {
+    "GoPanic": {
       "id": "gopanic@jaduastudios.com",
       "platform": "github",
       "repo": "JaduaStudios/GoPanic",
