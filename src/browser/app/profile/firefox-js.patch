@@ -1,13 +1,11 @@
 diff --git a/browser/app/profile/firefox.js b/browser/app/profile/firefox.js
-index 8a0558ae2e2d694fdb2a8ed20e712216edd046d1..249c869e70f449bb19710db70a3ef06727826ebe 100644
+index 29e5b7316f3549181f4a1415a8324e1bf81519a4..58b672329b5c0596b773db659220a59de5e85482 100644
 --- a/browser/app/profile/firefox.js
 +++ b/browser/app/profile/firefox.js
-@@ -19,6 +19,8 @@
-   #endif
- #endif
- 
-+#include pulse-browser.js
+@@ -2937,3 +2937,5 @@ pref("browser.mailto.dualPrompt.os", false);
+ // When visiting a site which uses registerProtocolHandler: Ask the user to set Firefox as
+ // default mailto handler.
+ pref("browser.mailto.prompt.os", true);
 +
- pref("browser.hiddenWindowChromeURL", "chrome://browser/content/hiddenWindowMac.xhtml");
- 
- // Enables some extra Extension System Logging (can reduce performance)
++#include pulse-browser.js
+\ No newline at end of file
