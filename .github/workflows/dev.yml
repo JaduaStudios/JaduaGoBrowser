@@ -305,7 +305,6 @@ jobs:
       - name: Install system dependencies
         run: |
           brew install python@3.11
-          brew uninstall python@3.12
           brew unlink python@3.12 && brew link --overwrite python@3.11
           brew install cairo sccache gnu-tar mercurial
           sudo pip install setuptools
@@ -365,7 +364,7 @@ jobs:
       - name: Bootstrap
         run: |
           cd engine
-          ./mach --no-interactive bootstrap --application-choice browser
+          python3.11 ./mach --no-interactive bootstrap --application-choice browser
           cd ..
 
       - name: Gluon build
