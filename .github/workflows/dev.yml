@@ -361,9 +361,10 @@ jobs:
           tar -xf jadua-go-browser.source.tar.gz -C ./engine
 
       - name: Bootstrap
+        continue-on-error: true
         run: |
           cd engine
-          python3.11 ./mach --no-interactive bootstrap --application-choice browser
+          python3.11 ./mach --no-interactive bootstrap --application-choice browser --vcs=git
           cd ..
 
       - name: Gluon build
