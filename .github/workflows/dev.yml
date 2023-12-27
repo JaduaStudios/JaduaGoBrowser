@@ -364,7 +364,7 @@ jobs:
         continue-on-error: true
         run: |
           cd engine
-          python3.11 ./mach --no-interactive bootstrap --application-choice browser --vcs=git
+          python3.11 ./mach --no-interactive bootstrap --application-choice browser
           cd ..
 
       - name: Gluon build
