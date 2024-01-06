@@ -296,7 +296,11 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: recursive
-
+          
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          
       - name: Setup git
         run: |
           git config --global user.email "jadua1010@users.noreply.github.com"
@@ -304,7 +308,6 @@ jobs:
 
       - name: Install system dependencies
         run: |
-          brew unlink python@3.12 && brew link --overwrite python@3.12
           brew install cairo sccache gnu-tar mercurial
           sudo pip install setuptools
 
@@ -364,7 +367,7 @@ jobs:
         continue-on-error: true
         run: |
           cd engine
-          python3.11 ./mach --no-interactive bootstrap --application-choice browser
+          ./mach --no-interactive bootstrap --application-choice browser
           cd ..
 
       - name: Gluon build
