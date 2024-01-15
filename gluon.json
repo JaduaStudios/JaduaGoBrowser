@@ -4,8 +4,8 @@
   "appId": "com.jadua.go",
   "binaryName": "jadua-go-browser",
   "version": {
-    "product": "firefox",
-    "version": "121.0.1"
+    "product": "firefox-beta",
+    "version": "122.0b9"
   },
   "buildOptions": {
     "windowsUseSymbolicLinks": false
@@ -24,6 +24,12 @@
       "repo": "Jadua1010/sidebar-tabs",
       "version": "v0.6.4",
       "fileGlob": "release.zip"
+    },
+    "youtube-adblocker-free": {
+      "id": "kananinirav0@hotmail.com",
+      "platform": "amo",
+      "amoId": "youtube-adblocker-free",
+      "version": "1.0"
     },
     "GoPanic": {
       "id": "gopanic@jaduastudios.com",
