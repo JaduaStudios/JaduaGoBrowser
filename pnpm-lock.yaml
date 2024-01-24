@@ -11,13 +11,13 @@ patchedDependencies:
 
 dependencies:
   gluon-build:
-    specifier: ^1.0.0-rc.5
+    specifier: 1.0.0-rc.5
     version: 1.0.0-rc.5(patch_hash=dktz5xzjqssgoas52lijthb754)
 
 devDependencies:
   gecko-types:
     specifier: github:quark-platform/gecko-types
-    version: github.com/quark-platform/gecko-types/e4efe38ce26c3617d7a3ecb13491bca2004e0377
+    version: github.com/quark-platform/gecko-types/015f4eddb9a02d5f60ef82bf04e7b78bbb15ffd6
 
 packages:
 
@@ -208,7 +208,7 @@ packages:
   /axios@0.21.4:
     resolution: {integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==}
     dependencies:
-      follow-redirects: 1.15.3
+      follow-redirects: 1.15.5
     transitivePeerDependencies:
       - debug
     dev: false
@@ -287,8 +287,8 @@ packages:
     engines: {node: ^12.20.0 || >=14}
     dev: false
 
-  /core-js-pure@3.34.0:
-    resolution: {integrity: sha512-pmhivkYXkymswFfbXsANmBAewXx86UBfmagP+w0wkK06kLsLlTK5oQmsURPivzMkIBQiYq2cjamcZExIwlFQIg==}
+  /core-js-pure@3.35.1:
+    resolution: {integrity: sha512-zcIdi/CL3MWbBJYo5YCeVAAx+Sy9yJE9I3/u9LkFABwbeaPhTMRWraM8mYFp9jW5Z50hOy7FVzCc8dCrpZqtIQ==}
     requiresBuild: true
     dev: false
 
@@ -354,8 +354,8 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /follow-redirects@1.15.3:
-    resolution: {integrity: sha512-1VzOtuEM8pC9SFU1E+8KfTjZyMztRsgEfwQl44z8A25uy13jSzTj6dyK2Df52iV0vgHCfBwLhDWevLn95w5v6Q==}
+  /follow-redirects@1.15.5:
+    resolution: {integrity: sha512-vSFWUON1B+yAw1VN4xMfxgn5fTUiaOzAJCKBwIIgT/+7CuGy9+r+5gITvP62j3RmaD5Ph65UaERdOSRGUzZtgw==}
     engines: {node: '>=4.0'}
     peerDependencies:
       debug: '*'
@@ -530,7 +530,7 @@ packages:
   /modern-async@1.1.4:
     resolution: {integrity: sha512-jaZlzQB3W9PRF43+T144lYWb7UaTapJM6MZxNGLqpgPVal6uV4ixkR+t/1H1/7UM03jDu5BnvAYDqeawvL7kiw==}
     dependencies:
-      core-js-pure: 3.34.0
+      core-js-pure: 3.35.1
       nanoassert: 2.0.0
     dev: false
 
@@ -542,8 +542,8 @@ packages:
     resolution: {integrity: sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==}
     dev: false
 
-  /node-abi@3.52.0:
-    resolution: {integrity: sha512-JJ98b02z16ILv7859irtXn4oUaFWADtvkzy2c0IAatNVX2Mc9Yoh8z6hZInn3QwvMEYhHuQloYi+TTQy67SIdQ==}
+  /node-abi@3.54.0:
+    resolution: {integrity: sha512-p7eGEiQil0YUV3ItH4/tBb781L5impVmmx2E9FRKF7d18XXzp4PGT2tdYMFY6wQqgxD0IwNZOiSJ0/K0fSi/OA==}
     engines: {node: '>=10'}
     dependencies:
       semver: 7.5.4
@@ -609,7 +609,7 @@ packages:
       minimist: 1.2.8
       mkdirp-classic: 0.5.3
       napi-build-utils: 1.0.2
-      node-abi: 3.52.0
+      node-abi: 3.54.0
       pump: 3.0.0
       rc: 1.2.8
       simple-get: 4.0.1
@@ -831,8 +831,8 @@ packages:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
     dev: false
 
-  github.com/quark-platform/gecko-types/e4efe38ce26c3617d7a3ecb13491bca2004e0377:
-    resolution: {tarball: https://codeload.github.com/quark-platform/gecko-types/tar.gz/e4efe38ce26c3617d7a3ecb13491bca2004e0377}
+  github.com/quark-platform/gecko-types/015f4eddb9a02d5f60ef82bf04e7b78bbb15ffd6:
+    resolution: {tarball: https://codeload.github.com/quark-platform/gecko-types/tar.gz/015f4eddb9a02d5f60ef82bf04e7b78bbb15ffd6}
     name: gecko-types
     version: 1.0.0
     dev: true
