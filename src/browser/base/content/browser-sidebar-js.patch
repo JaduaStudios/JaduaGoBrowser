@@ -1,5 +1,5 @@
 diff --git a/browser/base/content/browser-sidebar.js b/browser/base/content/browser-sidebar.js
-index f5def93f56fc8d02d6ae6834ca8d2df0aead2379..b607ca233ed7219bff900a98fd1e730968ffe7a4 100644
+index fe1565f1a7e53ee1bbd12928ed23f3d74d869df4..f9b232576745ce5ef4a05d9a1d8fc6580f0dfba6 100644
 --- a/browser/base/content/browser-sidebar.js
 +++ b/browser/base/content/browser-sidebar.js
 @@ -11,6 +11,9 @@ var SidebarUI = {
@@ -369,7 +369,7 @@ index f5def93f56fc8d02d6ae6834ca8d2df0aead2379..b607ca233ed7219bff900a98fd1e7309
      // until about:blank has loaded (which does not happen as long as the
      // element is hidden).
 -    this.browser.setAttribute("src", "about:blank");
--    this.browser.docShell.createAboutBlankContentViewer(null, null);
+-    this.browser.docShell.createAboutBlankDocumentViewer(null, null);
 +    if (!this._keepTabsActivePref) {
 +      this.browser.setAttribute("src", "about:blank");
 +      this.browser.docShell.createAboutBlankContentViewer(null, null);
@@ -377,7 +377,7 @@ index f5def93f56fc8d02d6ae6834ca8d2df0aead2379..b607ca233ed7219bff900a98fd1e7309
  
      this._box.removeAttribute("checked");
      this._box.hidden = this._splitter.hidden = true;
-+    this._sidebarIcons.removeAttribute("checked");
++	this._sidebarIcons.removeAttribute("checked");
  
      let selBrowser = gBrowser.selectedBrowser;
      selBrowser.focus();

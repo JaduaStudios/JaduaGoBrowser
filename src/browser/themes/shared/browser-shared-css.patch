@@ -1,5 +1,5 @@
 diff --git a/browser/themes/shared/browser-shared.css b/browser/themes/shared/browser-shared.css
-index 50d83deb36df9ccb52ba8fa10732dfc2d58ffc7f..82cfd9a498445dc79e835c62defca6b107b73ba9 100644
+index 222fda621cd1178fa5be4afde596a3bbc50f6c6c..6503e540545e6b9ab5ac90b49c220823117e874d 100644
 --- a/browser/themes/shared/browser-shared.css
 +++ b/browser/themes/shared/browser-shared.css
 @@ -24,6 +24,10 @@
@@ -13,14 +13,12 @@ index 50d83deb36df9ccb52ba8fa10732dfc2d58ffc7f..82cfd9a498445dc79e835c62defca6b1
  @namespace html url("http://www.w3.org/1999/xhtml");
  
  :root {
-@@ -256,7 +260,9 @@
- }
+@@ -306,7 +310,7 @@
+   }
  
- :root[BookmarksToolbarOverlapsBrowser] .newTabBrowserPanel,
--:root[BookmarksToolbarOverlapsBrowser] #sidebar-box {
-+:root[BookmarksToolbarOverlapsBrowser] #sidebar-box,
-+:root[BookmarksToolbarOverlapsBrowser] #browser #TabsToolbar,
-+:root[BookmarksToolbarOverlapsBrowser] #sidebar-container {
-   /* Make room for the bookmarks toolbar so that it won't visibly overlap the
-      new tab page and sidebar contents. We do not put this padding on #browser
-      as that would resize the content area for all tabs including background
+   .newTabBrowserPanel,
+-  #sidebar-box {
++  #sidebar-box, #browser #TabsToolbar, #sidebar-container {
+     /* Make room for the bookmarks toolbar so that it won't visibly overlap the
+        new tab page and sidebar contents. We do not put this padding on #browser
+        as that would resize the content area for all tabs including background

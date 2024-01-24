@@ -2,6 +2,7 @@ ac_add_options --target=x86_64-pc-mingw32
 ac_add_options --enable-js-shell 
 ac_add_options --enable-rust-simd 
 ac_add_options --enable-crashreporter 
+ac_add_options --with-ccache=sccache
 export MAKENSISU="C:\\Program Files (x86)\\NSIS\\Bin\\makensis.exe"
 
 # Disable telemetry and tracking

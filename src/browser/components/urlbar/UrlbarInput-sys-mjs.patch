@@ -1,13 +1,13 @@
 diff --git a/browser/components/urlbar/UrlbarInput.sys.mjs b/browser/components/urlbar/UrlbarInput.sys.mjs
-index fabe5a334b5c2e2f41ddd6d7b871a3a68affae28..0e80439af0ec560b8eddd1b4657956097cee968a 100644
+index dd362cdd8c15ae690f7e54db5c571e262e5eb83e..8459a0ac7eb083597a99f012e26bd09c57f4e40a 100644
 --- a/browser/components/urlbar/UrlbarInput.sys.mjs
 +++ b/browser/components/urlbar/UrlbarInput.sys.mjs
-@@ -398,6 +398,16 @@ export class UrlbarInput {
-           !dueToSessionRestore &&
+@@ -455,6 +455,16 @@ export class UrlbarInput {
            (!this.window.isBlankPageURL(uri.spec) ||
-             uri.schemeIs("moz-extension"));
+             uri.schemeIs("moz-extension") ||
+             isInitialPageControlledByWebContent);
 +
-+      // Check if the addon is tabliss (our new tab) and stop if from showing up
++	  // Check if the addon is tabliss (our new tab) and stop if from showing up
 +      // as such
 +      try {
 +        const { WebExtensionPolicy } = Cu.getGlobalForObject(Services);

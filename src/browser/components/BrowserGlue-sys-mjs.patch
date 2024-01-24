@@ -1,11 +1,12 @@
 diff --git a/browser/components/BrowserGlue.sys.mjs b/browser/components/BrowserGlue.sys.mjs
-index 92acb0c98ca47dee170a723ca64a936ff47fd80c..f8ecf6643cab815de9316decc0861b00fdfe9db4 100644
+index f2476ff8a4bd86f8c33254540498245830dc8444..4adc7c5f7110ddb29b550fe8694cf66fb6e315fa 100644
 --- a/browser/components/BrowserGlue.sys.mjs
 +++ b/browser/components/BrowserGlue.sys.mjs
-@@ -569,14 +569,8 @@ let JSWINDOWACTORS = {
+@@ -581,15 +581,8 @@ let JSWINDOWACTORS = {
      includeChrome: true,
      allFrames: true,
      matches: [
+-      "about:asrouter",
 -      "about:home",
 -      "about:newtab",
 -      "about:welcome",
@@ -15,11 +16,11 @@ index 92acb0c98ca47dee170a723ca64a936ff47fd80c..f8ecf6643cab815de9316decc0861b00
 -      "about:firefoxview",
 -      "about:firefoxview-next",
 +      "about:*",
-+      "chrome://*"
++      "chrome://*",
      ],
    },
  
-@@ -4406,6 +4400,23 @@ BrowserGlue.prototype = {
+@@ -4469,6 +4462,23 @@ BrowserGlue.prototype = {
    },
  
    async _maybeShowDefaultBrowserPrompt() {
@@ -43,7 +44,7 @@ index 92acb0c98ca47dee170a723ca64a936ff47fd80c..f8ecf6643cab815de9316decc0861b00
      // Highest priority is about:welcome window modal experiment
      // Second highest priority is the upgrade dialog, which can include a "primary
      // browser" request and is limited in various ways, e.g., major upgrades.
-@@ -4864,6 +4875,18 @@ BrowserGlue.prototype = {
+@@ -4927,6 +4937,18 @@ BrowserGlue.prototype = {
      "nsIObserver",
      "nsISupportsWeakReference",
    ]),
@@ -56,7 +57,7 @@ index 92acb0c98ca47dee170a723ca64a936ff47fd80c..f8ecf6643cab815de9316decc0861b00
 +  */
 +  _showWelcomeDialog() {
 +    lazy.BrowserWindowTracker.getTopWindow().gDialogBox.open(
-+    "chrome://browser/content/welcome/welcome.html"
++   "chrome://browser/content/welcome/welcome.html"
 +    );
 +  },
  };
