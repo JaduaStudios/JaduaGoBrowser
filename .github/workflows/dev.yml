@@ -305,9 +305,9 @@ jobs:
       - name: Install system dependencies
         run: |
           brew unlink python@3.12 && brew link --overwrite python@3.12
-          brew unlink /usr/local/bin/2to3
           brew install cairo sccache gnu-tar mercurial
           sudo pip install setuptools
+          rm '/usr/local/bin/2to3-3.12'
 
       - name: Force usage fo gnu-tar
         run: |
