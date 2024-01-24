@@ -297,10 +297,6 @@ jobs:
         with:
           submodules: recursive
           
-      - uses: actions/setup-python@v4
-        with:
-          python-version: "3.12"
-          
       - name: Setup git
         run: |
           git config --global user.email "jadua1010@users.noreply.github.com"
