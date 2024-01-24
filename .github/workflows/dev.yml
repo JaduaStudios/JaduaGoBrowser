@@ -308,6 +308,7 @@ jobs:
 
       - name: Install system dependencies
         run: |
+          brew link --overwrite python@3.11
           brew install cairo sccache gnu-tar mercurial
           sudo pip install setuptools
 
