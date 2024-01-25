@@ -303,9 +303,13 @@ jobs:
           git config --global user.name "Jadua1010"
 
       - name: Install system dependencies
+        continue-on-error: true
         run: |
+          brew unlink python@3.12 && brew link --overwrite python@3.12
+          brew install cairo sccache gnu-tar mercurial
+          sudo pip install setuptools
           rm '/usr/local/bin/2to3'
-          rm '/usr/local/bin/2to3.11
+          rm '/usr/local/bin/2to3.11'
           rm '/usr/local/bin/idle3'
           rm '/usr/local/bin/idle3.11'
           rm '/usr/local/bin/pydoc3'
@@ -313,9 +317,6 @@ jobs:
           rm '/usr/local/bin/python3'
           rm '/usr/local/bin/python3-config'
           rm '/usr/local/bin/python3.11-config'
-          brew unlink python@3.12 && brew link --overwrite python@3.12
-          brew install cairo sccache gnu-tar mercurial
-          sudo pip install setuptools
           
       - name: Force usage fo gnu-tar
         run: |
