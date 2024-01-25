@@ -19,11 +19,11 @@
       "fileGlob": "uBlock0_*.firefox(.signed)?.xpi"
     },
     "sidebar-tabs": {
-      "id": "sidebartabs@browser.fushra.com",
       "platform": "github",
+      "id": "sidebartabs@browser.fushra.com",
       "repo": "Jadua1010/sidebar-tabs",
-      "version": "v0.6.4",
-      "fileGlob": "release.zip"
+      "version": "v0.6.5",
+      "fileGlob": "release.xpi"
     },
     "youtube-adblocker-free": {
       "id": "kananinirav0@hotmail.com",
@@ -35,8 +35,8 @@
       "id": "gopanic@jaduastudios.com",
       "platform": "github",
       "repo": "JaduaStudios/GoPanic",
-      "version": "v0.1.0",
-      "fileGlob": "release.zip"
+      "version": "v0.1.1",
+      "fileGlob": "release.xpi"
     }
   },
   "brands": {
@@ -46,7 +46,7 @@
       "brandShortName": "Jadua Go Browser",
       "brandFullName": "Jadua Go Browser Dev",
       "release": {
-        "displayVersion": "0.2.7-14",
+        "displayVersion": "0.2.8-0",
         "github": {
           "repo": "JaduaStudios/JaduaGoBrowser"
         },

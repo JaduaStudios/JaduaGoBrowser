@@ -379,7 +379,7 @@ Order of Toolbars
 }
 
 .browser-toolbar {
-  padding-top: 5px;
+  padding-top: 5px !important;
 }
 
 /*=====================================================================

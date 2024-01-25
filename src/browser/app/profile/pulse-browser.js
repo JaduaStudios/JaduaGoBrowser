@@ -9,6 +9,12 @@
 #include smooth-fox.js
 #include fast-fox.js
 
+// Jadua Browser Mods
+pref("app.support.baseURL", "https://www.jaduastudios.com/contact");
+pref("extensions.install_origins.enabled", true);
+pref("browser.newtabpage.activity-stream.feeds.section.highlights", true);
+pref("browser.newtabpage.activity-stream.feeds.topsites", true);
+
 // Prefs from browser/branding/unofficial/prefs/firefox-branding.js:
 
 // The time interval between checks for a new version (in seconds)
@@ -66,6 +72,7 @@ pref('media.videocontrols.picture-in-picture.audio-toggle.enabled', true);
 // be provided with permissions without asking
 // TODO: Documentation in gluon for preference
 pref('extensions.installedDistroAddon.extension@tabliss.io', true);
+pref('extensions.installedDistroAddon.extension@tabliss.io', true);
 
 pref('browser.discovery.enabled', false);
 pref('svg.context-properties.content.enabled', true);
@@ -93,8 +100,8 @@ pref("extensions.systemAddon.update.url", "https://goupdate.jaduastudios.com/bro
 pref("extensions.systemAddon.update.enabled", true);
 
 //Update Routes (Download page for manual download and Temperoraliy Discord Invite Link for Release Notes)
-pref("app.update.url.manual", "https://jaduastudios.com/games");
-pref("app.update.url.details", "https://jaduastudios.com/games");
+pref("app.update.url.manual", "https://github.com/JaduaStudios/JaduaGoBrowser/releases/tag/");
+pref("app.update.url.details", "https://www.jaduastudios.com/jadua-go");
 pref("app.releaseNotesURL", "https://github.com/JaduaStudios/JaduaGoBrowser/commits/main");
 pref("app.releaseNotesURL.aboutDialog", "https://github.com/JaduaStudios/JaduaGoBrowser/commits/main");
 
