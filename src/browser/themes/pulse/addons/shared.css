@@ -329,7 +329,7 @@ menupopup, panel {
 
 menupopup, panel {
   &::part(content) {
-    border-radius: 15px !important;
+    border-radius: 12px !important;
 	animation: fadeIn 0.5s !important;
 	transition: 0.5s;
 	background: var(--input-bgcolor);

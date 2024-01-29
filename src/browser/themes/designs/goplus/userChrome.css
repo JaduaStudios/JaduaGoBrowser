@@ -829,6 +829,13 @@ menupopup :-moz-any(menu, menuitem) {
   padding-bottom: 4px !important;
 }
 
+menupopup, panel {
+  &::part(content)
+{
+    border: 1px solid var(--firefoxcss-shortcut-item-context-menu-border) !important;
+  }
+}
+
 @media (-moz-platform: windows) {
   #context-navigation
     > .menuitem-iconic[_moz-menuactive="true"]
@@ -879,7 +886,7 @@ menuseparator#context-sep-navigation {
 }
 
 #context-navigation:not([hidden]) {
-  background-color: var(--firefoxcss-context-menu-top-color) !important;
+  background-color: transparent;
   padding: 1px 4px 1px !important;
   border-top-left-radius: 8px !important;
   border-top-right-radius: 8px !important;
