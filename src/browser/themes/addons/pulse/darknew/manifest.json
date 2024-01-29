@@ -31,7 +31,7 @@
       "toolbar": "rgb(29, 33, 40)", // Grey 900
       "toolbar_top_separator": "transparent",
       "toolbar_bottom_separator": "rgb(29, 33, 40)", // Grey 900
-      "toolbar_field": "rgba(18, 22, 28, 0.9)", // Grey 850 
+      "toolbar_field": "rgba(18, 22, 28, 0.98)", // Grey 850 
       "toolbar_field_border": "transparent",
       "toolbar_field_text": "rgb(232, 241, 255)", // Grey 100
       "toolbar_field_focus": "rgb(43, 51, 64)", // Grey 800

@@ -1,5 +1,5 @@
 diff --git a/browser/base/content/browser-sidebar.js b/browser/base/content/browser-sidebar.js
-index fe1565f1a7e53ee1bbd12928ed23f3d74d869df4..f9b232576745ce5ef4a05d9a1d8fc6580f0dfba6 100644
+index fe1565f1a7e53ee1bbd12928ed23f3d74d869df4..03fbb92fadc19b8077bc8391d7af7e2506eb951f 100644
 --- a/browser/base/content/browser-sidebar.js
 +++ b/browser/base/content/browser-sidebar.js
 @@ -11,6 +11,9 @@ var SidebarUI = {
