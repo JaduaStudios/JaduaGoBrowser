@@ -479,7 +479,6 @@ about:config -> svg.context-properties.content.enabled -> true*/
   --autocomplete-popup-highlight-background: var(
     --firefoxcss-url-autocomplete-highlight
   ) !important;
-  border: 0 !important;
   background-color: var(--toolbar-field-background-color) !important;
 }
 
@@ -490,6 +489,21 @@ about:config -> svg.context-properties.content.enabled -> true*/
 /* Megabar */
 #urlbar[breakout] {
   height: auto !important;
+}
+
+#urlbar[breakout][breakout-extend][open]:not(#urlbar-input) {
+  animation: slideDown 0.15s;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 #urlbar[breakout][breakout-extend][open] {
