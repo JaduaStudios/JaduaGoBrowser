@@ -29,6 +29,17 @@
 //
 // TODO: Add a UI / pref section to select preferred scrolling preferences
 
-// recommended for 60hz+ displays
+// Added Jadua configuration
 user_pref('apz.overscroll.enabled', true); // not DEFAULT on Linux
 user_pref('general.smoothScroll', true); // DEFAULT
+user_pref("general.smoothScroll.mouseWheel.durationMinMS", 80); // default=50
+user_pref("mousewheel.default.delta_multiplier_y", 260); // 250-400; adjust this number to your liking
+user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 12);
+user_pref("general.smoothScroll.msdPhysics.enabled", true);
+user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 800);
+user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 650);
+user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 25);
+user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", 5.0);
+user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 250);
+user_pref("general.smoothScroll.currentVelocityWeighting", 1.0);
+user_pref("general.smoothScroll.stopDecelerationWeighting", 1.0);
