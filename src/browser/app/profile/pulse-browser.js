@@ -15,6 +15,7 @@ pref("extensions.install_origins.enabled", true);
 pref("browser.newtabpage.activity-stream.feeds.section.highlights", true);
 pref("browser.newtabpage.activity-stream.feeds.topsites", true);
 
+pref("browser.newtabpage.activity-stream.go.background.image", false);
 // Prefs from browser/branding/unofficial/prefs/firefox-branding.js:
 
 // The time interval between checks for a new version (in seconds)
