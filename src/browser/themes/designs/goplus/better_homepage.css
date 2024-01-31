@@ -10,7 +10,6 @@
 	  background: color-mix(in srgb, var(--bg-color) 30%, transparent);
 	  border-radius: 30px;
 	  backdrop-filter: blur(5px);
-	  padding-top: 55px;
 	}
 }
 
@@ -26,6 +25,13 @@
 	  background: color-mix(in srgb, var(--bg-color) 30%, transparent);
 	  border-radius: 30px;
 	  backdrop-filter: blur(5px);
-	  padding-top: 55px;
 	}
+}
+
+.non-collapsible-section {
+  margin-top: 15px;
+}
+
+.only-search .search-wrapper {
+  padding-top: 50px;
 }
