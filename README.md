@@ -1,7 +1,7 @@
 # Jadua Go Browser
 Introducing Jadua Go, the browser redefining the way you surf the web. Engineered for speed, efficiency, and a touch of cool. Say goodbye to the burden of Chrome, Edge & Opera and hello to a sleek, organised browsing experience.
 
-[![Dev builds](https://github.com/JaduaStudios/JaduaGoBrowser/actions/workflows/dev.yml/badge.svg)](https://github.com/JaduaStudios/JaduaGoBrowser/actions/workflows/dev.yml) ![Current engine version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fpulse-browser%2Fbrowser%2Falpha%2Fgluon.json&query=version.version&style=flat-square&label=Engine%20version)
+[![Dev builds](https://github.com/JaduaStudios/JaduaGoBrowser/actions/workflows/dev.yml/badge.svg)](https://github.com/JaduaStudios/JaduaGoBrowser/actions/workflows/dev.yml) ![Current engine version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FJaduaStudios%2FJaduaGoBrowser%2Fmain%2Fgluon.json&query=version.version&label=Engine%20version)
 
 ## Why chose Jadua Go?
 
