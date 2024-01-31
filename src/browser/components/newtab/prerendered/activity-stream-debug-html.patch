@@ -1,5 +1,5 @@
 diff --git a/browser/components/newtab/prerendered/activity-stream-debug.html b/browser/components/newtab/prerendered/activity-stream-debug.html
-index b87303eb58bc21c5e9ba7baa17dc9589e54fef05..f993ab949aea18f47a04352c96cd9e328a9872d4 100644
+index b87303eb58bc21c5e9ba7baa17dc9589e54fef05..595637dedc2fd813c54f87017efbdc1e118164f6 100644
 --- a/browser/components/newtab/prerendered/activity-stream-debug.html
 +++ b/browser/components/newtab/prerendered/activity-stream-debug.html
 @@ -31,6 +31,10 @@
@@ -13,3 +13,11 @@ index b87303eb58bc21c5e9ba7baa17dc9589e54fef05..f993ab949aea18f47a04352c96cd9e32
      />
    </head>
    <body class="activity-stream">
+@@ -38,6 +42,7 @@
+     <script src="chrome://browser/content/contentSearchUI.js"></script>
+     <script src="chrome://browser/content/contentSearchHandoffUI.js"></script>
+     <script src="chrome://browser/content/contentTheme.js"></script>
++	<script src="chrome://browser/skin/goplus/better_homepage.js"></script>
+     <script src="resource://activity-stream/vendor/react-dev.js"></script>
+     <script src="resource://activity-stream/vendor/react-dom-dev.js"></script>
+     <script src="resource://activity-stream/vendor/prop-types.js"></script>
