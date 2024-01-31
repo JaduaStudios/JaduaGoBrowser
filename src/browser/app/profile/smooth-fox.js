@@ -36,7 +36,7 @@ user_pref("general.smoothScroll.mouseWheel.durationMinMS", 80); // default=50
 user_pref("mousewheel.default.delta_multiplier_y", 260); // 250-400; adjust this number to your liking
 user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 12);
 user_pref("general.smoothScroll.msdPhysics.enabled", true);
-user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 800);
+user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 700);
 user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 650);
 user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 25);
 user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", 5.0);

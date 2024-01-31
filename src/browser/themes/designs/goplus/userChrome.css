@@ -52,6 +52,7 @@
   :root {
     /* Main dark color, url bar, active tab etc. */
     --firefoxcss-main-bg-color: hsl(240, 2%, 13%);
+	--newtab-background-color: #131313cf;
 
     /* Main lighter color, toolbar background */
     --firefoxcss-item-bg-color: hsl(240, 2%, 20%);

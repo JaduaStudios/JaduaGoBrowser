@@ -1,0 +1,15 @@
+diff --git a/browser/components/newtab/prerendered/activity-stream-noscripts.html b/browser/components/newtab/prerendered/activity-stream-noscripts.html
+index 8186565ef3ff73e70bca4d520d7a03a69d62a04d..c9017fd868969929170175cdd2770498da2cf0f7 100644
+--- a/browser/components/newtab/prerendered/activity-stream-noscripts.html
++++ b/browser/components/newtab/prerendered/activity-stream-noscripts.html
+@@ -31,6 +31,10 @@
+     <link
+       rel="stylesheet"
+       href="chrome://activity-stream/content/css/activity-stream.css"
++    />
++	<link
++      rel="stylesheet"
++      href="chrome://browser/skin/goplus/better_homepage.css"
+     />
+   </head>
+   <body class="activity-stream">

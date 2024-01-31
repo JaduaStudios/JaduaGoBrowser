@@ -19,6 +19,7 @@
   skin/classic/browser/safari/userChrome.css   (../designs/safari/userChrome.css)
   skin/classic/browser/safari/userContent.css   (../designs/safari/userContent.css)
 
+  skin/classic/browser/goplus/better_homepage.css   (../designs/goplus/better_homepage.css)
   skin/classic/browser/goplus/thin_scrollbar_windows10.css   (../designs/goplus/thin_scrollbar_windows10.css)
   skin/classic/browser/goplus/circular_homepage_shortcuts.css   (../designs/goplus/circular_homepage_shortcuts.css)
   skin/classic/browser/goplus/firefox_view_icon_change.css   (../designs/goplus/firefox_view_icon_change.css)
