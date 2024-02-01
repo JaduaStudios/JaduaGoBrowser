@@ -38,7 +38,7 @@
       "toolbar_field_focus": "#DDE1EB", // Grey 200
       "toolbar_text": "rgb(23, 23, 28)", // Grey 900
 
-      "ntp_background": "rgb(242, 241, 244)", // Grey 200
+      "ntp_background": "rgb(243, 241, 244)", // Grey 200 +1a
       "ntp_text": "rgb(23, 23, 28)", // Grey 900
 
       "button": "rgb(185, 184, 193, .33)", // Grey 300, 33% opacity

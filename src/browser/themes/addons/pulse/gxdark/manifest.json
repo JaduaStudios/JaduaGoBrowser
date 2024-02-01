@@ -37,7 +37,7 @@
       "toolbar_field_focus": "rgb(43, 51, 64)", // Grey 800
       "toolbar_text": "rgb(193, 200, 212)", // Grey 300
 
-      "ntp_background": "url(chrome://browser/skin/gx/images/newtab/wallpaper-dark.png)", // Grey 900
+      "ntp_background": "rgb(5, 7, 10)", // Grey 900 +1a
       "ntp_card_background": "rgb(43, 51, 64)", // Grey 800
       "ntp_text": "rgb(232, 241, 255)", // Grey 100
 
