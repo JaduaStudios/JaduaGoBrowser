@@ -21,7 +21,7 @@ Enjoy a consistent browsing experience across various devices, promoting seamles
 Scroll through your open tabs with a flick of the mouse wheel, making tab management a breeze.
 
 ## Technical Information
-- Based of the LATEST version of firefox (Currently 119)
+- Based of the Firefox engine
 - Built using [Gluon](https://github.com/pulse-browser/gluon)
 - Including [uBlock Origin](https://github.com/gorhill/uBlock)
 - Vertical tabs made available by the team at [Fushra Pulse](https://github.com/pulse-browser)
