@@ -31,3 +31,15 @@
 .only-search .search-wrapper {
   padding-top: 50px;
 }
+
+.search-wrapper .search-handoff-button, .search-wrapper input, .top-site-outer .tile, .card-outer .card, .card-outer, .top-site-outer {
+  border-radius: 15px;
+}
+
+.card-outer .card-preview-image-outer {
+  border-radius: 15px 15px 0 0;
+}
+
+.top-site-outer {
+  transition: 0.15s;
+}
