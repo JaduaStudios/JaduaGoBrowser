@@ -1,0 +1,19 @@
+diff --git a/Makefile.in b/Makefile.in
+index 2d75b534c530d8918b4d8a0ea18b895adcc91260..2658629f9183dd1141700806a21a01f9a0527934 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -24,7 +24,13 @@ endif
+ include $(topsrcdir)/config/config.mk
+ 
+ ifneq (mobile/android,$(MOZ_BUILD_APP))
+-$(MDDEPDIR)/buildid.h.stub $(MDDEPDIR)/source-repo.h.stub: FORCE
++# We only want to generate buildid.h once, during the export phase.
++ifeq ($(MAKECMDGOALS),buildid.h)
++$(MDDEPDIR)/buildid.h.stub: FORCE
++endif
++ifeq ($(MAKECMDGOALS),source-repo.h)
++$(MDDEPDIR)/source-repo.h.stub: FORCE
++endif
+ endif
+ source-repo.h: $(MDDEPDIR)/source-repo.h.stub
+ buildid.h: $(MDDEPDIR)/buildid.h.stub
