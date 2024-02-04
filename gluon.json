@@ -15,7 +15,7 @@
       "platform": "github",
       "id": "uBlock0@raymondhill.net",
       "repo": "gorhill/uBlock",
-      "version": "1.54.0",
+      "version": "1.55.0",
       "fileGlob": "uBlock0_*.firefox(.signed)?.xpi"
     },
     "sidebar-tabs": {
@@ -40,7 +40,7 @@
       "brandShortName": "Jadua Go Browser",
       "brandFullName": "Jadua Go Browser Dev",
       "release": {
-        "displayVersion": "0.3.0-2",
+        "displayVersion": "0.3.1-0",
         "github": {
           "repo": "JaduaStudios/JaduaGoBrowser"
         },

@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Add the background styles if the condition is true
       rootElement.style.background = 'linear-gradient(rgba(255, 255, 255, 0.31), rgba(255, 255, 255, 0.09)), url("https://source.unsplash.com/random/3840x2160/?city white,landscape day,pastel colors,light")';
 	  rootElement.style.backgroundSize = 'cover';
-	} else if (newTabBackgroundColor === 'rgb(5, 7, 10)') {
+	} else if (newTabBackgroundColor === 'rgb(20, 17, 26)') {
       // Add the background styles if the condition is true
       rootElement.style.background = 'url(chrome://browser/skin/gx/images/newtab/wallpaper-dark.png)';
 	  rootElement.style.backgroundSize = 'cover';

@@ -57,3 +57,20 @@ input {
 #tabbrowser-tabs[orient="vertical"] .tab-background {
   display: none !important;
 }
+
+#personal-bookmarks {
+  background: var(--newtab-background-color);
+  margin-left: 26px;
+  border-left: 1px solid var(--general-color);
+}
+
+#nav-bar {
+  margin-left: 32px;
+  background: var(--newtab-background-color);
+  border-top: 1px solid !important;
+  border-left: 1px solid !important;
+}
+
+#tabbrowser-tabpanels {
+  border-left: 1px solid var(--general-color);
+}
