@@ -101,8 +101,8 @@ pref("extensions.systemAddon.update.url", "https://goupdate.jaduastudios.com/bro
 pref("extensions.systemAddon.update.enabled", true);
 
 //Update Routes (Download page for manual download and Temperoraliy Discord Invite Link for Release Notes)
-pref("app.update.url.manual", "https://github.com/JaduaStudios/JaduaGoBrowser/releases/");
-pref("app.update.url.details", "https://www.jaduastudios.com/jadua-go");
+pref("app.update.url.manual", "https://www.jaduastudios.com/jadua-go");
+pref("app.update.url.details", "https://github.com/JaduaStudios/JaduaGoBrowser/releases/latest");
 pref("app.releaseNotesURL", "https://github.com/JaduaStudios/JaduaGoBrowser/commits/main");
 pref("app.releaseNotesURL.aboutDialog", "https://github.com/JaduaStudios/JaduaGoBrowser/commits/main");
 
