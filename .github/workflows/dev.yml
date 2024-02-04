@@ -510,8 +510,8 @@ jobs:
         with:
           repo_token: '${{ secrets.GITHUB_TOKEN }}'
           automatic_release_tag: ${{ needs.build-data.outputs.version }}
-          prerelease: true
-          title: 'Dev build'
+          prerelease: false
+          title: 'Dev build: ${{ needs.build-data.outputs.version }}'
           files: |
             jadua-go-browser.linux.tar.bz2
             jadua-go-browser.source.tar.gz
