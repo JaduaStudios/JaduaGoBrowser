@@ -32,7 +32,7 @@
       "version": "v0.1.1",
       "fileGlob": "release.xpi"
     },
-	"BetterTyping": {
+    "BetterTyping": {
       "id": "bettertyping@jaduastudios.com",
       "platform": "github",
       "repo": "JaduaStudios/BetterTyping",
@@ -47,7 +47,7 @@
       "brandShortName": "Jadua Go Browser",
       "brandFullName": "Jadua Go Browser Dev",
       "release": {
-        "displayVersion": "0.3.1-0",
+        "displayVersion": "0.3.1-1",
         "github": {
           "repo": "JaduaStudios/JaduaGoBrowser"
         },
