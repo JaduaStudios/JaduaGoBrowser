@@ -31,6 +31,13 @@
       "repo": "JaduaStudios/GoPanic",
       "version": "v0.1.1",
       "fileGlob": "release.xpi"
+    },
+	"BetterTyping": {
+      "id": "bettertyping@jaduastudios.com",
+      "platform": "github",
+      "repo": "JaduaStudios/BetterTyping",
+      "version": "v0.1.2",
+      "fileGlob": "release.xpi"
     }
   },
   "brands": {
