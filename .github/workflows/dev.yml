@@ -129,7 +129,7 @@ jobs:
       - name: Load gluon CI setup
         run: pnpm gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
 
-      - name: Download firefox source and dependancies
+      - name: Download firefox source and dependencies
         run: pnpm download --verbose
 
       - name: Import
