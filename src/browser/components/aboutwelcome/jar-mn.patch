@@ -1,13 +1,13 @@
 diff --git a/browser/components/aboutwelcome/jar.mn b/browser/components/aboutwelcome/jar.mn
-index c5c27e22939a0a970628abbd04bdc9b08ab5e0f2..666378bfc182bca0f5903db461c723ae26c27475 100644
+index 742937b0917f4bb6a67e281749f3b26e1d677421..cfdfff949554db2bd59cc9554c398fd414142b76 100644
 --- a/browser/components/aboutwelcome/jar.mn
 +++ b/browser/components/aboutwelcome/jar.mn
 @@ -5,6 +5,8 @@
  browser.jar:
-   res/activity-stream/aboutwelcome/lib/ (./modules/*)
-   content/activity-stream/aboutwelcome/aboutwelcome.css (./content/aboutwelcome.css)
+   content/browser/aboutwelcome/aboutwelcome.bundle.js (./content/aboutwelcome.bundle.js)
+   content/browser/aboutwelcome/aboutwelcome.css (./content/aboutwelcome.css)
 +  content/activity-stream/aboutwelcome/pulse.css (./content/pulse.css)
 +  content/activity-stream/aboutwelcome/browser-preview.png (./content/browser-preview.png)
-   res/activity-stream/aboutwelcome/aboutwelcome.html (./content/aboutwelcome.html)
-   res/activity-stream/aboutwelcome/aboutwelcome.bundle.js (./content/aboutwelcome.bundle.js)
+   content/browser/aboutwelcome/aboutwelcome.html (./content/aboutwelcome.html)
  
+ # This section is for image assets for about:welcome. These are currently

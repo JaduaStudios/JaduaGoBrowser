@@ -46,9 +46,10 @@ class EngineStore {
   }
 
   _cloneEngine(aEngine) {
-    const clonedObj = {}
-
-    for (const i of ['name', 'alias', 'iconURI', 'hidden']) {
+    var clonedObj = {
+      iconURL: aEngine.getIconURL(),
+    };
+    for (let i of ["id", "name", "alias", "hidden"]) {
       clonedObj[i] = aEngine[i]
     }
 
@@ -245,7 +246,7 @@ class Search extends Page {
     })
 
     const img = document.createElement('img')
-    img.src = search.iconURI.spec
+    img.src = search.iconURL
 
     const name = document.createElement('h3')
     name.textContent = search.name
