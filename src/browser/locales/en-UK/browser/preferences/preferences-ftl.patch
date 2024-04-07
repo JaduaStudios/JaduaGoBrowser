@@ -1,0 +1,35 @@
+diff --git a/browser/locales/en-US/browser/preferences/preferences.ftl b/browser/locales/en-US/browser/preferences/preferences.ftl
+index 077f77667a63f3c4b2079c1219e37491d0082d24..2f90b182cb7ad9599a41c9c599cf06009efc20c3 100644
+--- a/browser/locales/en-US/browser/preferences/preferences.ftl
++++ b/browser/locales/en-US/browser/preferences/preferences.ftl
+@@ -331,7 +331,7 @@ choose-button =
+     .label = Choose…
+     .accesskey = o
+ 
+-choose-browser-language-description = Choose the languages used to display menus, messages, and notifications from { -brand-short-name }.
++choose-browser-language-description = Languages are currently limited to English (US) on { -brand-short-name }.
+ manage-browser-languages-button =
+   .label = Set Alternatives…
+   .accesskey = l
+@@ -1600,3 +1600,21 @@ preferences-doh-manage-exceptions =
+ desktop-folder-name = Desktop
+ downloads-folder-name = Downloads
+ choose-download-folder-title = Choose Download Folder:
++
++## Pulse browser: Settings entries localization
++preferences-sidebar-header = Sidebar
++preferences-sidebar-visible =
++    .label = Show sidebar tabs 
++preferences-sidebar-active-tabs = 
++    .label = Keep sidebar tabs active even when closed
++preferences-sidebar-active-tabs-description = When enabled, sidebar tabs will remain active even when closed. When disabled, sidebar tabs will be closed when you click on another tab.
++
++preferences-vertical-tabs-enabled =
++    .label = Vertical tabs (alpha) - Restart after changing this setting
++preferences-vertical-tabs-collapse =
++    .label = Collapse tabs
++
++preferences-show-new-tab =
++    .label = Show the new tab button
++preferences-show-close-tab =
++    .label = Show the close tab button

@@ -224,9 +224,9 @@ user_pref("dom.security.sanitizer.enabled", true);
 // [3] https://www.reddit.com/r/firefox/comments/tbphok/is_setting_gfxwebrenderprecacheshaders_to_true/i0bxs2r/
 // [4] https://www.reddit.com/r/firefox/comments/z5auzi/comment/ixw65gb?context=3
 // [5] https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db?permalink_comment_id=4532937#gistcomment-4532937
-//user_pref("gfx.webrender.all", true); // enables WR + additional features
+user_pref("gfx.webrender.all", true); // enables WR + additional features
 //user_pref("gfx.webrender.precache-shaders", true); // longer initial startup time
-//user_pref("gfx.webrender.compositor", true); // DEFAULT WINDOWS macOS
+user_pref("gfx.webrender.compositor", true); // DEFAULT WINDOWS macOS
     //user_pref("gfx.webrender.compositor.force-enabled", true); // enforce
 
 // PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
@@ -258,13 +258,13 @@ user_pref("dom.security.sanitizer.enabled", true);
 // At best, the prefs do nothing on Linux/macOS.
 // At worst, it'll result in crashes if the sandboxing is a WIP.
 // [1] https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#gpu-process
-//user_pref("layers.gpu-process.enabled", true); // DEFAULT WINDOWS
+user_pref("layers.gpu-process.enabled", true); // DEFAULT WINDOWS
     //user_pref("layers.gpu-process.force-enabled", true); // enforce
-    //user_pref("layers.mlgpu.enabled", true); // LINUX
-//user_pref("media.hardware-video-decoding.enabled", true); // DEFAULT WINDOWS macOS
+user_pref("layers.mlgpu.enabled", true); // LINUX
+user_pref("media.hardware-video-decoding.enabled", true); // DEFAULT WINDOWS macOS
     //user_pref("media.hardware-video-decoding.force-enabled", true); // enforce
-//user_pref("media.gpu-process-decoder", true); // DEFAULT WINDOWS
-//user_pref("media.ffmpeg.vaapi.enabled", true); // LINUX
+user_pref("media.gpu-process-decoder", true); // DEFAULT WINDOWS
+user_pref("media.ffmpeg.vaapi.enabled", true); // LINUX
 
 // PREF: disable AV1 for hardware decodeable videos
 // Firefox sometimes uses AV1 video decoding even to GPUs which do not support it.
