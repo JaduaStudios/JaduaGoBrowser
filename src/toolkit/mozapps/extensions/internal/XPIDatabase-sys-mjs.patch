@@ -1,8 +1,8 @@
-diff --git a/toolkit/mozapps/extensions/internal/XPIDatabase.jsm b/toolkit/mozapps/extensions/internal/XPIDatabase.jsm
-index ae514dfea6ba51e1409b1b08983628df54079643..841f601e85d46672deaf0e38362a05fda05068c2 100644
---- a/toolkit/mozapps/extensions/internal/XPIDatabase.jsm
-+++ b/toolkit/mozapps/extensions/internal/XPIDatabase.jsm
-@@ -1542,7 +1542,7 @@ const updatedAddonFluentIds = new Map([
+diff --git a/toolkit/mozapps/extensions/internal/XPIDatabase.sys.mjs b/toolkit/mozapps/extensions/internal/XPIDatabase.sys.mjs
+index 5d1d2c19706b747b149271ea71fabb25f0eca5d1..b342b925456ce1d26e1ac424abe72717eb1bfaf9 100644
+--- a/toolkit/mozapps/extensions/internal/XPIDatabase.sys.mjs
++++ b/toolkit/mozapps/extensions/internal/XPIDatabase.sys.mjs
+@@ -1647,7 +1647,7 @@ const updatedAddonFluentIds = new Map([
        addon.type === "theme"
      ) {
        // Built-in themes are localized with Fluent instead of the WebExtension API.

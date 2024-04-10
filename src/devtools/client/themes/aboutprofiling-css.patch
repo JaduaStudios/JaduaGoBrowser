@@ -1,5 +1,5 @@
 diff --git a/devtools/client/themes/aboutprofiling.css b/devtools/client/themes/aboutprofiling.css
-index bb3d4d4a1c576aac0618eb78160fcdc8ac28aa6f..7b2c8aa229f1d1970c0d92147db8fd275479d129 100644
+index 6a66ad7d1e9b04e63b2b779b7ec0282f286146cf..57e44e0f2e92741bd414dcf958639c3d70070f0f 100644
 --- a/devtools/client/themes/aboutprofiling.css
 +++ b/devtools/client/themes/aboutprofiling.css
 @@ -4,8 +4,8 @@
@@ -12,4 +12,4 @@ index bb3d4d4a1c576aac0618eb78160fcdc8ac28aa6f..7b2c8aa229f1d1970c0d92147db8fd27
 +  padding: 10vh 5%;
  }
  
- /* This styling was originally taken from the about:preferences page. */
+ /* Intro */
