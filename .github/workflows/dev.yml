@@ -428,55 +428,66 @@ jobs:
       - uses: trickypr/checkout@main
         with:
           submodules: recursive
+          
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('pnpm-lock.yaml', '*/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
         run: |
-          npm i
+          pnpm install
 
       - name: Setup gluon
         run: |
-          npm i -g gluon-build@next
+          pnpm install -g gluon-build@next
 
       - name: Load gluon CI setup
-        run: gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
-
-      - name: Download
-        run: gluon download
-
-      - name: Set brand to dev
-        run: gluon set brand dev
-
-      - name: Import
-        run: gluon import
-        continue-on-error: true
+        run: pnpm gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
         
-      - name: Reset because possible fail
-        run: ECHO 'Y' | gluon reset
-        
-      - name: Redownload addons
-        run: gluon download
-        
-      - name: Import 2nd try
-        run: gluon import
+      - name: Download source
+        uses: actions/download-artifact@v3
+        with:
+          name: jadua-go-browser.source.tar.gz
+          
+      - name: Unpack source
+        shell: bash
+        run: |
+          rm -rf engine
+          mkdir engine
+          tar -xf jadua-go-browser.source.tar.gz -C ./engine
 
       - name: Bootstrap
-        shell: powershell.exe E:\Development\MozillaBuild\start-shell.bat "{0}"
+        shell: E:\Development\MozillaBuild\start-shell.bat -here -e {0}
         run: |
-          cd /e/actions-runner/_work/JaduaGoBrowser/JaduaGoBrowser # mozillabuild defaults to ~
-          gluon bootstrap
+          cd engine
+          ./mach --no-interactive bootstrap --application-choice browser
+          cd ..
 
-      - name: Build
-        shell: powershell.exe E:\Development\MozillaBuild\start-shell.bat "{0}"
-        run: |
-          cd /e/actions-runner/_work/JaduaGoBrowser/JaduaGoBrowser # mozillabuild defaults to ~
-          gluon build --skip-patch-check
-
+      - name: Gluon build
+        shell: E:\Development\MozillaBuild\start-shell.bat -here -e {0}
+        run: pnpm build --verbose --skip-patch-check
+        
       - name: Package
-        shell: powershell.exe E:\Development\MozillaBuild\start-shell.bat "{0}"
-        continue-on-error: true
+        shell: E:\Development\MozillaBuild\start-shell.bat -here -e {0}
         run: |
-          cd /e/actions-runner/_work/JaduaGoBrowser/JaduaGoBrowser # mozillabuild defaults to ~
-          gluon package
+          pnpm package
           mv ./dist/output.mar windows.mar
 
       - name: Upload artifact
