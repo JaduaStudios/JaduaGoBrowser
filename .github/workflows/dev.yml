@@ -422,7 +422,7 @@ jobs:
 
   windows:
     runs-on: jaduafast-win
-    needs: [build-data]
+    needs: [source, build-data]
 
     steps:
       - uses: trickypr/checkout@main
