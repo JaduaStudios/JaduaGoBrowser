@@ -299,7 +299,7 @@ jobs:
           
       - uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
+          python-version: "3.12"
           
       - name: Setup git
         run: |
@@ -421,7 +421,7 @@ jobs:
           path: ./dist/update
 
   windows:
-    runs-on: jaduafast-win
+    runs-on: windows-latest
     needs: [source, build-data]
 
     steps:
@@ -438,7 +438,6 @@ jobs:
 
       - name: Get pnpm store directory
         id: pnpm-cache
-        shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
@@ -449,6 +448,13 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('pnpm-lock.yaml', '*/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
+
+      - name: Setup MozillaBuild
+        shell: bash
+        run: |
+          curl -L https://ftp.mozilla.org/pub/mozilla/libraries/win32/MozillaBuildSetup-Latest.exe --output MozillaBuildSetup-Latest.exe
+          "/c/Program Files/7-Zip/7z.exe" x MozillaBuildSetup-Latest.exe -o/c/mozilla-build
+          mkdir /c/mozilla-build/msys2/tmp
 
       - name: Install dependencies
         run: |
@@ -474,18 +480,18 @@ jobs:
           tar -xf jadua-go-browser.source.tar.gz -C ./engine
 
       - name: Bootstrap
-        shell: E:\Development\MozillaBuild\start-shell.bat -here -e {0}
+        shell: C:\mozilla-build\start-shell.bat -here -e {0}
         run: |
           cd engine
           ./mach --no-interactive bootstrap --application-choice browser
           cd ..
 
       - name: Gluon build
-        shell: E:\Development\MozillaBuild\start-shell.bat -here -e {0}
+        shell: C:\mozilla-build\start-shell.bat -here -e {0}
         run: pnpm build --verbose --skip-patch-check
         
       - name: Package
-        shell: E:\Development\MozillaBuild\start-shell.bat -here -e {0}
+        shell: C:\mozilla-build\start-shell.bat -here -e {0}
         run: |
           pnpm package
           mv ./dist/output.mar windows.mar
