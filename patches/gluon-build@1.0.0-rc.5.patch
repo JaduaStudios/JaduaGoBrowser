@@ -1,3 +1,16 @@
+diff --git a/dist/commands/download/addon.js b/dist/commands/download/addon.js
+index fdbc0b80a90c6ee4955ccbfb3965cc11639ccd4d..20366399310ea78c42c425fee7e4af5750a83d31 100644
+--- a/dist/commands/download/addon.js
++++ b/dist/commands/download/addon.js
+@@ -101,7 +101,7 @@ async function unpackAddon(path, addon) {
+     await (0, utils_1.delay)(200);
+     (0, utils_1.ensureDirectory)(outPath);
+     await (0, utils_1.configDispatch)('unzip', {
+-        args: [(0, utils_1.windowsPathToUnix)(path), '-d', (0, utils_1.windowsPathToUnix)(outPath)],
++        args: ['-o', (0, utils_1.windowsPathToUnix)(path), '-d', (0, utils_1.windowsPathToUnix)(outPath)],
+         killOnError: true,
+         shell: 'unix',
+     });
 diff --git a/dist/commands/download/firefox.js b/dist/commands/download/firefox.js
 index 93e14e5abf11963b47f657a61f4e0a7e5bf1cf42..74165f84cefca6ddec652ecc4533eccbbf5b74a1 100644
 --- a/dist/commands/download/firefox.js
