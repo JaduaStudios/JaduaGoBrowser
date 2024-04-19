@@ -451,9 +451,11 @@ jobs:
       - name: Setup MozillaBuild
         shell: bash
         run: |
-          curl -L https://ftp.mozilla.org/pub/mozilla/libraries/win32/MozillaBuildSetup-Latest.exe --output MozillaBuildSetup-Latest.exe
-          "/c/Program Files/7-Zip/7z.exe" x MozillaBuildSetup-Latest.exe -o/c/mozilla-build
-          mkdir /c/mozilla-build/msys2/tmp
+          $ProgressPreference = 'SilentlyContinue'
+          Invoke-WebRequest -Uri "https://ftp.mozilla.org/pub/mozilla/libraries/win32/MozillaBuildSetup-Latest.exe" -OutFile "MozillaBuildSetup-Latest.exe"
+          & "C:\Program Files\7-Zip\7z.exe" x "MozillaBuildSetup-Latest.exe" -o"C:\mozilla-build"
+          New-Item -ItemType Directory -Path "C:\mozilla-build\msys2\tmp"
+
 
       - name: Install dependencies
         run: |
