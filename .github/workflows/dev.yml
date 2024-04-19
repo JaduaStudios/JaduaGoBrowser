@@ -425,11 +425,11 @@ jobs:
     needs: [source, build-data]
 
     steps:
-      - uses: trickypr/checkout@main
+      - uses: actions/checkout@v4
         with:
           submodules: recursive
           
-      - uses: pnpm/action-setup@v3
+      - uses: pnpm/action-setup@v2
         name: Install pnpm
         id: pnpm-install
         with:
@@ -441,7 +441,7 @@ jobs:
         run: |
           echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@v3
         name: Setup pnpm cache
         with:
           path: ${{ env.STORE_PATH }}
