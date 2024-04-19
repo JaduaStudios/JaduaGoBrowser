@@ -4,8 +4,8 @@
   "appId": "com.jadua.go",
   "binaryName": "jadua-go-browser",
   "version": {
-    "product": "firefox-beta",
-    "version": "125.0b9"
+    "product": "firefox",
+    "version": "125.0.1"
   },
   "buildOptions": {
     "windowsUseSymbolicLinks": false

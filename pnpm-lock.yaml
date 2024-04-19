@@ -287,8 +287,8 @@ packages:
     engines: {node: ^12.20.0 || >=14}
     dev: false
 
-  /core-js-pure@3.36.1:
-    resolution: {integrity: sha512-NXCvHvSVYSrewP0L5OhltzXeWFJLo2AL2TYnj6iLV3Bw8mM62wAQMNgUCRI6EBu6hVVpbCxmOPlxh1Ikw2PfUA==}
+  /core-js-pure@3.37.0:
+    resolution: {integrity: sha512-d3BrpyFr5eD4KcbRvQ3FTUx/KWmaDesr7+a3+1+P46IUnNoEt+oiLijPINZMEon7w9oGkIINWxrBAU9DEciwFQ==}
     requiresBuild: true
     dev: false
 
@@ -530,7 +530,7 @@ packages:
   /modern-async@1.1.4:
     resolution: {integrity: sha512-jaZlzQB3W9PRF43+T144lYWb7UaTapJM6MZxNGLqpgPVal6uV4ixkR+t/1H1/7UM03jDu5BnvAYDqeawvL7kiw==}
     dependencies:
-      core-js-pure: 3.36.1
+      core-js-pure: 3.37.0
       nanoassert: 2.0.0
     dev: false
 
@@ -542,8 +542,8 @@ packages:
     resolution: {integrity: sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==}
     dev: false
 
-  /node-abi@3.57.0:
-    resolution: {integrity: sha512-Dp+A9JWxRaKuHP35H77I4kCKesDy5HUDEmScia2FyncMTOXASMyg251F5PhFoDA5uqBrDDffiLpbqnrZmNXW+g==}
+  /node-abi@3.59.0:
+    resolution: {integrity: sha512-HyyfzvTLCE8b1SX2nWimlra8cibEsypcSu/Az4SXMhWhtuctkwAX7qsEYNjUOIoYtPV884oN3wtYTN+iZKBtvw==}
     engines: {node: '>=10'}
     dependencies:
       semver: 7.6.0
@@ -609,7 +609,7 @@ packages:
       minimist: 1.2.8
       mkdirp-classic: 0.5.3
       napi-build-utils: 1.0.2
-      node-abi: 3.57.0
+      node-abi: 3.59.0
       pump: 3.0.0
       rc: 1.2.8
       simple-get: 4.0.1

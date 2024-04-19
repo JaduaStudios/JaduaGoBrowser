@@ -421,7 +421,7 @@ jobs:
           path: ./dist/update
 
   windows:
-    runs-on: windows-latest
+    runs-on: jaduafast-win
     needs: [source, build-data]
 
     steps:
