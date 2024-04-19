@@ -297,10 +297,6 @@ jobs:
         with:
           submodules: recursive
           
-      - uses: actions/setup-python@v4
-        with:
-          python-version: "3.11"
-          
       - name: Setup git
         run: |
           git config --global user.email "jadua1010@users.noreply.github.com"
@@ -313,6 +309,10 @@ jobs:
           brew update
           brew install cairo sccache gnu-tar mercurial
           sudo pip install setuptools
+          
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
           
       - name: Force usage fo gnu-tar
         run: |
@@ -437,7 +437,7 @@ jobs:
           run_install: false
 
       - name: Get pnpm store directory
-        shell: bash
+        shell: pwsh
         run: |
           echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
