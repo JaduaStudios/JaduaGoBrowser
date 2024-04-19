@@ -449,7 +449,6 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Setup MozillaBuild
-        shell: bash
         run: |
           $ProgressPreference = 'SilentlyContinue'
           Invoke-WebRequest -Uri "https://ftp.mozilla.org/pub/mozilla/libraries/win32/MozillaBuildSetup-Latest.exe" -OutFile "MozillaBuildSetup-Latest.exe"
@@ -474,11 +473,10 @@ jobs:
           name: jadua-go-browser.source.tar.gz
           
       - name: Unpack source
-        shell: bash
         run: |
-          rm -rf engine
-          mkdir engine
-          tar -xf jadua-go-browser.source.tar.gz -C ./engine
+          Remove-Item -Path 'engine' -Recurse -Force
+          New-Item -Path 'engine' -ItemType Directory
+          Expand-Archive -Path 'jadua-go-browser.source.tar.gz' -DestinationPath 'engine'
 
       - name: Bootstrap
         shell: C:\mozilla-build\start-shell.bat -here -e {0}
