@@ -437,7 +437,6 @@ jobs:
           run_install: false
 
       - name: Get pnpm store directory
-        shell: pwsh
         run: |
           echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
