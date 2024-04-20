@@ -428,6 +428,8 @@ jobs:
     runs-on: jaduafast-win
     if:  ${{ inputs.runLocal }} 
     needs: [source, build-data]
+    env:
+      USE_MINTTY: 0
 
     steps:
       - uses: trickypr/checkout@main
@@ -484,18 +486,22 @@ jobs:
           tar -xf jadua-go-browser.source.tar.gz -C ./engine
 
       - name: Bootstrap
+        shell: C:\mozilla-build\start-shell.bat -here -e {0}
         run: |
           cd engine
           ./mach --no-interactive bootstrap --application-choice browser
           cd ..
 
       - name: Gluon build
+        shell: C:\mozilla-build\start-shell.bat -here -e {0}
         run: pnpm build --verbose --skip-patch-check
         
       - name: Package
+        shell: C:\mozilla-build\start-shell.bat -here -e {0}
+        continue-on-error: true
         run: |
           pnpm package
-          Move-Item -Path ./dist/output.mar -Destination windows.mar
+          mv ./dist/output.mar windows.mar
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
@@ -519,6 +525,8 @@ jobs:
     runs-on: windows-latest
     if:  ${{ ! inputs.runLocal }} 
     needs: [source, build-data]
+    env:
+      USE_MINTTY: 0
 
     steps:
       - uses: trickypr/checkout@main
@@ -575,18 +583,22 @@ jobs:
           tar -xf jadua-go-browser.source.tar.gz -C ./engine
 
       - name: Bootstrap
+        shell: C:\mozilla-build\start-shell.bat -here -e {0}
         run: |
           cd engine
           ./mach --no-interactive bootstrap --application-choice browser
           cd ..
 
       - name: Gluon build
+        shell: C:\mozilla-build\start-shell.bat -here -e {0}
         run: pnpm build --verbose --skip-patch-check
         
       - name: Package
+        shell: C:\mozilla-build\start-shell.bat -here -e {0}
+        continue-on-error: true
         run: |
           pnpm package
-          Move-Item -Path ./dist/output.mar -Destination windows.mar
+          mv ./dist/output.mar windows.mar
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
