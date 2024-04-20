@@ -1,0 +1,12 @@
+diff --git a/browser/app/profile/firefox.js b/browser/app/profile/firefox.js
+index 1ef5a05907f4675e4e7191dde12c33dc6da5e3c6..7265c882ca830eeeb597d73d5d9e8268672656bf 100644
+--- a/browser/app/profile/firefox.js
++++ b/browser/app/profile/firefox.js
+@@ -3037,3 +3037,6 @@ pref("browser.profiles.enabled", false);
+ 
+ pref("startup.homepage_override_url_nimbus", "");
+ pref("startup.homepage_override_nimbus_maxVersion", "");
++
++// Make sure to keep this at the end
++#include pulse-browser.js
+\ No newline at end of file

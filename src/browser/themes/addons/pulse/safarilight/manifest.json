@@ -17,7 +17,7 @@
   "theme": {
     "colors": {
       "tab_background_text": "rgb(51, 47, 55)", // Grey 800
-      "tab_selected": "rgb(242, 241, 244)", // Grey 100
+      "tab_selected": "rgb(242, 241, 244)", // Grey 200
       "tab_text": "rgb(26, 23, 28)", // Grey 900
 
       "icons": "rgb(23, 23, 28)", // Grey 900
@@ -29,7 +29,7 @@
       "popup_highlight_text": "#15141a", // TODO: what
       "tab_line": "transparent",
 
-      "toolbar": "rgb(241, 242, 244)", // Grey 100
+      "toolbar": "rgb(251, 251, 251)", // Grey 100
       "toolbar_top_separator": "transparent",
       "toolbar_bottom_separator": "rgb(241, 242, 244)", // Grey 100
       "toolbar_field": "#DDE1EB", // Grey 200
@@ -38,7 +38,7 @@
       "toolbar_field_focus": "#DDE1EB", // Grey 200
       "toolbar_text": "rgb(23, 23, 28)", // Grey 900
 
-      "ntp_background": "rgb(242, 241, 244)", // Grey 200
+      "ntp_background": "rgb(251, 251, 251)", // Grey 200
       "ntp_text": "rgb(23, 23, 28)", // Grey 900
 
       "button": "rgb(185, 184, 193, .33)", // Grey 300, 33% opacity

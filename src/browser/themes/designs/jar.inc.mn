@@ -116,6 +116,7 @@
   skin/classic/browser/chrome/icons/star.svg   (../designs/chrome/icons/star.svg)
   skin/classic/browser/chrome/icons/tracking-protection.svg   (../designs/chrome/icons/tracking-protection.svg)
   skin/classic/browser/chrome/icons/warning.svg   (../designs/chrome/icons/warning.svg)
+  skin/classic/browser/chrome/icons/account.svg   (../designs/chrome/icons/account.svg)
 
   skin/classic/browser/gx/components/ogx_arrowpanel.css   (../designs/gx/components/ogx_arrowpanel.css)
   skin/classic/browser/gx/components/ogx_autohide_bookmark-bar.css   (../designs/gx/components/ogx_autohide_bookmark-bar.css)
@@ -255,13 +256,8 @@
   skin/classic/browser/gx/images/urlbar-separator.svg   (../designs/gx/images/urlbar-separator.svg)
   skin/classic/browser/gx/images/zoom.svg   (../designs/gx/images/zoom.svg)
 
-  skin/classic/browser/safari/enabletabview.css   (../designs/safari/enabletabview.css)
-  skin/classic/browser/safari/hideextension.css   (../designs/safari/hideextension.css)
-  skin/classic/browser/safari/noidentity.css   (../designs/safari/noidentity.css)
-  skin/classic/browser/safari/singletabhidden.css   (../designs/safari/singletabhidden.css)
-  skin/classic/browser/safari/standard-urlbar.css   (../designs/safari/standard-urlbar.css)
-  skin/classic/browser/safari/tabs-swapclose.css   (../designs/safari/tabs-swapclose.css)
-  skin/classic/browser/safari/windows-swapclose.css   (../designs/safari/windows-swapclose.css)
+  skin/classic/browser/safari/WhiteSur/color.css   (../designs/safari/WhiteSur/color.css)
+  skin/classic/browser/safari/WhiteSur/customs/extension-menu-in-grid.css   (../designs/safari/WhiteSur/customs/extension-menu-in-grid.css)
   skin/classic/browser/safari/WhiteSur/drag-window-headerbar-buttons.css   (../designs/safari/WhiteSur/drag-window-headerbar-buttons.css)
   skin/classic/browser/safari/WhiteSur/hide-single-tab.css   (../designs/safari/WhiteSur/hide-single-tab.css)
   skin/classic/browser/safari/WhiteSur/hide-window-buttons.css   (../designs/safari/WhiteSur/hide-window-buttons.css)

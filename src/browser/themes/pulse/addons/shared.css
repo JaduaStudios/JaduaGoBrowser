@@ -230,6 +230,21 @@ tab.tabbrowser-tab:nth-child(1) {
 }
 
 /* ========================================================================== */
+/* Tab Preview Stuff */
+
+.tab-preview-container {
+	background-color: var(--lwt-accent-color);
+	border-radius: 6px;
+	text-align: center;
+	width: 250px;
+	opacity: 0.95
+}
+
+.tab-preview-thumbnail-container {
+	border-radius: 6px;
+}
+
+/* ========================================================================== */
 /* Bookmark styles */
 
 /* Remove messy seperators */

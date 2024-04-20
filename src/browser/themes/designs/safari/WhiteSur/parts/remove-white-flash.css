@@ -4,8 +4,9 @@
 @namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
 
 /* Overrides: Change the flash color */
+
 #tabbrowser-tabpanels,
 #tabbrowser-tabpanels[pendingpaint],
-browser {
-	background-color: var(--gnome-browser-before-load-background) !important;
+browser:not(#sidebar) {
+	background-color: var(--lwt-accent-color) !important;
 }

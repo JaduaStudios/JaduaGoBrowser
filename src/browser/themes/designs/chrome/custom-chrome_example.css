@@ -20,3 +20,21 @@ body {
 #browser #TabsToolbar #alltabs-button {
   display: none !important;
 }
+
+.tab-label-container {
+  margin-left: 8px;
+}
+
+:root:-moz-window-inactive #TabsToolbar .toolbarbutton-1 {
+  background-color: var(--mf-background-color-50) !important;
+}
+
+#TabsToolbar .toolbarbutton-1 {
+  background-color: var(--mf-background-color-0);
+}
+
+@media (prefers-color-scheme: light) {
+	#TabsToolbar .toolbarbutton-1 {
+	  background-color: color-mix(in srgb, var(--mf-accent-color) 20%, var(--mf-background-color-50)) !important;
+	}
+}

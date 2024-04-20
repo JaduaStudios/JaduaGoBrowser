@@ -1,65 +1,80 @@
 /* Header bar */
-@import "headerbar-urlbar.css";
-@import "headerbar-private-urlbar.css";
+
 @namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
 
 /* Headerbar */
+
 #nav-bar {
 	padding: 8px 16px 8px 86px !important;
+	transition: none !important;
+}
+
+.titlebar-buttonbox-container {
+	display: none !important;
 }
 
 /* Headerbar CSD colors */
+
 :root[tabsintitlebar] #nav-bar {
-	background: var(--gnome-headerbar-background) !important;
 	border: none !important;
 	border-bottom: none !important;
-	box-shadow: var(--gnome-headerbar-box-shadow) !important;
+	box-shadow: none !important;
 }
 
 :root[tabsintitlebar] #nav-bar:-moz-window-inactive {
-	background: var(--gnome-inactive-headerbar-background) !important;
-	box-shadow: var(--gnome-inactive-headerbar-box-shadow) !important;
+	box-shadow: none !important;
 }
 
 /* Headerbar buttons */
+
 #nav-bar toolbarbutton:not(#urlbar-zoom-button):not(.subviewbutton):not(.toolbarbutton-1) {
+	appearance: none;
+	-moz-appearance: none !important;
 	border: none !important;
 	box-shadow: none !important;
 	background: none !important;
-	-moz-appearance: none !important;
-	border-radius: 8px !important;
+	border-radius: var(--macos-menu-border-radius) !important;
 	padding: 0 4px !important;
 	min-height: 26px !important;
 	min-width: 26px !important;
-	color: var(--gnome-toolbar-color) !important;
+	color: var(--macos-toolbar-color) !important;
 	transition: background 200ms;
 }
 
-/* fix spacing for extensions
-toolbar .toolbarbutton-1{
-	margin: 0 8px !important;
-}
-.subviewbutton > .toolbarbutton-badge-stack {
+#nav-bar panel toolbarbutton:not(#urlbar-zoom-button):not(.subviewbutton):not(.toolbarbutton-1) {
 	padding: 0 !important;
-} */
+}
 
 /* Hover headerbar buttons */
-#nav-bar toolbarbutton:not(#urlbar-zoom-button):not(.subviewbutton):not([open]):not([disabled]):not([checked]):hover {
+
+#nav-bar toolbarbutton:not(#allTabsMenu-searchTabs):not(.all-tabs-button):not(.all-tabs-secondary-button):not([checked]):not([disabled]):hover {
 	outline: 0 !important;
-	background: var(--gnome-headerbar-button-hover-background) !important;
+	background-color: var(--macos-headerbar-button-hover-background) !important;
 }
 
-
 /* Active headerbar buttons */
-#nav-bar toolbarbutton:not(#allTabsMenu-searchTabs):not(.all-tabs-button):not(.all-tabs-secondary-button):not(#urlbar-zoom-button):not([disabled]):not(#hack):active,
-#nav-bar toolbarbutton:not(#allTabsMenu-searchTabs):not(.all-tabs-button):not(.all-tabs-secondary-button):not(#urlbar-zoom-button):not([disabled])[open],
-#nav-bar toolbarbutton:not(#allTabsMenu-searchTabs):not(.all-tabs-button):not(.all-tabs-secondary-button):not(#urlbar-zoom-button):not([disabled])[checked] {
-	background: var(--gnome-headerbar-button-active-background) !important;
+
+#nav-bar
+	toolbarbutton:not(#allTabsMenu-searchTabs):not(.all-tabs-button):not(.all-tabs-secondary-button):not(#urlbar-zoom-button):not([disabled]):not(
+		#hack
+	):active,
+#nav-bar
+	toolbarbutton:not(#allTabsMenu-searchTabs):not(.all-tabs-button):not(.all-tabs-secondary-button):not(#urlbar-zoom-button):not([disabled])[open],
+#nav-bar
+	toolbarbutton:not(#allTabsMenu-searchTabs):not(.all-tabs-button):not(.all-tabs-secondary-button):not(#urlbar-zoom-button):not(
+		[disabled]
+	)[checked] {
+	background-color: var(--macos-headerbar-button-active-background) !important;
 }
 
 /* Buttons with margins */
+
 #nav-bar toolbarbutton:not(#urlbar-zoom-button):not(#allTabsMenu-searchTabs) {
 	margin: 0 2px !important;
+}
+
+#nav-bar panel toolbarbutton:not(#urlbar-zoom-button):not(#allTabsMenu-searchTabs) {
+	margin: 0 !important;
 }
 
 #nav-bar #back-button:not(#hack),
@@ -78,38 +93,31 @@ toolbar .toolbarbutton-1{
 }
 
 /* Headerbar entries */
+
 #nav-bar #searchbar,
-#urlbar #urlbar-input-container {
+#nav-bar #urlbar #urlbar-input-container {
+	appearance: none;
 	-moz-appearance: none !important;
-	background: var(--gnome-urlbar-background) !important;
-	border: 0 !important;
-	box-shadow: inset 0 0 0 1px var(--gnome-hover-urlbar-border-color) !important;
-	border-radius: 8px !important;
-	color: var(--gnome-urlbar-color) !important;
+	background: var(--macos-urlbar-background) !important;
+	border: none !important;
+	box-shadow: inset 0 0 0 1px var(--macos-hover-urlbar-border-color) !important;
+	border-radius: var(--macos-toolbar-border-radius) !important;
+	color: var(--macos-urlbar-color) !important;
 	padding: 0 6px !important;
-	height: 29px !important;
-	max-height: 29px !important;
-	transition: box-shadow 200ms;
+	height: 32px !important;
+	max-height: 32px !important;
 }
-#urlbar[breakout]{
-	top: 3.5px !important;
-}
-#urlbar[breakout][breakout-extend]{
-	top: 2px !important;
-}
-#nav-bar-customization-target{
+
+#nav-bar-customization-target {
 	max-height: 36px !important;
 }
 
-#nav-bar #searchbar:hover,
-#urlbar #urlbar-input-container:hover {
-	box-shadow: inset 0 0 0 2px var(--gnome-hover-urlbar-border-color) !important;
-	transition-duration: 100ms;
+#nav-bar #urlbar {
+	box-shadow: none !important;
 }
 
-#urlbar[breakout][breakout-extend] #urlbar-input-container,
-#urlbar[breakout][breakout-extend] #urlbar-input-container:hover {
-	background: none !important;
+#nav-bar #urlbar[breakout][breakout-extend] #urlbar-input-container,
+#nav-bar #urlbar[breakout][breakout-extend] #urlbar-input-container:hover {
 	box-shadow: none !important;
 	padding: 0 6px !important;
 }
@@ -117,6 +125,6 @@ toolbar .toolbarbutton-1{
 #nav-bar #searchbar:focus-within,
 #urlbar[focused] #urlbar-input-container {
 	border: none !important;
-	background: var(--gnome-urlbar-background) !important;
-	box-shadow: inset 0 0 0 2px var(--gnome-focused-urlbar-highlight-color) !important;
+	background: var(--macos-urlbar-background) !important;
+	box-shadow: inset 0 0 0 2px var(--macos-focused-urlbar-highlight-color) !important;
 }

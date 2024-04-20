@@ -1,8 +1,9 @@
 /* Buttons */
-@import "buttons-fixes.css";
+
 @namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
 
 /* Hide buttons separator */
+
 #nav-bar .toolbaritem-combined-buttons separator {
 	display: none !important;
 }
@@ -11,8 +12,17 @@
 	border: 0 !important;
 }
 
+popupset menupopup {
+  outline: none !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+
 /* Buttons  */
+
 .subviewbutton.panel-subview-footer,
+.subviewbutton.panel-subview-footer-button,
 .panel-footer button,
 #downloadsHistory,
 #downloadsPanel-mainView .download-state .downloadButton,
@@ -27,30 +37,34 @@
 #viewButton,
 .close-icon:not(.tab-close-button),
 .menulist-label-box,
-.expander-down, .expander-up,
+.expander-down,
+.expander-up,
 .notification-button,
 .identity-popup-permission-remove-button,
 #identity-popup-security-expander,
 #PanelUI-panic-view-button,
 .tracking-protection-button,
 .dialog-button {
+	appearance: none;
 	-moz-appearance: none !important;
-	background: var(--gnome-button-background) !important;
-	box-shadow: var(--gnome-button-box-shadow) !important;
-	border: 1px solid var(--gnome-button-border-color) !important;
-	border-bottom-color: var(--gnome-button-border-accent-color) !important;
-	border-radius: 5px !important;
-	padding: 0 4px !important;
-	height: 28px !important;
-	max-height: 28px !important;
-	min-height: 28px !important;
-	min-width: 28px !important;
-	color: var(--gnome-toolbar-color) !important;
+	background: var(--macos-button-background) !important;
+	box-shadow: var(--macos-button-box-shadow) !important;
+	border: 1px solid var(--macos-button-border-color) !important;
+	border-bottom-color: var(--macos-button-border-accent-color) !important;
+	border-radius: 6px !important;
+	padding: 2px 6px !important;
+	height: 22px !important;
+	max-height: 22px !important;
+	min-height: 22px !important;
+	min-width: 22px !important;
+	color: inherit;
 	transition: all 200ms;
 }
 
 /* Text buttons */
+
 .subviewbutton.panel-subview-footer,
+.subviewbutton.panel-subview-footer-button,
 .panel-footer button,
 #downloadsHistory,
 #overflowMenu-customize-button,
@@ -62,7 +76,7 @@
 #PanelUI-panic-view-button,
 .tracking-protection-button,
 .dialog-button {
-	padding: 2px 10px !important;
+	padding: var(--macos-menu-item-padding) !important;
 	text-align: left !important;
 }
 
@@ -71,30 +85,41 @@
 }
 
 /* Drop down buttons */
+
 #sidebar-switcher-target,
 #viewButton {
 	padding: 2px 16px !important;
-	position: relative;
+	position: relative !important;
+	flex-basis: auto !important;
 }
+
 #sidebar-switcher-arrow,
-#viewButton .button-menu-dropmarker { /* Arrow position, type b */
-	transform: translate(6px, 0)
+#viewButton .button-menu-dropmarker {
+	/* Arrow position, type b */
+	transform: translate(6px, 0);
 }
+
 .menulist-label-box {
 	padding: 2px 26px 2px 16px !important;
 	position: relative;
 }
-.menulist-label-box:after { /* Arrow position */
+
+.menulist-label-box:after {
+	/* Arrow position */
 	position: absolute !important;
 	right: 8px !important;
 	top: 8px !important;
 }
-.menulist-label-box:after { /* Create arrow if icon tag no exist */
+
+.menulist-label-box:after {
+	/* Create arrow if icon tag no exist */
 	content: "";
 }
 
 /* Hover buttons */
+
 .subviewbutton.panel-subview-footer:hover,
+.subviewbutton.panel-subview-footer-button:hover,
 .panel-footer button:hover,
 #downloadsHistory:hover,
 #downloadsPanel-mainView .download-state .downloadButton:hover,
@@ -109,20 +134,21 @@
 #sidebar-switcher-target:hover,
 #viewButton:hover,
 menulist:hover .menulist-label-box,
-.expander-down:hover, .expander-up:hover,
+.expander-down:hover,
+.expander-up:hover,
 .notification-button:hover,
-.protections-popup-footer-button:hover,
 .identity-popup-permission-remove-button:hover,
 #identity-popup-security-expander:hover,
 .tracking-protection-button:hover,
-#protections-popup-show-report-stack:hover>.protections-popup-footer-button,
 .dialog-button:hover {
 	outline: 0 !important;
-	background: var(--gnome-button-hover-background) !important;
+	background: var(--macos-button-hover-background) !important;
 }
 
 /* Active buttons */
+
 .subviewbutton.panel-subview-footer:active,
+.subviewbutton.panel-subview-footer-button:active,
 .panel-footer button:active,
 #downloadsHistory:active,
 #downloadsPanel-mainView .download-state .downloadButton:active,
@@ -134,65 +160,77 @@ menulist:hover .menulist-label-box,
 .identity-popup-preferences-button:not(#hack):active,
 .findbar-container toolbarbutton[checked],
 .findbar-container toolbarbutton:active,
-#sidebar-switcher-target:active, #sidebar-switcher-target.active,
+#sidebar-switcher-target:active,
+#sidebar-switcher-target.active,
 #viewButton[open],
 menulist[open] .menulist-label-box,
-.expander-down:active, .expander-up:active,
+.expander-down:active,
+.expander-up:active,
 .notification-button:active,
-.protections-popup-footer-button:not(#hack):active,
 .identity-popup-permission-remove-button:active,
 #identity-popup-security-expander:active,
 .tracking-protection-button:active,
 .dialog-button:active {
-	background: var(--gnome-button-active-background) !important;
-	box-shadow: var(--gnome-button-active-box-shadow) !important;
-	border-color: var(--gnome-button-active-border-color) !important;
+	background: var(--macos-button-active-background) !important;
+	box-shadow: var(--macos-button-active-box-shadow) !important;
+	border-color: var(--macos-button-active-border-color) !important;
+}
+
+menulist > menupopup > menuitem:is([checked="true"], [selected="true"])::before {
+	margin-inline-start: auto !important;
+}
+
+#context-navigation menuitem {
+  max-height: 30px !important;
+  height: 30px !important;
 }
 
 /* Fix HTML select colour */
-menulist>menupopup>menuitem,
-menulist>menupopup>menucaption,
-menulist>menupopup>menu {
+
+menupopup > menuitem,
+menupopup > menucaption,
+menupopup > menu {
 	max-width: none;
-	color: var(--gnome-button-menulist-color) !important;
-	background: var(--gnome-button-background) !important;
+	border-radius: 4px !important;
+	color: var(--macos-button-menulist-color) !important;
 }
-menulist>menupopup>menuitem:hover,
-menulist>menupopup>menucaption,
-menulist>menupopup>menu {
-	background: var(--gnome-button-hover-background) !important;
+
+menupopup > menuitem[_moz-menuactive="true"]:not(:hover) {
+	background-color: transparent !important;
 }
+
 /* Disabled buttons */
+
 #appMenu-popup .toolbaritem-combined-buttons toolbarbutton[disabled],
 #context-navigation menuitem[disabled],
-#webRTC-shareDevices-notification>.popup-notification-button-container>.popup-notification-primary-button[disabled] {
-	background: var(--gnome-button-disabled-background) !important;
-	border-color: var(--gnome-button-disabled-border-color) !important;
-	box-shadow: var(--gnome-button-disabled-box-shadow) !important;
+#webRTC-shareDevices-notification > .popup-notification-button-container > .popup-notification-primary-button[disabled] {
+	background: var(--macos-button-disabled-background) !important;
+	border-color: var(--macos-button-disabled-border-color) !important;
+	box-shadow: var(--macos-button-disabled-box-shadow) !important;
 	opacity: 1 !important;
 }
 
 #nav-bar toolbarbutton:not(#urlbar-zoom-button)[disabled] image,
 #appMenu-popup .toolbaritem-combined-buttons toolbarbutton[disabled] image,
 #context-navigation menuitem[disabled] image {
-	opacity: .4 !important;
+	opacity: 0.4 !important;
 }
 
 #appMenu-popup .toolbaritem-combined-buttons toolbarbutton[disabled]:hover {
-	background: var(--gnome-button-disabled-background) !important;
+	background: var(--macos-button-disabled-background) !important;
 }
 
 /* Inactive window buttons */
 .findbar-container toolbarbutton:-moz-window-inactive,
 #sidebar-switcher-target:-moz-window-inactive,
 #viewButton:-moz-window-inactive {
-	background: var(--gnome-inactive-button-background) !important;
-	box-shadow: var(--gnome-inactive-button-box-shadow) !important;
-	border-color: var(--gnome-inactive-button-border-color) !important;
+	background: var(--macos-inactive-button-background) !important;
+	box-shadow: var(--macos-inactive-button-box-shadow) !important;
+	border-color: var(--macos-inactive-button-border-color) !important;
 }
 
 /* Flat buttons */
-.subviewbutton-back:not(#hack),
+.subviewbutton-back:not(#hack):not(.subviewbutton-iconic),
 #TabsToolbar .toolbarbutton-1 {
 	background: transparent !important;
 	box-shadow: none !important;
@@ -200,11 +238,10 @@ menulist>menupopup>menu {
 	border-radius: 5px !important;
 }
 
-.subviewbutton-back:not(#hack):not(:active):hover,
-#protections-popup-show-report-button:not(:active):hover {
-	box-shadow: var(--gnome-button-box-shadow) !important;
-	border-color: var(--gnome-button-border-color) !important;
-	border-bottom-color: var(--gnome-button-border-accent-color) !important;
+.subviewbutton-back:not(#hack):not(:active):hover {
+	box-shadow: var(--macos-button-box-shadow) !important;
+	border-color: var(--macos-button-border-color) !important;
+	border-bottom-color: var(--macos-button-border-accent-color) !important;
 }
 
 .close-icon:not(.tab-close-button) {
@@ -217,6 +254,10 @@ menulist>menupopup>menu {
 	width: 28px !important;
 	min-height: 28px !important;
 	min-width: 28px !important;
+}
+
+#sidebar-close:hover {
+	background-color: color-mix(in srgb, currentColor 10%, transparent) !important;
 }
 
 #TabsToolbar .toolbarbutton-1 {
@@ -242,16 +283,17 @@ menulist>menupopup>menu {
 .close-icon:not(.tab-close-button):hover,
 #TabsToolbar .toolbarbutton-1:not(:active):not([open]):hover {
 	outline: 0 !important;
-
 }
 
 .close-icon:not(.tab-close-button):active,
-#TabsToolbar .toolbarbutton-1:active, #TabsToolbar .toolbarbutton-1[open] {
+#TabsToolbar .toolbarbutton-1:active,
+#TabsToolbar .toolbarbutton-1[open] {
 	outline: 0 !important;
-	background: var(--gnome-button-active-color) !important;
+	background: var(--macos-headerbar-button-active-background) !important;
 }
 
 /* Circle buttons */
+
 #downloadsPanel-mainView .download-state .downloadButton,
 .identity-popup-permission-remove-button:not(#hack) {
 	padding: 0 0 !important;
@@ -263,6 +305,7 @@ menulist>menupopup>menu {
 }
 
 /* Combined buttons */
+
 .subviewbutton.panel-subview-footer:not(:only-of-type):not(:last-of-type),
 .panel-footer button:not(:only-of-type):not(:last-of-type),
 #appMenu-popup .toolbaritem-combined-buttons toolbarbutton:not(:last-of-type):not(#appMenu-zoomEnlarge-button),
@@ -275,12 +318,24 @@ menulist>menupopup>menu {
 	margin-right: 0 !important;
 }
 
-#nav-bar .toolbaritem-combined-buttons toolbarbutton:not(:first-of-type):not(#hack),
+#appMenu-zoomReduce-button2:not([disabled]):hover > .toolbarbutton-icon,
+#appMenu-zoomEnlarge-button2:not([disabled]):hover > .toolbarbutton-icon,
+#appMenu-zoomReduce-button2:not([disabled]):active > .toolbarbutton-icon,
+#appMenu-zoomEnlarge-button2:not([disabled]):active > .toolbarbutton-icon {
+	stroke: var(--button-bgcolor) !important;
+}
+
+#appMenu-zoomReset-button2:not([disabled]):hover > .toolbarbutton-text,
+#appMenu-fullscreen-button2:not([disabled]):hover > .toolbarbutton-icon,
+#appMenu-zoomReset-button2:not([disabled]):active > .toolbarbutton-text,
+#appMenu-fullscreen-button2:not([disabled]):active > .toolbarbutton-icon {
+	background-color: var(--button-bgcolor) !important;
+}
+
 .subviewbutton.panel-subview-footer:not(:only-of-type):not(:first-of-type),
 .panel-footer button:not(:only-of-type):not(:first-of-type),
 #appMenu-popup .toolbaritem-combined-buttons toolbarbutton:not(:first-of-type):not(#appMenu-fullscreen-button),
 #context-navigation menuitem:not(:first-of-type),
-.findbar-container toolbarbutton.findbar-find-previous,
 .findbar-container toolbarbutton.findbar-find-next,
 .findbar-button:not(:first-of-type) {
 	border-top-left-radius: 0 !important;
@@ -294,68 +349,71 @@ menulist>menupopup>menu {
 }
 
 /* Buttons with suggested action */
+
+.panel-footer-button.popup-notification-primary-button,
 #appMenu-popup .panel-banner-item[notificationid="update-restart"],
-button.popup-notification-primary-button,
 #editBookmarkPanelDoneButton,
 #tracking-action-block {
-	color: white !important;
-	background: var(--gnome-button-suggested-action-background) !important;
-	border-color: var(--gnome-button-suggested-action-border-color) !important;
-	border-bottom-color: var(--gnome-button-suggested-action-border-accent-color) !important;
-	box-shadow: var(--gnome-button-suggested-action-box-shadow) !important;
-	text-shadow: 0 -1px rgba(0, 0, 0, 0.559216) !important;
+	color: #ffffff !important;
+	background: var(--macos-button-suggested-action-background) !important;
+	border-color: var(--macos-button-suggested-action-border-color) !important;
+	border-bottom-color: var(--macos-button-suggested-action-border-accent-color) !important;
+	box-shadow: var(--macos-button-suggested-action-box-shadow) !important;
+	text-shadow: 0 -1px #0000008f !important;
 }
 
+.panel-footer-button.popup-notification-primary-button:hover,
 #appMenu-popup .panel-banner-item[notificationid="update-restart"]:hover,
 button.popup-notification-primary-button.popup-notification-button:hover,
 #editBookmarkPanelDoneButton:hover {
-	background: var(--gnome-button-suggested-action-hover-background) !important;
+	background: var(--macos-button-suggested-action-hover-background) !important;
 }
 
+.panel-footer-button.popup-notification-primary-button:active,
 #appMenu-popup .panel-banner-item[notificationid="update-restart"]:active,
 button.popup-notification-primary-button.popup-notification-button:active,
 #editBookmarkPanelDoneButton:active {
-	background: var(--gnome-button-suggested-action-active-background) !important;
-	border-color: var(--gnome-button-suggested-action-active-border-color) !important;
-	box-shadow: var(--gnome-button-suggested-action-active-box-shadow) !important;
+	background: var(--macos-button-suggested-action-active-background) !important;
+	border-color: var(--macos-button-suggested-action-active-border-color) !important;
+	box-shadow: var(--macos-button-suggested-action-active-box-shadow) !important;
 	text-shadow: none !important;
 }
 
 /* Buttons with destructive action */
+
 #editBookmarkPanelRemoveButton,
 #PanelUI-panic-view-button {
-	color: white !important;
-	background: var(--gnome-button-destructive-action-background) !important;
-	border-color: var(--gnome-button-destructive-action-border-color) !important;
-	border-bottom-color: var(--gnome-button-destructive-action-border-accent-color) !important;
-	box-shadow: var(--gnome-button-destructive-action-box-shadow) !important;
-	text-shadow: 0 -1px rgba(0, 0, 0, 0.558275) !important;
+	color: #ffffff !important;
+	background: var(--macos-button-destructive-action-background) !important;
+	border-color: var(--macos-button-destructive-action-border-color) !important;
+	border-bottom-color: var(--macos-button-destructive-action-border-accent-color) !important;
+	box-shadow: var(--macos-button-destructive-action-box-shadow) !important;
+	text-shadow: 0 -1px #0000008e !important;
 }
 
 #editBookmarkPanelRemoveButton:hover,
 .identity-popup-permission-remove-button:not(#hack):hover,
 #PanelUI-panic-view-button:hover {
-	background: var(--gnome-button-destructive-action-hover-background) !important;
+	background: var(--macos-button-destructive-action-hover-background) !important;
 }
 
 #editBookmarkPanelRemoveButton:active,
 .identity-popup-permission-remove-button:not(#hack):active,
 #PanelUI-panic-view-button:active {
-	background: var(--gnome-button-destructive-action-active-background) !important;
-	border-color: var(--gnome-button-destructive-action-active-border-color) !important;
-	box-shadow: var(--gnome-button-destructive-action-active-box-shadow) !important;
+	background: var(--macos-button-destructive-action-active-background) !important;
+	border-color: var(--macos-button-destructive-action-active-border-color) !important;
+	box-shadow: var(--macos-button-destructive-action-active-box-shadow) !important;
 }
 
-.identity-popup-permission-remove-button:not(#hack):hover { /* Is flat */
-	border-color: var(--gnome-button-destructive-action-border-color) !important;
-	border-bottom-color: var(--gnome-button-destructive-action-border-accent-color) !important;
-	box-shadow: var(--gnome-button-destructive-action-box-shadow) !important;
-}
-.identity-popup-permission-remove-button:not(#hack):hover .button-icon {
-	filter: invert(100%) brightness(200%);
+.identity-popup-permission-remove-button:not(#hack):hover {
+	/* Is flat */
+	border-color: var(--macos-button-destructive-action-border-color) !important;
+	border-bottom-color: var(--macos-button-destructive-action-border-accent-color) !important;
+	box-shadow: var(--macos-button-destructive-action-box-shadow) !important;
 }
 
 /* User sync menu, bigger avatar */
+
 #fxa-toolbar-menu-button .toolbarbutton-badge-stack {
 	margin: 0 !important;
 }
