@@ -483,21 +483,18 @@ jobs:
           tar -xf jadua-go-browser.source.tar.gz -C ./engine
 
       - name: Bootstrap
-        shell: C:\mozilla-build\start-shell.bat -here -e {0}
         run: |
           cd engine
           ./mach --no-interactive bootstrap --application-choice browser
           cd ..
 
       - name: Gluon build
-        shell: C:\mozilla-build\start-shell.bat -here -e {0}
         run: pnpm build --verbose --skip-patch-check
         
       - name: Package
-        shell: C:\mozilla-build\start-shell.bat -here -e {0}
         run: |
           pnpm package
-          mv ./dist/output.mar windows.mar
+          Move-Item -Path ./dist/output.mar -Destination windows.mar
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
@@ -576,21 +573,18 @@ jobs:
           tar -xf jadua-go-browser.source.tar.gz -C ./engine
 
       - name: Bootstrap
-        shell: C:\mozilla-build\start-shell.bat -here -e {0}
         run: |
           cd engine
           ./mach --no-interactive bootstrap --application-choice browser
           cd ..
 
       - name: Gluon build
-        shell: C:\mozilla-build\start-shell.bat -here -e {0}
         run: pnpm build --verbose --skip-patch-check
         
       - name: Package
-        shell: C:\mozilla-build\start-shell.bat -here -e {0}
         run: |
           pnpm package
-          mv ./dist/output.mar windows.mar
+          Move-Item -Path ./dist/output.mar -Destination windows.mar
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
