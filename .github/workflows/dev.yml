@@ -518,7 +518,7 @@ jobs:
           path: ./dist/update
 
   windows:
-    runs-on: jaduafast-win
+    runs-on: windows-latest
     if:  ${{ ! inputs.runLocal }} 
     needs: [source, build-data]
 
