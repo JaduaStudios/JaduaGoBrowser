@@ -7,6 +7,10 @@ on:
         type: boolean
         description: Bump version before building
         default: true
+      runLocal:
+        type: boolean
+        description: Runs windows builds locally
+        default: false
 
 jobs:
   build-data:
@@ -420,8 +424,9 @@ jobs:
           name: macos_update_manifest
           path: ./dist/update
 
-  windows:
+  windows-local:
     runs-on: jaduafast-win
+    if:  ${{ inputs.runLocal }} 
     needs: [source, build-data]
 
     steps:
@@ -452,9 +457,8 @@ jobs:
         run: |
           $ProgressPreference = 'SilentlyContinue'
           Invoke-WebRequest -Uri "https://ftp.mozilla.org/pub/mozilla/libraries/win32/MozillaBuildSetup-Latest.exe" -OutFile "MozillaBuildSetup-Latest.exe"
-          & "C:\Program Files\7-Zip\7z.exe" x "MozillaBuildSetup-Latest.exe" -o"C:\mozilla-build"
-          New-Item -ItemType Directory -Path "C:\mozilla-build\msys2\tmp"
-
+          & "C:\Program Files\7-Zip\7z.exe" x "MozillaBuildSetup-Latest.exe" -o"C:\mozilla-build" -aoa
+          New-Item -ItemType Directory -Force -Path "C:\mozilla-build\msys2\tmp"
 
       - name: Install dependencies
         run: |
@@ -474,9 +478,9 @@ jobs:
           
       - name: Unpack source
         run: |
-          Remove-Item -Path 'engine' -Recurse -Force
+          Remove-Item -Path 'engine' -Recurse -Force -ErrorAction Ignore
           New-Item -Path 'engine' -ItemType Directory
-          Expand-Archive -Path 'jadua-go-browser.source.tar.gz' -DestinationPath 'engine'
+          tar -xf jadua-go-browser.source.tar.gz -C ./engine
 
       - name: Bootstrap
         shell: C:\mozilla-build\start-shell.bat -here -e {0}
@@ -512,6 +516,147 @@ jobs:
         with:
           name: windows_update_manifest
           path: ./dist/update
+
+  windows:
+    runs-on: jaduafast-win
+    if:  ${{ ! inputs.runLocal }} 
+    needs: [source, build-data]
+
+    steps:
+      - uses: trickypr/checkout@main
+        with:
+          submodules: recursive
+          
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Setup MozillaBuild
+        run: |
+          $ProgressPreference = 'SilentlyContinue'
+          Invoke-WebRequest -Uri "https://ftp.mozilla.org/pub/mozilla/libraries/win32/MozillaBuildSetup-Latest.exe" -OutFile "MozillaBuildSetup-Latest.exe"
+          & "C:\Program Files\7-Zip\7z.exe" x "MozillaBuildSetup-Latest.exe" -o"C:\mozilla-build" -aoa
+          New-Item -ItemType Directory -Force -Path "C:\mozilla-build\msys2\tmp"
+
+      - name: Install dependencies
+        run: |
+          pnpm install
+
+      - name: Setup gluon
+        run: |
+          pnpm install -g gluon-build@next
+
+      - name: Load gluon CI setup
+        run: pnpm gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
+        
+      - name: Download source
+        uses: actions/download-artifact@v3
+        with:
+          name: jadua-go-browser.source.tar.gz
+          
+      - name: Unpack source
+        run: |
+          Remove-Item -Path 'engine' -Recurse -Force -ErrorAction Ignore
+          New-Item -Path 'engine' -ItemType Directory
+          tar -xf jadua-go-browser.source.tar.gz -C ./engine
+
+      - name: Bootstrap
+        shell: C:\mozilla-build\start-shell.bat -here -e {0}
+        run: |
+          cd engine
+          ./mach --no-interactive bootstrap --application-choice browser
+          cd ..
+
+      - name: Gluon build
+        shell: C:\mozilla-build\start-shell.bat -here -e {0}
+        run: pnpm build --verbose --skip-patch-check
+        
+      - name: Package
+        shell: C:\mozilla-build\start-shell.bat -here -e {0}
+        run: |
+          pnpm package
+          mv ./dist/output.mar windows.mar
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: jadua-go-browser.installer.exe
+          path: ./dist/jadua-go-browser.installer.exe
+
+      - name: Upload mar
+        uses: actions/upload-artifact@v3
+        with:
+          name: windows.mar
+          path: ./windows.mar
+
+      - name: Upload update manifests
+        uses: actions/upload-artifact@v3
+        with:
+          name: windows_update_manifest
+          path: ./dist/update
+
+  release-local:
+    name: Release (Local)
+    needs: [build-data, linux, source, mac, windows-local]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/download-artifact@v3
+
+      - name: release-github
+        uses: 'marvinpinto/action-automatic-releases@latest'
+        with:
+          repo_token: '${{ secrets.GITHUB_TOKEN }}'
+          automatic_release_tag: ${{ needs.build-data.outputs.version }}
+          prerelease: false
+          title: 'Dev build: ${{ needs.build-data.outputs.version }}'
+          files: |
+            jadua-go-browser.linux.tar.bz2
+            jadua-go-browser.source.tar.gz
+            jadua-go-browser.macos.dmg
+            jadua-go-browser.installer.exe
+            windows.mar
+            macos.mar
+            linux.mar
+
+      - name: List
+        run: find .
+
+      - name: Checkout tools repo
+        uses: actions/checkout@v3
+        with:
+          repository: JaduaStudios/GoUpdates
+          path: updates
+          token: ${{ secrets.ROBOT_TOKEN }}
+
+      - name: Copy update manifests
+        run: |
+          mkdir -p updates/updates
+          cp -a macos_update_manifest/. updates/updates/
+          cp -a linux_update_manifest/. updates/updates/
+          cp -a windows_update_manifest/. updates/updates/
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 🔖 Upload update manifests ${{ needs.build-data.outputs.version }}
+          commit_user_name: Jadua Studios Bot
+          commit_user_email: info@jaduastudios.com
+          repository: ./updates
 
   release:
     name: Release
