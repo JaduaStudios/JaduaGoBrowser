@@ -33,7 +33,8 @@
 pref('apz.overscroll.enabled', true); // not DEFAULT on Linux
 pref('general.smoothScroll', true); // DEFAULT
 pref('general.smoothScroll.mouseWheel.durationMinMS', 80); // default=50
-pref('mousewheel.default.delta_multiplier_y', 260); // 250-400; adjust this number to your liking
+pref('mousewheel.default.delta_multiplier_y', 100); // 50-200; adjust this number to your liking
+pref('mousewheel.min_line_scroll_amount', 15); // Alternative to above without impacting trackpad speed
 pref('general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS', 12);
 pref('general.smoothScroll.msdPhysics.enabled', true);
 pref('general.smoothScroll.msdPhysics.motionBeginSpringConstant', 700);
