@@ -151,6 +151,7 @@ jobs:
         with:
           name: jadua-go-browser.source.tar.gz
           path: ./jadua-go-browser.source.tar.gz
+          compression-level: 0
 
   linux:
     runs-on: ubuntu-latest
