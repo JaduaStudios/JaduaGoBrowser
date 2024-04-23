@@ -38,6 +38,13 @@
       "repo": "JaduaStudios/BetterTyping",
       "version": "v0.1.2",
       "fileGlob": "release.xpi"
+    },
+    "GoViewer": {
+      "id": "goviewer@jaduastudios.com",
+      "platform": "github",
+      "repo": "JaduaStudios/GoViewer",
+      "version": "v0.2.0",
+      "fileGlob": "release.xpi"
     }
   },
   "brands": {
