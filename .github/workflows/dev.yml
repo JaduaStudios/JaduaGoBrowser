@@ -424,6 +424,143 @@ jobs:
         with:
           name: macos_update_manifest
           path: ./dist/update
+          
+  macarm:
+    runs-on: macos-14
+    needs: [source, build-data]
+
+    steps:
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16
+
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          
+      - name: Setup git
+        run: |
+          git config --global user.email "jadua1010@users.noreply.github.com"
+          git config --global user.name "Jadua1010"
+
+      - name: Install system dependencies
+        continue-on-error: false
+        run: |
+          brew link --overwrite python3
+          brew update
+          brew install cairo sccache gnu-tar mercurial
+          sudo pip install setuptools
+          
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+          
+      - name: Force usage fo gnu-tar
+        run: |
+          echo 'export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"' >> ~/.bash_profile
+          echo 'export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"' >> ~/.zsh
+          source ~/.bash_profile
+
+      - name: Save sccache
+        uses: actions/cache@v4
+        continue-on-error: false
+        with:
+          path: ~/Library/Caches/Mozilla.sccache
+          key: ${{ runner.os }}-sccache
+
+      - uses: pnpm/action-setup@v3
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('pnpm-lock.yaml', '*/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Load gluon CI setup
+        run: pnpm gluon ci --brand dev --display-version ${{ needs.build-data.outputs.version }}
+
+      - name: Download source
+        uses: actions/download-artifact@v4
+        with:
+          name: jadua-go-browser.source.tar.gz
+
+      - name: Unpack source
+        shell: bash
+        run: |
+          rm -rf engine
+          mkdir engine
+          tar -xf jadua-go-browser.source.tar.gz -C ./engine
+          
+      - name: Remove bad python files
+        continue-on-error: true
+        run: |
+          rm '/usr/local/bin/2to3'
+          rm '/usr/local/bin/2to3-3.11'
+          rm '/usr/local/bin/idle3'
+          rm '/usr/local/bin/idle3.11'
+          rm '/usr/local/bin/pydoc3'
+          rm '/usr/local/bin/pydoc3.11'
+          rm '/usr/local/bin/python3.11'
+          rm '/usr/local/bin/python3'
+          rm '/usr/local/bin/python3-config'
+          rm '/usr/local/bin/python3.11-config'
+          rm '/usr/local/bin/2to3-3.12'
+          rm '/usr/local/bin/idle3.12'
+          rm '/usr/local/bin/pydoc3.12'
+          rm '/usr/local/bin/python3.12-config'
+          rm '/usr/local/bin/python3.12'
+
+      - name: Bootstrap
+        run: |
+          cd engine
+          ./mach --no-interactive bootstrap --application-choice browser
+          cd ..
+
+      - name: Gluon build
+        run: pnpm build --verbose --skip-patch-check
+
+      - name: Package
+        run: pnpm gluon package
+
+      - name: Rename artifacts
+        run: |
+          mv ./dist/*.dmg "jadua-go-browser.macosarm.dmg"
+          mv ./dist/output.mar macosarm.mar
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: jadua-go-browser.macosarm.dmg
+          path: ./jadua-go-browser.macosarm.dmg
+
+      - name: Upload mar
+        uses: actions/upload-artifact@v4
+        with:
+          name: macosarm.mar
+          path: ./macosarm.mar
+
+      - name: Upload update manifests
+        uses: actions/upload-artifact@v4
+        with:
+          name: macosarm_update_manifest
+          path: ./dist/update
 
   windows-local:
     runs-on: jaduafast-win
@@ -638,9 +775,11 @@ jobs:
             jadua-go-browser.linux.tar.bz2
             jadua-go-browser.source.tar.gz
             jadua-go-browser.macos.dmg
+            jadua-go-browser.macosarm.dmg
             jadua-go-browser.installer.exe
             windows.mar
             macos.mar
+            macosarm.mar
             linux.mar
 
       - name: List
@@ -657,6 +796,7 @@ jobs:
         run: |
           mkdir -p updates/updates
           cp -a macos_update_manifest/. updates/updates/
+          cp -a macosarm_update_manifest/. updates/updates/
           cp -a linux_update_manifest/. updates/updates/
           cp -a windows_update_manifest/. updates/updates/
 
@@ -686,9 +826,11 @@ jobs:
             jadua-go-browser.linux.tar.bz2
             jadua-go-browser.source.tar.gz
             jadua-go-browser.macos.dmg
+            jadua-go-browser.macosarm.dmg
             jadua-go-browser.installer.exe
             windows.mar
             macos.mar
+            macosarm.mar
             linux.mar
 
       - name: List
@@ -705,6 +847,7 @@ jobs:
         run: |
           mkdir -p updates/updates
           cp -a macos_update_manifest/. updates/updates/
+          cp -a macosarm_update_manifest/. updates/updates/
           cp -a linux_update_manifest/. updates/updates/
           cp -a windows_update_manifest/. updates/updates/
 
