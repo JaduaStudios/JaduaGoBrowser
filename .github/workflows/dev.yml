@@ -330,7 +330,7 @@ jobs:
         continue-on-error: false
         with:
           path: ~/Library/Caches/Mozilla.sccache
-          key: ${{ runner.os }}-sccache
+          key: ${{ runner.os }}-arm-sccache
 
       - uses: pnpm/action-setup@v3
         name: Install pnpm
@@ -349,9 +349,9 @@ jobs:
         name: Setup pnpm cache
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('pnpm-lock.yaml', '*/pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-arm-pnpm-store-${{ hashFiles('pnpm-lock.yaml', '*/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+            ${{ runner.os }}-arm-pnpm-store-
 
       - name: Install dependencies
         run: pnpm install
