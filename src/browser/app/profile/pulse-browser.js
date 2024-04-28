@@ -17,6 +17,7 @@ pref("browser.newtabpage.activity-stream.feeds.topsites", true);
 pref("browser.profiles.enabled", true);
 pref("browser.tabs.cardPreview.enabled", true);
 pref("browser.tabs.cardPreview.delayMs", 400);
+pref("cookiebanners.service.mode.privateBrowsing", 2);
 
 pref("browser.newtabpage.activity-stream.go.background.image", false);
 // Prefs from browser/branding/unofficial/prefs/firefox-branding.js:
