@@ -44,7 +44,7 @@
 @import url("tabs_take_full_bar_width.css");
 @import url("show_searchbar_dots_only_on_hover.css");
 @import url("thicker_control_buttons.css");
-@import "macPatches.css" (-moz-platform: macos) (-moz-bool-pref: "pulse.mac-translucent");/**/;
+@import "macPatches.css" (-moz-platform: macos) and (-moz-bool-pref: "pulse.mac-translucent");
 
 /*=====================================================================
 ================= D A R K   T H E M E   C O L O R S ===================
