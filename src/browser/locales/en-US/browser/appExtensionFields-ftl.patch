@@ -1,5 +1,5 @@
 diff --git a/browser/locales/en-US/browser/appExtensionFields.ftl b/browser/locales/en-US/browser/appExtensionFields.ftl
-index 09d7a076eccd4235fac66156770d8b9ae01a7d16..fa5b3e5b67b5fdb6751e17793d45614afe19e261 100644
+index 09d7a076eccd4235fac66156770d8b9ae01a7d16..f6d59214817d1a2dfd290fe06dcf9233583c295c 100644
 --- a/browser/locales/en-US/browser/appExtensionFields.ftl
 +++ b/browser/locales/en-US/browser/appExtensionFields.ftl
 @@ -5,18 +5,56 @@
@@ -22,23 +22,23 @@ index 09d7a076eccd4235fac66156770d8b9ae01a7d16..fa5b3e5b67b5fdb6751e17793d45614a
  extension-firefox-alpenglow-description=Use a colorful appearance for buttons, menus, and windows.
  
 +## Pulse themes
-+extension-pulse-light-name=Jadua (Light)
++extension-pulse-light-name=Jadua Classic (Light)
 +extension-pulse-light-description=A standard, practical light theme
 +
-+extension-pulse-dark-name=Jadua (Dark)
++extension-pulse-dark-name=Jadua Classic (Dark)
 +extension-pulse-dark-description=A standard, practical dark theme
 +
 +# Duplicates here for legacy reasons
-+extension-light-name=Jadua (Light)
++extension-light-name=Jadua Classic (Light)
 +extension-light-description=A standard, practical light theme
 +
-+extension-dark-name=Jadua (Dark)
++extension-dark-name=Jadua Classic (Dark)
 +extension-dark-description=A standard, practical dark theme
 +
-+extension-pulse-light-new-name=Jadua Plus (Light)
++extension-pulse-light-new-name=Jadua (Light)
 +extension-pulse-light-new-description=A clean, minimalist light theme
 +
-+extension-pulse-dark-new-name=Jadua Plus (Dark)
++extension-pulse-dark-new-name=Jadua (Dark)
 +extension-pulse-dark-new-description=A clean, minimalist light theme
 +
 +extension-chrome-light-name=Chrome (Light)

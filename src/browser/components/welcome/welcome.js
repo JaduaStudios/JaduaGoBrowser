@@ -117,9 +117,21 @@ class Themes extends Page {
   async loadThemes() {
     await sleep(1000)
 
-    const themes = (await AddonManager.getAddonsByTypes(['theme'])).filter(
-      (theme) => !theme.id.includes('colorway')
-    )
+    const themes = (await AddonManager.getAddonsByTypes(['theme']))
+    .filter(theme => !theme.id.includes('colorway') && !theme.id.includes('default-theme'))
+    .sort((a, b) => {
+        const aHasJadua = a.id.includes('jadua');
+        const bHasJadua = b.id.includes('jadua');
+
+        if (aHasJadua && !bHasJadua) {
+            return -1; // a comes before b
+        } else if (!aHasJadua && bHasJadua) {
+            return 1; // b comes before a
+        } else {
+            return 0; // maintain the original order
+        }
+    })
+	
     const themeList = document.getElementById('themeList')
 
     const themeElements = []
