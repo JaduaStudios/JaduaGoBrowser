@@ -21,7 +21,7 @@
 @import url("white_github_icon_in_bookmarks.css");
 @import url("hide_list-all-tabs_button.css");
 @import url("bookmarks_bar_same_color_as_toolbar.css");
-@import url("min-max-close_buttons.css") (-moz-platform: windows);
+@import url("min-max-close_buttons.css");
 @import url("acrylic_micaforeveryone.css");
 @import url("privacy_blur_tabs_content.css");
 @import url("popout_bookmarks_bar_on_hover.css");
@@ -44,7 +44,6 @@
 @import url("tabs_take_full_bar_width.css");
 @import url("show_searchbar_dots_only_on_hover.css");
 @import url("thicker_control_buttons.css");
-@import url("macPatches.css") (-moz-platform: macos) and (-moz-bool-pref: "pulse.mac-translucent");
 
 /*=====================================================================
 ================= D A R K   T H E M E   C O L O R S ===================
@@ -591,13 +590,13 @@ about:config -> svg.context-properties.content.enabled -> true*/
 
 /* Width of the tabs. Important to have Fadein or it breaks fonctionality */
 /* not([style^="max-width"] :not([overflow])*/
-#tabbrowser-tabs:not[orient="vertical"] .tabbrowser-tab[fadein]:not([pinned]) {
+#tabbrowser-tabs .tabbrowser-tab[fadein]:not([pinned]) {
   max-width: var(--firefoxcss-tab-max-width) !important;
   min-width: var(--firefoxcss-tab-min-width) !important;
 }
 
 /* Selected tabs width increase */
-#tabbrowser-tabs:not([overflow]):not[orient="vertical"]
+#tabbrowser-tabs:not([overflow])
   .tabbrowser-tab[selected][fadein]:not([pinned]) {
   max-width: 175px !important;
 }
@@ -1552,3 +1551,11 @@ toolbar
 #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab .tab-background:not([selected]) {
 	background-color: var(--lwt-accent-color) !important;
 }
+
+/*=====================================================================
+========================= O V E R R I D E S ===========================
+=====================================================================*/
+
+/* Making full use of the C in CSS  */
+
+@import url("macPatches.css") (-moz-platform: macos) and (-moz-bool-pref: "pulse.mac-translucent");

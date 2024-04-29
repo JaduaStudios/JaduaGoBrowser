@@ -67,7 +67,7 @@
 /* Tab styles */
 
 #browser #TabsToolbar .tabbrowser-tab {
-  max-width: unset;
+  max-width: unset !important;
   width: 100%;
 
   /* Stops the tabs from getting squished or stretched */
