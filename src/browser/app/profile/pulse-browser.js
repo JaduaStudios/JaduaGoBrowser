@@ -20,6 +20,10 @@ pref("browser.tabs.cardPreview.delayMs", 400);
 pref("cookiebanners.service.mode.privateBrowsing", 2);
 
 pref("browser.newtabpage.activity-stream.go.background.image", false);
+
+// MacOS translucency preference (disabled for testing only) 
+pref("pulse.mac-translucent", false);
+
 // Prefs from browser/branding/unofficial/prefs/firefox-branding.js:
 
 // The time interval between checks for a new version (in seconds)

@@ -120,8 +120,8 @@ class Themes extends Page {
     const themes = (await AddonManager.getAddonsByTypes(['theme']))
     .filter(theme => !theme.id.includes('colorway') && !theme.id.includes('default-theme'))
     .sort((a, b) => {
-        const aHasJadua = a.id.includes('jadua');
-        const bHasJadua = b.id.includes('jadua');
+        const aHasJadua = a.id.includes('pulse');
+        const bHasJadua = b.id.includes('pulse');
 
         if (aHasJadua && !bHasJadua) {
             return -1; // a comes before b
