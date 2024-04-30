@@ -18,10 +18,10 @@
       "version": "1.57.2",
       "fileGlob": "uBlock0_*.firefox(.signed)?.xpi"
     },
-    "sidebar-tabs": {
+    "SidebarTabs": {
       "platform": "github",
       "id": "sidebartabs@browser.fushra.com",
-      "repo": "Jadua1010/sidebar-tabs",
+      "repo": "Jadua1010/SidebarTabs",
       "version": "v0.6.5",
       "fileGlob": "release.xpi"
     },
