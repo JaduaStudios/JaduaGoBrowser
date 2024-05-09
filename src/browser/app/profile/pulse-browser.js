@@ -94,6 +94,7 @@ pref('extensions.experiments.enabled', true);
 
 // Disable VPN promos
 pref('browser.vpn_promo.enabled', false);
+pref('browser.contentblocking.report.hide_vpn_banner', true);
 
 // Enable WebMIDI. This is still currently in testing inside of Firefox, but
 // will also provide us with the benefit of more features
