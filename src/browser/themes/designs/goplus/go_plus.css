@@ -602,14 +602,26 @@ about:config -> svg.context-properties.content.enabled -> true*/
   box-shadow: var(--firefoxcss-normal-tabs-box-shadow) !important;
 }
 
+/* Normal tabs design on hover */
+#tabbrowser-tabs
+  .tabbrowser-tab:hover
+  > .tab-stack
+  > .tab-background:not([selected]):not(-moz-bool-pref: "pulse.mac-translucent") {
+  background-color: var(--firefoxcss-tab-hover-bg-color) !important;
+}
+
 /* Selected tabs design */
 #tabbrowser-tabs .tabbrowser-tab .tab-background[selected] {
   border: 0 !important;
   border-radius: var(--firefoxcss-border-radius) !important;
   background-image: none !important;
-  background-color: var(--lwt-accent-color) !important;
   box-shadow: none !important;
   outline: none !important;
+}
+
+/* Selected tabs design */
+#tabbrowser-tabs .tabbrowser-tab .tab-background[selected]:not(-moz-bool-pref: "pulse.mac-translucent") {
+  background-color: var(--lwt-accent-color) !important;
 }
 
 /* Multiselect tabs */
