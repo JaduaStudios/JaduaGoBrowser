@@ -44,7 +44,7 @@
 @import url("tabs_take_full_bar_width.css");
 @import url("show_searchbar_dots_only_on_hover.css");
 @import url("thicker_control_buttons.css");
-@import url("go_plus.css");
+@import url("go_plus.css") not ((-moz-platform: macos) and (-moz-bool-pref: "pulse.mac-translucent"));
 @import url("macPatches.css") (-moz-platform: macos) and (-moz-bool-pref: "pulse.mac-translucent");
 
 /* Proceding CSS data has been moved to go_plus due to new mac overrides */
