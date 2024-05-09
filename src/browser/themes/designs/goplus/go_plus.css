@@ -598,7 +598,7 @@ about:config -> svg.context-properties.content.enabled -> true*/
   border: 0 !important;
   border-radius: var(--firefoxcss-border-radius) !important;
   background-image: none !important;
-  background-color: var(--firefoxcss-tab-hover-bg-color) !important;
+  background-color: var(--firefoxcss-tab-hover-bg-color);
   box-shadow: var(--firefoxcss-normal-tabs-box-shadow) !important;
 }
 
@@ -607,7 +607,7 @@ about:config -> svg.context-properties.content.enabled -> true*/
   border: 0 !important;
   border-radius: var(--firefoxcss-border-radius) !important;
   background-image: none !important;
-  background-color: var(--lwt-accent-color) !important;
+  background-color: var(--lwt-accent-color);
   box-shadow: none !important;
   outline: none !important;
 }

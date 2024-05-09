@@ -403,9 +403,9 @@ pref("network.http.max-persistent-connections-per-server", 10); // default=6; do
 // may provide a small speed boost when loading pages with lots of requests.
 // false=Firefox will send as many requests as possible without pacing
 // true=Firefox will pace requests (default)
-pref("network.http.pacing.requests.enabled", false);
-    //pref("network.http.pacing.requests.min-parallelism", 10); // default=6
-    //pref("network.http.pacing.requests.burst", 14); // default=10
+pref("network.http.pacing.requests.enabled", true);
+pref("network.http.pacing.requests.min-parallelism", 10); // default=6
+pref("network.http.pacing.requests.burst", 14); // default=10
 
 // PREF: how long to wait before trying a different connection when the initial one fails
 // The number (in ms) after sending a SYN for an HTTP connection,
@@ -459,7 +459,7 @@ pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS toke
 // [3] https://searchfox.org/mozilla-central/rev/028c68d5f32df54bca4cf96376f79e48dfafdf08/modules/libpref/init/all.js#1280-1282
 // [4] https://www.keycdn.com/blog/resource-hints#prefetch
 // [5] https://3perf.com/blog/link-rels/#prefetch
-pref("network.http.speculative-parallel-limit", 0);
+pref("network.http.speculative-parallel-limit", 6);
 // or
 //pref("network.http.speculative-parallel-limit", 6); // DEFAULT
 
@@ -484,12 +484,12 @@ pref("network.dns.disablePrefetch", true);
 // [NOTE] Firefox will perform DNS lookup (if enabled) and TCP and TLS handshake,
 // but will not start sending or receiving HTTP data.
 // [1] https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
-pref("browser.urlbar.speculativeConnect.enabled", false);
+pref("browser.urlbar.speculativeConnect.enabled", true);
 // or
 //pref("browser.urlbar.speculativeConnect.enabled", true); // DEFAULT
 
 // PREF: mousedown speculative connections on bookmarks and history
-pref("browser.places.speculativeConnect.enabled", false);
+pref("browser.places.speculativeConnect.enabled", true);
 // or
 //pref("browser.places.speculativeConnect.enabled", true); // DEFAULT
 
