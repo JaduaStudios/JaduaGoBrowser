@@ -1,14 +1,14 @@
 diff --git a/dist/commands/download/addon.js b/dist/commands/download/addon.js
-index fdbc0b80a90c6ee4955ccbfb3965cc11639ccd4d..f776347b98dd10af88652958d6eb82c14e5379bf 100644
+index fdbc0b80a90c6ee4955ccbfb3965cc11639ccd4d..37fde84f0f305ecbb42818e809eefa125a8ba0f4 100644
 --- a/dist/commands/download/addon.js
 +++ b/dist/commands/download/addon.js
-@@ -98,10 +98,10 @@ async function unpackAddon(path, addon) {
+@@ -97,11 +97,8 @@ async function unpackAddon(path, addon) {
+         return;
      }
      log_1.log.info(`Unpacking extension...`);
-     // I do not know why, but this delay causes unzip to work reliably
+-    // I do not know why, but this delay causes unzip to work reliably
 -    await (0, utils_1.delay)(200);
-+    await (0, utils_1.delay)(400);
-     (0, utils_1.ensureDirectory)(outPath);
+-    (0, utils_1.ensureDirectory)(outPath);
      await (0, utils_1.configDispatch)('unzip', {
 -        args: [(0, utils_1.windowsPathToUnix)(path), '-d', (0, utils_1.windowsPathToUnix)(outPath)],
 +        args: ['-o', (0, utils_1.windowsPathToUnix)(path), '-d', (0, utils_1.windowsPathToUnix)(outPath)],
