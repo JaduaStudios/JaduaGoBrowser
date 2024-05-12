@@ -1,9 +1,9 @@
 diff --git a/browser/base/content/browser.xhtml b/browser/base/content/browser.xhtml
-index a775f71d5ca17dfbba4e84ea602c17ee669ab7e4..36f2d1fab395a7a2f3e299b39dfc15187aa9f28a 100644
+index a01138c7da782afa221a5edf5e6716c5a371e725..58717d626122f8aad498dce9becab5e46144d746 100644
 --- a/browser/base/content/browser.xhtml
 +++ b/browser/base/content/browser.xhtml
-@@ -110,6 +110,7 @@
-   Services.scriptloader.loadSubScript("chrome://browser/content/browser-sidebar.js", this);
+@@ -120,6 +120,7 @@
+   Services.scriptloader.loadSubScript("chrome://browser/content/sidebar/browser-sidebar.js", this);
    Services.scriptloader.loadSubScript("chrome://browser/content/browser-tabsintitlebar.js", this);
    Services.scriptloader.loadSubScript("chrome://browser/content/browser-unified-extensions.js", this);
 +  Services.scriptloader.loadSubScript("chrome://browser/content/browser-verticaltabs.js", this);

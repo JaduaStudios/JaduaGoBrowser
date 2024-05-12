@@ -1,10 +1,10 @@
 diff --git a/browser/app/profile/firefox.js b/browser/app/profile/firefox.js
-index 1ef5a05907f4675e4e7191dde12c33dc6da5e3c6..e1e24b276033cc5116e462a8c12ea79c7afa9311 100644
+index bfeb59ead8fcd7d17936d4daddf5a3651666a44b..dcd1442b9d39d882f7efda300792a68d2d316f69 100644
 --- a/browser/app/profile/firefox.js
 +++ b/browser/app/profile/firefox.js
-@@ -3032,6 +3032,8 @@ pref("browser.mailto.prompt.os", true);
- 
- pref("browser.backup.enabled", false);
+@@ -3030,6 +3030,8 @@ pref("browser.mailto.prompt.os", true);
+ // Pref to initialize the BackupService soon after startup.
+ pref("browser.backup.enabled", true);
  
 +#include pulse-browser.js
 +

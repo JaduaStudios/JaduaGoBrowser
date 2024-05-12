@@ -19,6 +19,9 @@ pref("browser.tabs.cardPreview.enabled", true);
 pref("browser.tabs.cardPreview.delayMs", 400);
 pref("cookiebanners.service.mode.privateBrowsing", 2);
 
+// Disable Languages (as most of them break the branding)
+pref("intl.multilingual.enabled", false);
+
 pref("browser.newtabpage.activity-stream.go.background.image", false);
 
 // MacOS translucency preference (disabled for testing only) 
