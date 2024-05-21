@@ -178,8 +178,8 @@ packages:
     resolution: {integrity: sha512-KRs7WVDKg86PWiuAqhDrAQnTXZKraVcCc6vFdL14qrZ/DcWwuRo7VoiYXalXO7S5GKpqYiVEwCbgFDfxNHKJBQ==}
     engines: {node: ^12.20.0 || >=14}
 
-  core-js-pure@3.37.0:
-    resolution: {integrity: sha512-d3BrpyFr5eD4KcbRvQ3FTUx/KWmaDesr7+a3+1+P46IUnNoEt+oiLijPINZMEon7w9oGkIINWxrBAU9DEciwFQ==}
+  core-js-pure@3.37.1:
+    resolution: {integrity: sha512-J/r5JTHSmzTxbiYYrzXg9w1VpqrYt+gexenBE9pugeyhwPZTAEJddyiReJWsLO6uNQ8xJZFbod6XC7KKwatCiA==}
 
   cross-spawn@7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
@@ -623,7 +623,7 @@ snapshots:
 
   commander@9.5.0: {}
 
-  core-js-pure@3.37.0: {}
+  core-js-pure@3.37.1: {}
 
   cross-spawn@7.0.3:
     dependencies:
@@ -757,7 +757,7 @@ snapshots:
 
   modern-async@1.1.4:
     dependencies:
-      core-js-pure: 3.37.0
+      core-js-pure: 3.37.1
       nanoassert: 2.0.0
 
   nanoassert@2.0.0: {}

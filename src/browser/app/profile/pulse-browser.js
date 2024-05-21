@@ -10,7 +10,7 @@
 #include fast-fox.js
 
 // Jadua Browser Mods
-pref("app.support.baseURL", "https://www.jaduastudios.com/contact");
+pref("app.support.baseURL", "https://www.jaduastudios.com/gosupport/");
 pref("extensions.install_origins.enabled", true);
 pref("browser.newtabpage.activity-stream.feeds.section.highlights", true);
 pref("browser.newtabpage.activity-stream.feeds.topsites", true);
@@ -96,8 +96,10 @@ pref('xpinstall.signatures.required', false);
 pref('extensions.experiments.enabled', true);
 
 // Disable VPN promos
-pref('browser.vpn_promo.enabled', false);
-pref('browser.contentblocking.report.hide_vpn_banner', true);
+pref('browser.vpn_promo.enabled', false, locked);
+pref("browser.promo.focus.enabled", false, locked);
+pref("browser.preferences.moreFromMozilla", false, locked);
+pref('browser.contentblocking.report.hide_vpn_banner', true, locked);
 
 // Enable WebMIDI. This is still currently in testing inside of Firefox, but
 // will also provide us with the benefit of more features
@@ -109,14 +111,14 @@ pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/%LOCAL
 pref("extensions.getAddons.langpacks.url", "https://services.addons.mozilla.org/api/v4/addons/language-tools/?app=firefox&type=language&appversion=%PLATFORMVERSION%");
 
 // Check for system add-on updates.
-pref("extensions.systemAddon.update.url", "https://goupdate.jaduastudios.com/browser/addons/%CHANNEL%/update.xml");
+pref("extensions.systemAddon.update.url", "https://goupdate.jaduastudios.com/browser/addons/%CHANNEL%/update.xml", locked);
 pref("extensions.systemAddon.update.enabled", true);
 
 //Update Routes (Download page for manual download and Temperoraliy Discord Invite Link for Release Notes)
-pref("app.update.url.manual", "https://www.jaduastudios.com/jadua-go");
-pref("app.update.url.details", "https://github.com/JaduaStudios/JaduaGoBrowser/releases/latest");
-pref("app.releaseNotesURL", "https://github.com/JaduaStudios/JaduaGoBrowser/commits/main");
-pref("app.releaseNotesURL.aboutDialog", "https://github.com/JaduaStudios/JaduaGoBrowser/commits/main");
+pref("app.update.url.manual", "https://www.jaduastudios.com/jadua-go", locked);
+pref("app.update.url.details", "https://github.com/JaduaStudios/JaduaGoBrowser/releases/latest", locked);
+pref("app.releaseNotesURL", "https://github.com/JaduaStudios/JaduaGoBrowser/commits/main", locked);
+pref("app.releaseNotesURL.aboutDialog", "https://github.com/JaduaStudios/JaduaGoBrowser/commits/main", locked);
 
 // This pref needs to be here to not break context menus (GH#169)
 pref("extensions.pocket.enabled", false);
