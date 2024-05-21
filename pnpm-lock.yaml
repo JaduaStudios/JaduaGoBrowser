@@ -6,7 +6,7 @@ settings:
 
 patchedDependencies:
   gluon-build@1.0.0-rc.5:
-    hash: 3xktxvqkcdbdggtgfckm6ggxs4
+    hash: lu623j3lvg73nfgnvetmfhfmry
     path: patches/gluon-build@1.0.0-rc.5.patch
 
 importers:
@@ -15,7 +15,7 @@ importers:
     dependencies:
       gluon-build:
         specifier: 1.0.0-rc.5
-        version: 1.0.0-rc.5(patch_hash=3xktxvqkcdbdggtgfckm6ggxs4)
+        version: 1.0.0-rc.5(patch_hash=lu623j3lvg73nfgnvetmfhfmry)
     devDependencies:
       gecko-types:
         specifier: github:quark-platform/gecko-types
@@ -681,7 +681,7 @@ snapshots:
 
   globrex@0.1.2: {}
 
-  gluon-build@1.0.0-rc.5(patch_hash=3xktxvqkcdbdggtgfckm6ggxs4):
+  gluon-build@1.0.0-rc.5(patch_hash=lu623j3lvg73nfgnvetmfhfmry):
     dependencies:
       '@resvg/resvg-js': 1.4.0
       async-icns: 1.0.2
