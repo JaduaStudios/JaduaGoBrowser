@@ -60,6 +60,8 @@
   align-items: center;
 
   position: relative;
+  
+  transition: 0.1s;
 }
 
 .sidebar-item-background:hover {
