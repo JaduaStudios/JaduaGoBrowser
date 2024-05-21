@@ -76,14 +76,6 @@ diff --git a/dist/constants/mozconfig.js b/dist/constants/mozconfig.js
 index 0bc8300a6909ce5730b368569a745ab194cf0189..f6412a86cc934a3f0cf90103da543bc2544a640c 100644
 --- a/dist/constants/mozconfig.js
 +++ b/dist/constants/mozconfig.js
-@@ -26,6 +26,7 @@ ac_add_options --disable-optimize`;
-             buildOptions = `# Release build settings
- ac_add_options --disable-debug
- ac_add_options --enable-optimize
-+ac_add_options --enable-rust-simd
- ${platformOptimize} # Taken from waterfox`;
-             break;
-         }
 @@ -54,11 +55,15 @@ function getPlatformOptimiseFlags() {
      let optimiseFlags = `# Unknown platform ${process.platform}`;
      switch (process.platform) {
