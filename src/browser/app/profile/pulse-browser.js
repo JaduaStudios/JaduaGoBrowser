@@ -10,7 +10,7 @@
 #include fast-fox.js
 
 // Jadua Browser Mods
-pref("app.support.baseURL", "https://www.jaduastudios.com/gosupport/");
+pref("app.support.baseURL", "https://www.jaduastudios.com/gosupport/%APP%/%VERSION%/%OS%/%LOCALE%/");
 pref("extensions.install_origins.enabled", true);
 pref("browser.newtabpage.activity-stream.feeds.section.highlights", true);
 pref("browser.newtabpage.activity-stream.feeds.topsites", true);
