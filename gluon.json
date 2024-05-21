@@ -43,7 +43,7 @@
       "id": "goviewer@jaduastudios.com",
       "platform": "github",
       "repo": "JaduaStudios/GoViewer",
-      "version": "v0.2.0",
+      "version": "v0.2.1",
       "fileGlob": "release.xpi"
     },
     "LeSpoof": {
