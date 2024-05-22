@@ -67,7 +67,7 @@
         },
         "x86": {
           "windowsMar": "windows.mar",
-          "macosMar": "macosIntel.mar",
+          "macosMar": "macos.mar",
           "linuxMar": "linux.mar"
         }
       }
