@@ -10,7 +10,7 @@
 #include fast-fox.js
 
 // Jadua Browser Mods
-pref("app.support.baseURL", "https://www.jaduastudios.com/gosupport/%APP%/%VERSION%/%OS%/%LOCALE%/");
+pref("app.support.baseURL", "https://www.jaduastudios.com/gosupport/firefox/%PLATFORMVERSION%/%OS%/%LOCALE%/");
 pref("extensions.install_origins.enabled", true);
 pref("browser.newtabpage.activity-stream.feeds.section.highlights", true);
 pref("browser.newtabpage.activity-stream.feeds.topsites", true);
@@ -18,6 +18,7 @@ pref("browser.profiles.enabled", true);
 pref("browser.tabs.cardPreview.enabled", true);
 pref("browser.tabs.cardPreview.delayMs", 400);
 pref("cookiebanners.service.mode.privateBrowsing", 2);
+pref("browser.urlbar.update2.engineAliasRefresh", true);
 
 // Disable Languages (as most of them break the branding)
 pref("intl.multilingual.enabled", false);

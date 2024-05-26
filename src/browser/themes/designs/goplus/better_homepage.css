@@ -9,6 +9,8 @@
 	  background: color-mix(in srgb, var(--bg-color) 30%, transparent);
 	  border-radius: 30px;
 	  backdrop-filter: blur(5px);
+	  margin-top: auto;
+	  margin-bottom: auto;
 	}
 }
 
@@ -23,6 +25,8 @@
 	  background: color-mix(in srgb, var(--bg-color) 30%, transparent);
 	  border-radius: 30px;
 	  backdrop-filter: blur(5px);
+	  margin-top: auto;
+	  margin-bottom: auto;
 	}
 }
 
