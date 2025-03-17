@@ -1,12 +1,12 @@
 diff --git a/browser/base/content/browser.js b/browser/base/content/browser.js
-index a9d4fc4abe1d3b5d5213d3afd90fd0128ee0d032..f2eb4888521deefa7da2b7666ec6012af2a27a4e 100644
+index d77e0fd6432cdc213aff58b2f80de0f0ab2e6cf5..cd36f8df0f7ba5f99e45a0ad3da20c33f6b7b573 100644
 --- a/browser/base/content/browser.js
 +++ b/browser/base/content/browser.js
-@@ -1841,6 +1841,7 @@ var gBrowserInit = {
-     gPrivateBrowsingUI.init();
-     BrowserSearch.init();
-     BrowserPageActions.init();
-+    VerticalTabs.init();
-     if (gToolbarKeyNavEnabled) {
-       ToolbarKeyboardNavigator.init();
-     }
+@@ -518,6 +518,7 @@ ChromeUtils.defineLazyGetter(this, "Win7Features", () => {
+ });
+ 
+ XPCOMUtils.defineLazyPreferenceGetter(
++  VerticalTabs.init();
+   this,
+   "gToolbarKeyNavEnabled",
+   "browser.toolbars.keyboard_navigation",

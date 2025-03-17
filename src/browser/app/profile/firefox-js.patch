@@ -1,13 +1,10 @@
 diff --git a/browser/app/profile/firefox.js b/browser/app/profile/firefox.js
-index bfeb59ead8fcd7d17936d4daddf5a3651666a44b..dcd1442b9d39d882f7efda300792a68d2d316f69 100644
+index 832388c145cfa6b22cee650f65c82e594f353d82..3903c1bb49e92b19411e48fdec38b164276e7a4a 100644
 --- a/browser/app/profile/firefox.js
 +++ b/browser/app/profile/firefox.js
-@@ -3030,6 +3030,8 @@ pref("browser.mailto.prompt.os", true);
- // Pref to initialize the BackupService soon after startup.
- pref("browser.backup.enabled", true);
- 
-+#include pulse-browser.js
+@@ -3098,3 +3098,5 @@ pref("toolkit.contentRelevancy.enabled", false);
+ pref("toolkit.contentRelevancy.ingestEnabled", false);
+ // Pref to enable extra logging for the content relevancy feature
+ pref("toolkit.contentRelevancy.log", false);
 +
- // Pref to enable the new profiles
- pref("browser.profiles.enabled", false);
- 
++#include pulse-browser.js

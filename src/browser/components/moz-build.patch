@@ -1,14 +1,13 @@
 diff --git a/browser/components/moz.build b/browser/components/moz.build
-index 0c59bb842172a1d1d1cdf91ec588dedb75de1b54..a2f213d294e24b3bc4d2fa2a2220e643432920fa 100644
+index 6cbb7ce0037c1457eeae5c331a996719691ebd6b..0620ff56ddb731d3dcaf3926796b6a15ce5275e3 100644
 --- a/browser/components/moz.build
 +++ b/browser/components/moz.build
-@@ -64,6 +64,9 @@ DIRS += [
+@@ -73,6 +73,8 @@ DIRS += [
      "urlbar",
  ]
  
 +# Pulse: Custom components
 +DIRS += ["welcome"]
-+
  DIRS += ["build"]
  
- 
+ if CONFIG["MOZ_SELECTABLE_PROFILES"]:

@@ -1,16 +1,18 @@
 diff --git a/browser/base/content/browser-box.inc.xhtml b/browser/base/content/browser-box.inc.xhtml
-index 41258d81bbd2549a2d80cb7df9a9d65aa73a46f1..ffda80fbf62e18b22172c97e486d770077a539e2 100644
+index 16559b2c0e3aef391b43e09281aee24007feb0bd..aad7aff92fb92984b5ba587e81ecda599769c600 100644
 --- a/browser/base/content/browser-box.inc.xhtml
 +++ b/browser/base/content/browser-box.inc.xhtml
-@@ -3,10 +3,14 @@
+@@ -3,12 +3,16 @@
  # file, You can obtain one at http://mozilla.org/MPL/2.0/.
  
  <hbox flex="1" id="browser">
-+  <div id="sidebar-container" class="sidebar-container"> 
-+    <vbox id="sidebar-icons"></vbox>
-+    <vbox id="sidebar-icons-bottom"></vbox>
-+  </div>
-   <html:sidebar-launcher id="sidebar-launcher" flex="1" hidden="true"></html:sidebar-launcher>
++	<div id="sidebar-container" class="sidebar-container"> 
++		<vbox id="sidebar-icons"></vbox>
++		<vbox id="sidebar-icons-bottom"></vbox>
++	</div>
+   <box context="sidebar-context-menu" id="sidebar-main" hidden="true">
+     <html:sidebar-main flex="1"></html:sidebar-main>
+   </box>
    <vbox id="sidebar-box" hidden="true" class="chromeclass-extrachrome">
      <box id="sidebar-header" align="center">
 -      <toolbarbutton id="sidebar-switcher-target" class="tabbable" aria-expanded="false">

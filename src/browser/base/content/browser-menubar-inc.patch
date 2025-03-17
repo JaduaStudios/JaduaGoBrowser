@@ -1,14 +1,14 @@
 diff --git a/browser/base/content/browser-menubar.inc b/browser/base/content/browser-menubar.inc
-index 0c8b4a1cf622247aea8ffd415bcf7be0fe2c9a3d..048b737e4848ab6233ca13dd2375730aa123d140 100644
+index 0075a610d86749e56f2e344b58d9d44389ba1c6c..d6d34fcbebc90314d2fed5c448157f02ca68dd4f 100644
 --- a/browser/base/content/browser-menubar.inc
 +++ b/browser/base/content/browser-menubar.inc
-@@ -153,6 +153,9 @@
-                               type="checkbox"
-                               class="sync-ui-item"
-                               oncommand="SidebarUI.toggle('viewTabsSidebar');" data-l10n-id="menu-view-synced-tabs-sidebar"/>
-+                    <menuitem id="menu_downloadsSidebar"
-+                              type="checkbox"
-+                              oncommand="SidebarUI.toggle('viewDownloadsSidebar');" data-l10n-id="navbar-downloads"/>
-                     <menuitem id="menu_megalistSidebar"
-                               type="checkbox"
-                               oncommand="SidebarUI.toggle('viewMegalistSidebar');" data-l10n-id="menu-view-megalist-sidebar"/>
+@@ -232,6 +232,9 @@
+                 <menuitem id="sync-tabs-menuitem"
+                           oncommand="gSync.openSyncedTabsPanel();"
+                           hidden="true" data-l10n-id="menu-history-synced-tabs"/>
++				<menuitem id="menu_downloadsSidebar"
++                          type="checkbox"
++                          oncommand="SidebarUI.toggle('viewDownloadsSidebar');" data-l10n-id="navbar-downloads"/>
+                 <menuitem id="historyRestoreLastSession"
+                           command="Browser:RestoreLastSession" data-l10n-id="menu-history-restore-last-session"/>
+                 <menuitem id="hiddenTabsMenu"

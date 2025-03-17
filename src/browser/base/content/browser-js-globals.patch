@@ -1,0 +1,12 @@
+diff --git a/browser/base/content/browser.js.globals b/browser/base/content/browser.js.globals
+index 910e0b5ca9c0af282b52225f4b72a7dc6f65ade9..cacade63b083ce29787e23ee53fdcdf9465c6963 100644
+--- a/browser/base/content/browser.js.globals
++++ b/browser/base/content/browser.js.globals
+@@ -274,5 +274,6 @@
+   "gFindBar",
+   "gFindBarInitialized",
+   "gFindBarPromise",
+-  "BrowserSearch"
++  "BrowserSearch",
++  "VerticalTabs"
+ ]

@@ -1,12 +1,12 @@
 diff --git a/browser/base/content/browser.xhtml b/browser/base/content/browser.xhtml
-index a01138c7da782afa221a5edf5e6716c5a371e725..58717d626122f8aad498dce9becab5e46144d746 100644
+index 3063370347db9e2812ad30205e585c849e44c91e..dd2d3cb69f88437aad5c5581a66bd36c2256290b 100644
 --- a/browser/base/content/browser.xhtml
 +++ b/browser/base/content/browser.xhtml
-@@ -120,6 +120,7 @@
+@@ -117,6 +117,7 @@
    Services.scriptloader.loadSubScript("chrome://browser/content/sidebar/browser-sidebar.js", this);
    Services.scriptloader.loadSubScript("chrome://browser/content/browser-tabsintitlebar.js", this);
    Services.scriptloader.loadSubScript("chrome://browser/content/browser-unified-extensions.js", this);
 +  Services.scriptloader.loadSubScript("chrome://browser/content/browser-verticaltabs.js", this);
-   Services.scriptloader.loadSubScript("chrome://browser/content/tabbrowser.js", this);
-   Services.scriptloader.loadSubScript("chrome://browser/content/tabbrowser-tab.js", this);
-   Services.scriptloader.loadSubScript("chrome://browser/content/tabbrowser-tabs.js", this);
+   Services.scriptloader.loadSubScript("chrome://browser/content/tabbrowser/tab.js", this);
+   Services.scriptloader.loadSubScript("chrome://browser/content/tabbrowser/tabbrowser.js", this);
+   Services.scriptloader.loadSubScript("chrome://browser/content/tabbrowser/tabs.js", this);

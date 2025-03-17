@@ -1,8 +1,8 @@
 diff --git a/browser/themes/shared/browser-shared.css b/browser/themes/shared/browser-shared.css
-index 222fda621cd1178fa5be4afde596a3bbc50f6c6c..6503e540545e6b9ab5ac90b49c220823117e874d 100644
+index 61119b7564d37e55f49dab7e6e14faafb4baa298..e9d96e8b1c34b396aa6d3a5488dd2c8dff355c01 100644
 --- a/browser/themes/shared/browser-shared.css
 +++ b/browser/themes/shared/browser-shared.css
-@@ -24,6 +24,10 @@
+@@ -27,6 +27,10 @@
  @import url("chrome://browser/skin/UITour.css");
  @import url("chrome://browser/skin/formautofill-notification.css");
  
@@ -12,11 +12,11 @@ index 222fda621cd1178fa5be4afde596a3bbc50f6c6c..6503e540545e6b9ab5ac90b49c220823
 +
  @namespace html url("http://www.w3.org/1999/xhtml");
  
- :root {
-@@ -306,7 +310,7 @@
-   }
+ :root,
+@@ -473,7 +477,7 @@ toolbarpaletteitem > #personal-bookmarks > #PlacesToolbar,
  
    .newTabBrowserPanel,
+   #sidebar-main,
 -  #sidebar-box {
 +  #sidebar-box, #browser #TabsToolbar, #sidebar-container {
      /* Make room for the bookmarks toolbar so that it won't visibly overlap the

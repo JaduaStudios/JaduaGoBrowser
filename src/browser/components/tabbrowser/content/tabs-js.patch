@@ -1,7 +1,7 @@
-diff --git a/browser/base/content/tabbrowser-tabs.js b/browser/base/content/tabbrowser-tabs.js
+diff --git a/browser/components/tabbrowser/content/tabs.js b/browser/components/tabbrowser/content/tabs.js
 index 71846eca963d0ba652c60106a80850fd936db2d9..7de42b2ca5fa94462cb08e2129b0d75dc5b651ba 100644
---- a/browser/base/content/tabbrowser-tabs.js
-+++ b/browser/base/content/tabbrowser-tabs.js
+--- a/browser/components/tabbrowser/content/tabs.js
++++ b/browser/components/tabbrowser/content/tabs.js
 @@ -166,7 +166,17 @@
      }
  

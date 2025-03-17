@@ -1,8 +1,16 @@
 diff --git a/browser/components/sidebar/browser-sidebar.js b/browser/components/sidebar/browser-sidebar.js
-index 55664f8cfc8ff7071e5d93fbf24b7471cfc4f879..b62b1f11c04d42086db05a5b08e77cf13a712aa0 100644
+index 98724900b2d592ee21f659924fe062f33bdd936f..ed4d428563c366cfe757d23a6834dcdbb0fb86c4 100644
 --- a/browser/components/sidebar/browser-sidebar.js
 +++ b/browser/components/sidebar/browser-sidebar.js
-@@ -10,6 +10,9 @@ var SidebarUI = {
+@@ -16,6 +16,7 @@ var SidebarController = {
+       get title() {
+         return document.getElementById(elementId).getAttribute("label");
+       },
++	  isBottom: false,
+       ...rest,
+     };
+   },
+@@ -57,6 +58,9 @@ var SidebarController = {
      if (this._sidebars) {
        return this._sidebars;
      }
@@ -10,51 +18,33 @@ index 55664f8cfc8ff7071e5d93fbf24b7471cfc4f879..b62b1f11c04d42086db05a5b08e77cf1
 +     * @returns {Map<string, { title: string, url?: string, onclick?: string, menuId?: string, triggerButtonId?: string, iconurl: string, isBottom: boolean }>}
 +     */
  
-     function makeSidebar({ elementId, ...rest }) {
-       return {
-@@ -19,6 +22,7 @@ var SidebarUI = {
-         get title() {
-           return document.getElementById(elementId).getAttribute("label");
-         },
-+		isBottom: false,
-         ...rest,
-       };
-     }
-@@ -30,6 +34,7 @@ var SidebarUI = {
-           elementId: "sidebar-switcher-bookmarks",
-           url: "chrome://browser/content/places/bookmarksSidebar.xhtml",
-           menuId: "menu_bookmarksSidebar",
-+		  iconurl: "chrome://global/skin/icons/bookmark-outline.svg",
+     this._sidebars = new Map([
+       [
+@@ -71,7 +75,7 @@ var SidebarController = {
+           keyId: "key_gotoHistory",
+           menuL10nId: "menu-view-history-button",
+           revampL10nId: "sidebar-menu-history",
+-          iconUrl: "chrome://browser/content/firefoxview/view-history.svg",
++          iconurl: "chrome://browser/skin/history.svg",
          }),
        ],
        [
-@@ -41,6 +46,7 @@ var SidebarUI = {
-             : "chrome://browser/content/places/historySidebar.xhtml",
-           menuId: "menu_historySidebar",
-           triggerButtonId: "appMenuViewHistorySidebar",
-+		  iconurl: "chrome://browser/skin/history.svg",
+@@ -85,7 +89,7 @@ var SidebarController = {
+           classAttribute: "sync-ui-item",
+           menuL10nId: "menu-view-synced-tabs-sidebar",
+           revampL10nId: "sidebar-menu-synced-tabs",
+-          iconUrl: "chrome://browser/content/firefoxview/view-syncedtabs.svg",
++          iconurl: "chrome://browser/skin/tab.svg",
          }),
        ],
        [
-@@ -51,16 +57,37 @@ var SidebarUI = {
-             ? "chrome://browser/content/sidebar/sidebar-syncedtabs.html"
-             : "chrome://browser/content/syncedtabs/sidebar.xhtml",
-           menuId: "menu_tabsSidebar",
-+		  iconurl: "chrome://browser/skin/tab.svg",
-         }),
-       ],
-       [
--        "viewMegalistSidebar",
-+        "viewDownloadsSidebar",
-         makeSidebar({
--          elementId: "sidebar-switcher-megalist",
--          url: "chrome://global/content/megalist/megalist.html",
--          menuId: "menu_megalistSidebar",
-+          elementId: "sidebar-switcher-downloads",
-+          title: "Downloads",
-+          url: "about:downloads",
-+          menuId: "menu_downloadsSidebar",
-+          iconurl: "chrome://browser/skin/downloads/downloads.svg",
+@@ -97,22 +101,40 @@ var SidebarController = {
+           keyId: "viewBookmarksSidebarKb",
+           menuL10nId: "menu-view-bookmarks",
+           revampL10nId: "sidebar-menu-bookmarks",
+-          iconUrl: "chrome://browser/skin/bookmark-hollow.svg",
++          iconurl: "chrome://global/skin/icons/bookmark-outline.svg",
+           disabled: true,
          }),
        ],
 +      [
@@ -75,10 +65,28 @@ index 55664f8cfc8ff7071e5d93fbf24b7471cfc4f879..b62b1f11c04d42086db05a5b08e77cf1
 +          isBottom: true,
 +        },
 +      ],
-     ]));
-   },
+     ]);
  
-@@ -74,6 +101,20 @@ var SidebarUI = {
+     if (!this.sidebarRevampEnabled) {
+       this.registerPrefSidebar(
+         "browser.megalist.enabled",
+-        "viewMegalistSidebar",
++        "viewDownloadsSidebar",
+         {
+-          elementId: "sidebar-switcher-megalist",
+-          url: "chrome://global/content/megalist/megalist.html",
+-          menuId: "menu_megalistSidebar",
+-          menuL10nId: "menu-view-megalist-sidebar",
+-          revampL10nId: "sidebar-menu-megalist",
++          elementId: "sidebar-switcher-downloads",
++          title: "Downloads",
++          url: "about:downloads",
++          menuId: "menu_downloadsSidebar",
++          iconurl: "chrome://browser/skin/downloads/downloads.svg",
+         }
+       );
+     } else {
+@@ -154,6 +176,19 @@ var SidebarController = {
    },
    POSITION_START_PREF: "sidebar.position_start",
    DEFAULT_SIDEBAR_ID: "viewBookmarksSidebar",
@@ -95,15 +103,15 @@ index 55664f8cfc8ff7071e5d93fbf24b7471cfc4f879..b62b1f11c04d42086db05a5b08e77cf1
 +  loadedSidebars: null,
 +  /** @type {boolean} */
 +  _keepTabsActivePref: false,
-+
  
    // lastOpenedId is set in show() but unlike currentID it's not cleared out on hide
    // and isn't persisted across windows
-@@ -128,6 +169,46 @@ var SidebarUI = {
+@@ -220,7 +255,45 @@ var SidebarController = {
+     } else {
        this._switcherTarget.addEventListener("command", () => {
          this.toggleSwitcherPanel();
-       });
-+
+-      });
++	});
 +    this._sidebarIcons = document.getElementById("sidebar-icons");
 +    this._sidebarIconsBottom = document.getElementById("sidebar-icons-bottom");
 +    this._sidebarTabs = document.getElementById("sidebar-container");
@@ -142,11 +150,10 @@ index 55664f8cfc8ff7071e5d93fbf24b7471cfc4f879..b62b1f11c04d42086db05a5b08e77cf1
 +    // Ensure that the sidebar's position is correct on startup. The position
 +    // will be fetched by the lazy preference getter down the bottom
 +    this.setPosition();
-+
        this._switcherTarget.addEventListener("keydown", event => {
          this.handleKeydown(event);
        });
-@@ -138,6 +219,22 @@ var SidebarUI = {
+@@ -231,16 +304,39 @@ var SidebarController = {
      Services.obs.addObserver(this, "intl:app-locales-changed");
  
      this._initDeferred.resolve();
@@ -168,30 +175,26 @@ index 55664f8cfc8ff7071e5d93fbf24b7471cfc4f879..b62b1f11c04d42086db05a5b08e77cf1
 +    }
    },
  
-   toggleMegalistItem() {
-@@ -167,12 +264,20 @@ var SidebarUI = {
-   },
- 
    uninit() {
 +    // Remove the sidebar seperator with class sidebar-divider
 +    const sidebarDivider = document.querySelector(".sidebar-divider");
 +    if (sidebarDivider) {
 +      sidebarDivider.remove();
 +    }
-+
      // If this is the last browser window, persist various values that should be
      // remembered for after a restart / reopening a browser window.
      let enumerator = Services.wm.getEnumerator("navigator:browser");
      if (!enumerator.hasMoreElements()) {
        let xulStore = Services.xulStore;
--      xulStore.persist(this._box, "sidebarcommand");
+ 
+-      xulStore.persist(this._title, "value");
 +      if (!this._keepTabsActivePref) {
 +        xulStore.persist(this._box, "sidebarcommand");
 +      }
+     }
  
-       if (this._box.hasAttribute("positionend")) {
-         xulStore.persist(this._box, "positionend");
-@@ -204,7 +309,7 @@ var SidebarUI = {
+     Services.obs.removeObserver(this, "intl:app-locales-changed");
+@@ -254,7 +350,7 @@ var SidebarController = {
    /**
     * The handler for Services.obs.addObserver.
     */
@@ -200,11 +203,11 @@ index 55664f8cfc8ff7071e5d93fbf24b7471cfc4f879..b62b1f11c04d42086db05a5b08e77cf1
      switch (topic) {
        case "intl:app-locales-changed": {
          if (this.isOpen) {
-@@ -215,6 +320,54 @@ var SidebarUI = {
+@@ -265,6 +361,54 @@ var SidebarController = {
            this.showInitially(this.lastOpenedId);
            break;
          }
-+        break;
++		+        break;
 +      }
 +
 +      case "nsPref:changed": {
@@ -255,7 +258,7 @@ index 55664f8cfc8ff7071e5d93fbf24b7471cfc4f879..b62b1f11c04d42086db05a5b08e77cf1
        }
      }
    },
-@@ -336,19 +489,33 @@ var SidebarUI = {
+@@ -385,18 +529,32 @@ var SidebarController = {
      // First reset all ordinals to match DOM ordering.
      let browser = document.getElementById("browser");
      [...browser.children].forEach((node, i) => {
@@ -265,12 +268,11 @@ index 55664f8cfc8ff7071e5d93fbf24b7471cfc4f879..b62b1f11c04d42086db05a5b08e77cf1
 +      }
        node.style.order = i + 1;
      });
-     let sidebarLauncher = document.querySelector("sidebar-launcher");
- 
+     let sidebarMain = document.getElementById("sidebar-main");
      if (!this._positionStart) {
--      // DOM ordering is:     sidebar-launcher |  sidebar-box  | splitter |   appcontent  |
--      // Want to display as:  |   appcontent  | splitter |  sidebar-box  | sidebar-launcher
--      // So we just swap box and appcontent ordering and move sidebar-launcher to the end
+-      // DOM ordering is:     sidebar-main |  sidebar-box  | splitter |   appcontent  |
+-      // Want to display as:  |   appcontent  | splitter |  sidebar-box  | sidebar-main
+-      // So we just swap box and appcontent ordering and move sidebar-main to the end
 +      // DOM ordering is:     | sidebar-container |  sidebar-box  | splitter |   appcontent  |
 +      // Want to display as:  |   appcontent  | splitter |  sidebar-box | sidebar-container |
 +      // So we just swap
@@ -292,20 +294,26 @@ index 55664f8cfc8ff7071e5d93fbf24b7471cfc4f879..b62b1f11c04d42086db05a5b08e77cf1
 +      this._box.style.order = splitterBoxOrdinal;
 +
        // the launcher should be on the right of the sidebar-box
-       sidebarLauncher.style.order = parseInt(this._box.style.order) + 1;
+       sidebarMain.style.order = parseInt(this._box.style.order) + 1;
        // Indicate we've switched ordering to the box
-@@ -542,6 +709,10 @@ var SidebarUI = {
+@@ -602,6 +760,9 @@ var SidebarController = {
    },
  
    _loadSidebarExtension(commandID) {
 +    if (this._keepTabsActivePref && this.loadedSidebars.includes(commandID)) {
 +      return;
 +    }
-+
      let sidebar = this.sidebars.get(commandID);
-     let { extensionId } = sidebar;
-     if (extensionId) {
-@@ -580,6 +751,7 @@ var SidebarUI = {
+     if (typeof sidebar.onload === "function") {
+       sidebar.onload();
+@@ -846,12 +1007,14 @@ var SidebarController = {
+     }
+     return this._show(commandID).then(() => {
+       this._loadSidebarExtension(commandID);
++	  this.loadedSidebars.push(commandID);
+ 
+       if (triggerNode) {
+         updateToggleControlLabel(triggerNode);
        }
  
        this._fireFocusedEvent();
@@ -313,15 +321,7 @@ index 55664f8cfc8ff7071e5d93fbf24b7471cfc4f879..b62b1f11c04d42086db05a5b08e77cf1
        return true;
      });
    },
-@@ -603,6 +775,7 @@ var SidebarUI = {
-     }
-     return this._show(commandID).then(() => {
-       this._loadSidebarExtension(commandID);
-+	  this.loadedSidebars.push(commandID);
-       return true;
-     });
-   },
-@@ -616,6 +789,38 @@ var SidebarUI = {
+@@ -888,6 +1051,38 @@ var SidebarController = {
     */
    _show(commandID) {
      return new Promise(resolve => {
@@ -360,7 +360,7 @@ index 55664f8cfc8ff7071e5d93fbf24b7471cfc4f879..b62b1f11c04d42086db05a5b08e77cf1
        if (this.sidebarRevampEnabled) {
          this._box.dispatchEvent(
            new CustomEvent("sidebar-show", { detail: { viewId: commandID } })
-@@ -642,7 +847,13 @@ var SidebarUI = {
+@@ -927,7 +1122,13 @@ var SidebarController = {
  
        this.browser.setAttribute("src", url); // kick off async load
  
@@ -375,7 +375,7 @@ index 55664f8cfc8ff7071e5d93fbf24b7471cfc4f879..b62b1f11c04d42086db05a5b08e77cf1
          this.browser.addEventListener(
            "load",
            () => {
-@@ -688,11 +899,14 @@ var SidebarUI = {
+@@ -973,11 +1174,14 @@ var SidebarController = {
      // create a new content viewer because the old one doesn't get destroyed
      // until about:blank has loaded (which does not happen as long as the
      // element is hidden).
@@ -392,7 +392,7 @@ index 55664f8cfc8ff7071e5d93fbf24b7471cfc4f879..b62b1f11c04d42086db05a5b08e77cf1
  
      let selBrowser = gBrowser.selectedBrowser;
      selBrowser.focus();
-@@ -706,10 +920,26 @@ var SidebarUI = {
+@@ -991,13 +1195,29 @@ var SidebarController = {
     * none if the argument is an empty string.
     */
    selectMenuItem(commandID) {
@@ -400,10 +400,13 @@ index 55664f8cfc8ff7071e5d93fbf24b7471cfc4f879..b62b1f11c04d42086db05a5b08e77cf1
 +    // checked and which dropdown item is checked. Hence, we are overriding this
 +    // method.
      for (let [id, { menuId, triggerButtonId }] of this.sidebars) {
-+      if (!menuId) {
+       let menu = document.getElementById(menuId);
++	  if (!menuId) {
 +        continue;
 +      }
-       let menu = document.getElementById(menuId);
+       if (!menu) {
+         return;
+       }
 -      let triggerbutton =
 +      let dropdownTriggerButton =
          triggerButtonId && document.getElementById(triggerButtonId);
@@ -420,7 +423,7 @@ index 55664f8cfc8ff7071e5d93fbf24b7471cfc4f879..b62b1f11c04d42086db05a5b08e77cf1
        if (id == commandID) {
          menu.setAttribute("checked", "true");
          if (triggerbutton) {
-@@ -725,6 +955,107 @@ var SidebarUI = {
+@@ -1013,6 +1233,107 @@ var SidebarController = {
        }
      }
    },

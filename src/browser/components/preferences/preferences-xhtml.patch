@@ -1,12 +1,12 @@
 diff --git a/browser/components/preferences/preferences.xhtml b/browser/components/preferences/preferences.xhtml
-index 64062f1f779a93128cb38f162c767414978b9b3f..2b491898a2eaf148e3d60f02a57501b6cfdd80d4 100644
+index 3affb19d1a243da4a5782c9a4a5588d165b4119f..abf8bb1c6a5df63c68ffcd9fac9b682c6dacc42a 100644
 --- a/browser/components/preferences/preferences.xhtml
 +++ b/browser/components/preferences/preferences.xhtml
 @@ -83,6 +83,7 @@
-   <script type="module" src="chrome://global/content/elements/moz-support-link.mjs"/>
+   <script src="chrome://browser/content/preferences/findInPage.js"/>
    <script src="chrome://browser/content/migration/migration-wizard.mjs" type="module"></script>
-   <script type="module" src="chrome://global/content/elements/moz-toggle.mjs"/>
+   <script type="module" src="chrome://browser/content/backup/backup-settings.mjs"></script>
 +  <script src="chrome://browser/content/contentTheme.js"></script>
-   <script type="module" src="chrome://global/content/elements/moz-message-bar.mjs" />
-   <script type="module" src="chrome://global/content/elements/moz-label.mjs"/>
-   <script type="module" src="chrome://global/content/elements/moz-card.mjs"></script>
+ </head>
+ 
+ <html:body xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"

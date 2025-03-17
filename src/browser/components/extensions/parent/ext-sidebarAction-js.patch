@@ -1,49 +1,40 @@
 diff --git a/browser/components/extensions/parent/ext-sidebarAction.js b/browser/components/extensions/parent/ext-sidebarAction.js
-index a798801ebfaabaf96bf194fc2f2c6c31f852f149..9231c3b1cf92da5bc7feec1e73aa2b80c35c819e 100644
+index 9b5d29929c772ea29a35cf68b035dcc7193b8f86..70ad63e9b433b3958f0c77a9bb4d2dd547eba3e0 100644
 --- a/browser/components/extensions/parent/ext-sidebarAction.js
 +++ b/browser/components/extensions/parent/ext-sidebarAction.js
-@@ -109,7 +109,8 @@ this.sidebarAction = class extends ExtensionAPI {
-       document.getElementById(this.menuId)?.remove();
-       document.getElementById(this.switcherMenuId)?.remove();
-       let header = document.getElementById("sidebar-switcher-target");
--      header.removeEventListener("SidebarShown", this.updateHeader);
-+      // Delete sidebar item
-+      SidebarUI.deleteSidebarItem(this.id);  header.removeEventListener("SidebarShown", this.updateHeader);
-       SidebarUI.sidebars.delete(this.id);
-     }
-     windowTracker.removeOpenListener(this.windowOpenListener);
-@@ -123,6 +124,8 @@ this.sidebarAction = class extends ExtensionAPI {
-       if (SidebarUI.lastOpenedId === sidebarId) {
-         SidebarUI.lastOpenedId = null;
+@@ -95,6 +95,8 @@ this.sidebarAction = class extends ExtensionAPI {
+       if (SidebarController.lastOpenedId === sidebarId) {
+         SidebarController.lastOpenedId = null;
        }
-+      // Remove the sidebar item from the sidebar menu.
++	  // Remove the sidebar item from the sidebar menu.
 +      SidebarUI.deleteSidebarItem(sidebarId);
      }
    }
  
-@@ -151,11 +154,16 @@ this.sidebarAction = class extends ExtensionAPI {
+@@ -121,11 +123,18 @@ this.sidebarAction = class extends ExtensionAPI {
+     if (!this.extension.canAccessWindow(window)) {
+       return;
      }
-     let { document, SidebarUI } = window;
-     let keyId = `ext-key-id-${this.id}`;
-+    let getIcon = size =>
++	
++	let getIcon = size =>
 +      IconDetails.escapeUrl(
 +        IconDetails.getPreferredIcon(details.icon, this.extension, size).icon
 +      );
- 
-     SidebarUI.sidebars.set(this.id, {
-       title: details.title,
-       url: sidebarURL,
++	
+     this.panel = details.panel;
+     let { SidebarController, devicePixelRatio } = window;
+     SidebarController.registerExtension(this.id, {
+       ...this.getMenuIcon(details, devicePixelRatio),
        menuId: this.menuId,
-+      iconurl: getIcon(16),
-       switcherMenuId: this.switcherMenuId,
-       // The following properties are specific to extensions
++	  iconurl: getIcon(16),
+       title: details.title,
        extensionId: this.extension.id,
-@@ -163,6 +171,8 @@ this.sidebarAction = class extends ExtensionAPI {
-       browserStyle: this.browserStyle,
+       onload: () =>
+@@ -135,6 +144,7 @@ this.sidebarAction = class extends ExtensionAPI {
+           this.browserStyle
+         ),
      });
++	SidebarUI.createSidebarItem(this.id, SidebarUI.sidebars.get(this.id));
+   }
  
-+    SidebarUI.createSidebarItem(this.id, SidebarUI.sidebars.get(this.id));
-+
-     let header = document.getElementById("sidebar-switcher-target");
-     header.addEventListener("SidebarShown", this.updateHeader);
- 
+   /**
