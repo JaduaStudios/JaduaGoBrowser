@@ -1,5 +1,5 @@
 diff --git a/browser/components/sidebar/browser-sidebar.js b/browser/components/sidebar/browser-sidebar.js
-index 98724900b2d592ee21f659924fe062f33bdd936f..ed4d428563c366cfe757d23a6834dcdbb0fb86c4 100644
+index 98724900b2d592ee21f659924fe062f33bdd936f..a44620884f733aa240837e3ce80dc9da4a13a83c 100644
 --- a/browser/components/sidebar/browser-sidebar.js
 +++ b/browser/components/sidebar/browser-sidebar.js
 @@ -16,6 +16,7 @@ var SidebarController = {
@@ -207,7 +207,7 @@ index 98724900b2d592ee21f659924fe062f33bdd936f..ed4d428563c366cfe757d23a6834dcdb
            this.showInitially(this.lastOpenedId);
            break;
          }
-+		+        break;
++        break;
 +      }
 +
 +      case "nsPref:changed": {
