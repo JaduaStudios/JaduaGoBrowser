@@ -189,14 +189,19 @@ var VerticalTabs = {
     )
     this.tabsToolbar?.removeAttribute('flex')
     changeXULTagName('vbox', this.tabsToolbar)
-	
-	// Fix close buttons for themes
-	box = document.querySelector('#nav-bar .titlebar-buttonbox-container');
-	navbar = document.querySelector('#nav-bar');
 
-	navbar.setAttribute('style', 'padding-right: 5px !important');
+    // Fix close buttons for themes
+    const buttonBox = document.querySelector(
+      '#nav-bar .titlebar-buttonbox-container',
+    )
+    const navbar = document.querySelector('#nav-bar')
 
-	box.setAttribute('style', 'display:flex !important');
+    if (navbar) {
+      navbar.setAttribute('style', 'padding-right: 5px !important')
+    }
+    if (buttonBox) {
+      buttonBox.setAttribute('style', 'display:flex !important')
+    }
 
     this._widthObserver = new MutationObserver(this._mutationObserverCallback)
     if (this.tabsToolbar)
@@ -232,13 +237,19 @@ var VerticalTabs = {
 
     this.arrowScrollbox?.setAttribute('orient', 'horizontal')
     this.tabBrowserTabs?.setAttribute('orient', 'horizontal')
-	
-	box = document.querySelector('#nav-bar .titlebar-buttonbox-container');
-	box.removeAttribute('style', 'display:flex !important');
 
-	navbar = document.querySelector('#nav-bar');
-	navbar.removeAttribute('style', 'padding-right: 5px !important');
-	
+    const buttonBox = document.querySelector(
+      '#nav-bar .titlebar-buttonbox-container',
+    )
+    if (buttonBox) {
+      buttonBox.removeAttribute('style')
+    }
+
+    const navbar = document.querySelector('#nav-bar')
+    if (navbar) {
+      navbar.removeAttribute('style')
+    }
+
     document
       .getElementById('navigator-toolbox-background')
       ?.removeAttribute('verticaltabs')

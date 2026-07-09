@@ -64,6 +64,7 @@ class Sidebar {
     this.globals = Object.create(this.defaults)
 
     this.onRemoveEvents = []
+    this.boundUpdateHeader = this.updateHeader.bind(this)
 
     this.tabContext = new TabContext((target) => {
       let window = target.ownerGlobal
@@ -125,10 +126,10 @@ class Sidebar {
   async removeFromBrowserWindow(window) {
     let { document, SidebarUI } = window
     SidebarUI.sidebars.delete(this.keyId)
-    document.getElementById('sidebar-background-' + this.keyId).remove()
+    document.getElementById('sidebar-background-' + this.keyId)?.remove()
     document
       .getElementById('sidebar-switcher-target')
-      .removeEventListener('SidebarShown', this.updateHeader.bind(this))
+      ?.removeEventListener('SidebarShown', this.boundUpdateHeader)
     SidebarUI.hide()
   }
 
@@ -152,7 +153,7 @@ class Sidebar {
 
     // Generate the header information
     let header = document.getElementById('sidebar-switcher-target')
-    header.addEventListener('SidebarShown', this.updateHeader.bind(this))
+    header?.addEventListener('SidebarShown', this.boundUpdateHeader)
 
     // Insert a menuitem for View->Show Sidebars.
     let menuitem = document.createXULElement('menuitem')
@@ -161,12 +162,12 @@ class Sidebar {
     menuitem.setAttribute('label', this.title)
     menuitem.setAttribute(
       'oncommand',
-      `SidebarUI.toggle("${this.extentionIndex}");`
+      `SidebarUI.toggle("${this.keyId}");`
     )
     menuitem.setAttribute('class', 'menuitem-iconic webextension-menuitem')
     menuitem.setAttribute('key', this.keyId)
     this.setMenuIcon(menuitem, this.iconUrl)
-    document.getElementById('viewSidebarMenu').appendChild(menuitem)
+    document.getElementById('viewSidebarMenu')?.appendChild(menuitem)
 
     // Add to the sidebar tabs on the side of the window
     await SidebarUI.createSidebarItem(
@@ -180,7 +181,7 @@ class Sidebar {
     let sidebar = window.document.getElementById(
       `sidebar-background-${this.keyId}`
     )
-    sidebar.setAttribute('context', this.contextMenu.contextMenuId)
+    sidebar?.setAttribute('context', this.contextMenu.contextMenuId)
 
     return menuitem
   }
@@ -250,13 +251,17 @@ class ConfigAPI extends ExtensionAPI {
         },
 
         get: async (/** @type {any} */ id) => {
+          const sidebar = this.sidebars.get(id)
+          if (!sidebar) {
+            return null
+          }
           //not cloneable so we need to return a new object
           return {
-            title: this.sidebars.get(id).title,
-            iconUrl: this.sidebars.get(id).iconUrl,
-            webviewUrl: this.sidebars.get(id).webviewUrl,
-            isBottom: this.sidebars.get(id).isBottom,
-            browserStyle: this.sidebars.get(id).browserStyle,
+            title: sidebar.title,
+            iconUrl: sidebar.iconUrl,
+            webviewUrl: sidebar.webviewUrl,
+            isBottom: sidebar.isBottom,
+            browserStyle: sidebar.browserStyle,
           }
         },
 
@@ -266,6 +271,9 @@ class ConfigAPI extends ExtensionAPI {
 
         remove: async (/** @type {any} */ id) => {
           const sidebar = this.sidebars.get(id)
+          if (!sidebar) {
+            return
+          }
 
           for (let window of windowTracker.browserWindows()) {
             sidebar.removeFromBrowserWindow(window)

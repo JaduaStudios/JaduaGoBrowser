@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
   setTimeout(function () {
     // Get the #root element
     var rootElement = document.getElementById('root');
+    if (!rootElement) {
+      return;
+    }
 
 	// Create a cover element
     var coverElement = document.createElement('div');

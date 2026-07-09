@@ -1,6 +1,6 @@
 (function () {
 	var css = `
-	@namespace url(http: //www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+	@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 	@namespace html url("http://www.w3.org/1999/xhtml");
 
 	/* Colours - can't be read from chrome CSS. Setting on :root doesn't work. */
@@ -122,4 +122,3 @@
 	var uri = makeURI('data:text/css;charset=UTF=8,' + encodeURIComponent(css));    
 	sss.loadAndRegisterSheet(uri, sss.AGENT_SHEET)
 })();
-
